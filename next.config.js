@@ -10,14 +10,22 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/',
+        destination: '/cv/en',
+        permanent: false,
+        basePath: false
+      },
+      {
         source: '/en',
         destination: '/cv/en',
         permanent: true,
+        basePath: false
       },
       {
         source: '/de',
         destination: '/cv/de',
         permanent: true,
+        basePath: false
       },
     ]
   }
