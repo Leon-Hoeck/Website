@@ -6,6 +6,20 @@ const nextConfig = {
     defaultLocale: 'en',
     locales: ['en', 'de'],
     localeDetection: false
+  },
+  async redirects() {
+    return [
+      {
+        source: '/en',
+        destination: '/cv/en',
+        permanent: true,
+      },
+      {
+        source: '/de',
+        destination: '/cv/de',
+        permanent: true,
+      },
+    ]
   }
 };
 
