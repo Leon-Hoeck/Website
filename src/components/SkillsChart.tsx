@@ -138,9 +138,10 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
           lineWidth: 1,
         },
         pointLabels: {
-          color: displaySkills.map((_, index) => 
-            hoveredPoint === index ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.7)'
-          ),
+          color: (context) => {
+            const index = context.index;
+            return hoveredPoint === index ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.7)';
+          },
           font: {
             size: fontSize,
             weight: 'bold',
