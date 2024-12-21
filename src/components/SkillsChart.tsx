@@ -6,7 +6,10 @@ import {
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
+  ChartEvent,
+  TooltipItem,
+  ChartOptions
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -113,12 +116,12 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'radar'> = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
       duration: 800,
-      easing: 'easeOutQuart',
+      easing: 'easeInOutQuart'
     },
     scales: {
       r: {
@@ -160,9 +163,9 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         padding: 12,
         displayColors: false,
         callbacks: {
-          title: (context: any) => context[0].label,
-          label: (context: any) => {
-            const value = Math.round(context.raw);
+          title: (context: TooltipItem<'radar'>[]) => context[0].label,
+          label: (context: TooltipItem<'radar'>) => {
+            const value = Math.round(context.raw as number);
             if (selectedSkill) {
               return `Proficiency: ${value}% of ${selectedSkill}`;
             }
@@ -174,11 +177,11 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         display: false,
       },
     },
-    onHover: (event: any, elements: any[]) => {
+    onHover: (event: ChartEvent, elements: any[]) => {
       if (isTransitioning) return;
       setHoveredPoint(elements.length > 0 ? elements[0].index : null);
     },
-    onClick: (event: any, elements: any[]) => {
+    onClick: (event: ChartEvent, elements: any[]) => {
       if (isTransitioning) return;
       
       if (elements && elements.length > 0) {
@@ -203,7 +206,6 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
 
   return (
     <div className="relative">
-      {/* Back button */}
       <AnimatePresence mode="wait">
         {selectedSkill && (
           <motion.button
@@ -223,7 +225,6 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         )}
       </AnimatePresence>
       
-      {/* Chart container */}
       <AnimatePresence mode="wait">
         <motion.div 
           key={selectedSkill || 'main'}
