@@ -1,19 +1,16 @@
 import React from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Head from 'next/head';
-import { CVData } from '../../../types/cv';
+import type { GetStaticProps } from 'next';
+import type { CVData } from '../../../types/cv';
 import Skills from '../../../components/Skills';
 import WorkExperience from '../../../components/WorkExperience';
 import Projects from '../../../components/Projects';
 import Contact from '../../../components/Contact';
+import { cvData } from '../../../data/cv-en';
 
-interface HomeProps {
-  cvData: CVData;
-}
-
-export default function Home({ cvData }: HomeProps) {
+export default function CV() {
   const { t } = useTranslation('common');
   const pageTitle = `${cvData.basics.name} - ${cvData.basics.label}`;
 
@@ -55,24 +52,10 @@ export default function Home({ cvData }: HomeProps) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [
-      { params: { lang: 'en' } },
-      { params: { lang: 'de' } },
-    ],
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const lang = params?.lang as string;
-  const cvData = await import(`../../../data/cv-${lang}.json`).then(m => m.default);
-
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(lang, ['common'])),
-      cvData,
+      ...(await serverSideTranslations(locale || 'en', ['common'])),
     },
   };
 }; 

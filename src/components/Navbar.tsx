@@ -15,7 +15,7 @@ export default function Navbar() {
             href="/"
             className="text-white font-medium hover:text-gray-300 transition-colors"
           >
-            NauticalBreath
+            Leon Höck
           </Link>
 
           {/* Right side - Navigation */}

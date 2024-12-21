@@ -6,18 +6,25 @@
     "projects": "Projects",
     "contact": "Contact"
   },
+  "home": {
+    "welcome": "Full Stack Developer with a focus on modern web technologies",
+    "viewCV": "View CV"
+  },
   "skills": {
     "title": "Skills",
-    "categories": {
-      "Programming Languages": "Programming Languages",
-      "Frameworks": "Frameworks & Libraries",
-      "Tools": "Tools & Technologies",
-      "Soft Skills": "Soft Skills"
-    }
+    "description": "Description",
+    "experience": "Experience",
+    "years": "years",
+    "keywords": "Keywords",
+    "related": "Related Skills",
+    "selectSkill": "Select a skill to see more information"
   },
   "work": {
     "title": "Work Experience",
     "present": "Present"
+  },
+  "education": {
+    "title": "Education"
   },
   "languages": {
     "title": "Languages",
@@ -46,8 +53,9 @@
       "error": "There was an error sending your message. Please try again."
     }
   },
-  "pdf": {
-    "download": "Download CV",
-    "generating": "Generating PDF..."
+  "footer": {
+    "impressum": "Legal Notice",
+    "responsible": "Responsible for content:",
+    "rights": "All rights reserved."
   }
 } 

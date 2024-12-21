@@ -65,6 +65,7 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
   const [fontSize, setFontSize] = useState(14);
   const [hoveredPoint, setHoveredPoint] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -75,6 +76,12 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
     window.addEventListener('resize', updateFontSize);
     return () => window.removeEventListener('resize', updateFontSize);
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      setTimeout(() => setStartAnimation(true), 100);
+    }
+  }, [mounted]);
 
   const selectedSkillData = selectedSkill ? skills.find(s => s.name === selectedSkill) : null;
   const displaySkills = selectedSkillData?.keywords 
@@ -88,8 +95,12 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
   const handleSkillSelect = (skillName: string | null) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
+    setStartAnimation(false);
     onSkillSelect?.(skillName);
-    setTimeout(() => setIsTransitioning(false), 1000);
+    setTimeout(() => {
+      setStartAnimation(true);
+      setIsTransitioning(false);
+    }, 100);
   };
 
   const data = {
@@ -97,7 +108,7 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
     datasets: [
       {
         label: 'Skill Level',
-        data: displaySkills.map(skill => skill.level),
+        data: displaySkills.map(skill => startAnimation ? skill.level : 0),
         backgroundColor: 'rgba(59, 130, 246, 0.1)',
         borderColor: 'rgba(59, 130, 246, 1)',
         borderWidth: 2,
@@ -121,13 +132,18 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
     maintainAspectRatio: false,
     animation: {
       duration: 800,
-      easing: 'easeInOutQuart'
+      easing: 'easeInOutQuart',
     },
     scales: {
       r: {
         min: 0,
         max: 100,
         beginAtZero: true,
+        animate: true,
+        animation: {
+          duration: 800,
+          easing: 'easeOutQuart',
+        },
         angleLines: {
           color: 'rgba(255, 255, 255, 0.05)',
           lineWidth: 1,
@@ -147,11 +163,12 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
             weight: 'bold',
             family: 'system-ui',
           },
-          padding: 25,
+          padding: 45,
         },
         ticks: {
           display: false,
           stepSize: 20,
+          backdropPadding: 15,
         },
       },
     },
@@ -208,28 +225,9 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
   return (
     <div className="relative">
       <AnimatePresence mode="wait">
-        {selectedSkill && (
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => !isTransitioning && handleSkillSelect(null)}
-            className="absolute top-4 left-6 z-10 px-6 py-3 text-base text-gray-300 bg-gray-800/90 rounded-lg 
-              hover:bg-gray-700 transition-colors flex items-center space-x-3 backdrop-blur-sm shadow-lg"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span className="font-medium">Back to Overview</span>
-          </motion.button>
-        )}
-      </AnimatePresence>
-      
-      <AnimatePresence mode="wait">
-        <motion.div 
+        <motion.div
           key={selectedSkill || 'main'}
-          className="w-full h-[400px] md:h-[600px] max-w-4xl mx-auto p-4 relative"
+          className="w-full h-[400px] md:h-[600px] max-w-4xl mx-auto p-8 relative"
           variants={transitionVariants}
           initial="initial"
           animate="animate"

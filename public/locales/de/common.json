@@ -6,18 +6,25 @@
     "projects": "Projekte",
     "contact": "Kontakt"
   },
+  "home": {
+    "welcome": "Full Stack Entwickler mit Fokus auf moderne Webtechnologien",
+    "viewCV": "Lebenslauf ansehen"
+  },
   "skills": {
     "title": "Fähigkeiten",
-    "categories": {
-      "Programming Languages": "Programmiersprachen",
-      "Frameworks": "Frameworks & Bibliotheken",
-      "Tools": "Tools & Technologien",
-      "Soft Skills": "Soft Skills"
-    }
+    "description": "Beschreibung",
+    "experience": "Erfahrung",
+    "years": "Jahre",
+    "keywords": "Schlüsselwörter",
+    "related": "Verwandte Fähigkeiten",
+    "selectSkill": "Wählen Sie eine Fähigkeit für mehr Informationen"
   },
   "work": {
     "title": "Berufserfahrung",
     "present": "Heute"
+  },
+  "education": {
+    "title": "Ausbildung"
   },
   "languages": {
     "title": "Sprachen",
@@ -46,8 +53,9 @@
       "error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
     }
   },
-  "pdf": {
-    "download": "Lebenslauf herunterladen",
-    "generating": "PDF wird erstellt..."
+  "footer": {
+    "impressum": "Impressum",
+    "responsible": "Verantwortlich für den Inhalt:",
+    "rights": "Alle Rechte vorbehalten."
   }
 } 

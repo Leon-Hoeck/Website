@@ -1,0 +1,8 @@
+# Contact information for security issues
+Contact: mailto:your.email@example.com
+
+# Languages for security-related communication
+Preferred-Languages: en, de
+
+# This site is not intended for public access
+Policy: Direct access only - This site is private and not intended for public access or indexing. 
