@@ -1,58 +1,26 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { CVData } from '../types/cv';
-import Skills from '../components/Skills';
-import WorkExperience from '../components/WorkExperience';
-import Projects from '../components/Projects';
-import Contact from '../components/Contact';
+import Link from 'next/link';
 
-interface HomeProps {
-  cvData: CVData;
-}
-
-export default function Home({ cvData }: HomeProps) {
-  const { t } = useTranslation('common');
-
+export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header id="about" className="text-center mb-16 min-h-[calc(100vh-6rem)] flex flex-col justify-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">{cvData.basics.name}</h1>
-          <p className="text-xl text-gray-400">{cvData.basics.label}</p>
-        </header>
-
-        <section id="experience" className="mb-16">
-          <WorkExperience work={cvData.work} />
-        </section>
-
-        <section id="skills" className="mb-16">
-          <Skills skills={cvData.skills} />
-        </section>
-
-        <section id="projects" className="mb-16">
-          <Projects projects={cvData.projects} />
-        </section>
-
-        <section id="contact" className="mb-16">
-          <Contact
-            email={cvData.basics.email}
-            location={cvData.basics.location}
-          />
-        </section>
+    <div className="min-h-screen bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <div className="min-h-screen flex flex-col justify-center items-center text-center">
+          <h1 className="text-5xl font-bold mb-6">Welcome to My Digital Space</h1>
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl">
+            A collection of my projects, thoughts, and professional journey.
+          </p>
+          <div className="space-x-4">
+            <Link 
+              href="/cv/en"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+            >
+              View My CV
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const cvData = await import(`../data/cv-${locale}.json`).then(m => m.default);
-
-  return {
-    props: {
-      ...(await serverSideTranslations(locale || 'en', ['common'])),
-      cvData,
-    },
-  };
-}; 
+} 
