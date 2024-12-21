@@ -1,23 +1,27 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest) {
-  // Get the pathname
-  const pathname = request.nextUrl.pathname
-
-  // Only handle specific paths
-  if (pathname === '/en') {
-    return NextResponse.redirect(new URL('/cv/en', request.url))
-  }
-  if (pathname === '/de') {
-    return NextResponse.redirect(new URL('/cv/de', request.url))
-  }
-
-  // Let all other paths pass through
-  return NextResponse.next()
+export const config = {
+  matcher: ['/', '/en', '/de'],
+  runtime: 'edge'
 }
 
-// Only run middleware on language paths
-export const config = {
-  matcher: ['/en', '/de']
+export function middleware(request: NextRequest) {
+  const url = request.nextUrl.clone()
+  const { pathname } = url
+
+  // Map of redirects
+  const redirects = {
+    '/': '/cv/en',
+    '/en': '/cv/en',
+    '/de': '/cv/de'
+  }
+
+  // Check if path needs redirect
+  if (pathname in redirects) {
+    url.pathname = redirects[pathname]
+    return NextResponse.redirect(url)
+  }
+
+  return NextResponse.next()
 } 
