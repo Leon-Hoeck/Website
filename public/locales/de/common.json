@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "skills": "Fähigkeiten",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "skills": {
+    "title": "Fähigkeiten",
+    "categories": {
+      "Programming Languages": "Programmiersprachen",
+      "Frameworks": "Frameworks & Bibliotheken",
+      "Tools": "Tools & Technologien",
+      "Soft Skills": "Soft Skills"
+    }
+  },
+  "work": {
+    "title": "Berufserfahrung",
+    "present": "Heute"
+  },
+  "languages": {
+    "title": "Sprachen",
+    "fluency": {
+      "native": "Muttersprache",
+      "fluent": "Fließend",
+      "professional": "Verhandlungssicher",
+      "intermediate": "Fortgeschritten",
+      "basic": "Grundkenntnisse"
+    }
+  },
+  "projects": {
+    "title": "Projekte",
+    "live": "Live Demo",
+    "source": "Quellcode"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet!",
+      "error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+    }
+  },
+  "pdf": {
+    "download": "Lebenslauf herunterladen",
+    "generating": "PDF wird erstellt..."
+  }
+} 

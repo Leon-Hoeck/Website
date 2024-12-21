@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "Programming Languages": "Programming Languages",
+      "Frameworks": "Frameworks & Libraries",
+      "Tools": "Tools & Technologies",
+      "Soft Skills": "Soft Skills"
+    }
+  },
+  "work": {
+    "title": "Work Experience",
+    "present": "Present"
+  },
+  "languages": {
+    "title": "Languages",
+    "fluency": {
+      "native": "Native",
+      "fluent": "Fluent",
+      "professional": "Professional",
+      "intermediate": "Intermediate",
+      "basic": "Basic"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "live": "View Live",
+    "source": "Source Code"
+  },
+  "contact": {
+    "title": "Contact",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "There was an error sending your message. Please try again."
+    }
+  },
+  "pdf": {
+    "download": "Download CV",
+    "generating": "Generating PDF..."
+  }
+} 

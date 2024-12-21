@@ -4,10 +4,10 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   reactStrictMode: true,
   i18n,
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false, path: false };
-    return config;
-  },
-}
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  experimental: {
+    appDir: true
+  }
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;

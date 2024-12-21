@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  /* Reset all background colors to white */
+  * {
+    background-color: white !important;
+    color: black !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* Hide scrollbars and set white background */
+  html, body {
+    background: white !important;
+    color: black !important;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Main content container */
+  #cv-content {
+    background: white !important;
+    color: black !important;
+    min-height: 100%;
+    width: 100%;
+    margin: 0 !important;
+    padding: 15mm !important;
+  }
+
+  /* Page breaks */
+  .page-break {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    page-break-before: always;
+    clear: both;
+  }
+
+  /* Hide elements we don't want in PDF */
+  button, 
+  .no-print {
+    display: none !important;
+  }
+
+  /* Page settings */
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+
+  /* Ensure dark mode elements are visible */
+  .dark\:bg-gray-900,
+  .dark\:text-white,
+  .dark\:text-gray-400,
+  .dark\:bg-gray-800 {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* Ensure sections start on new pages properly */
+  section {
+    page-break-inside: avoid;
+  }
+} 
