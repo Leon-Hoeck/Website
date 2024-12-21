@@ -50,7 +50,7 @@ export default function Education({ education }: EducationProps) {
         {education.map((item, index) => (
           <motion.div 
             key={index}
-            variants={item}
+            variants={item.hidden ? item : { hidden: {}, show: {} }} // Fixing the variants assignment
             className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <h3 className="text-xl font-semibold text-white mb-2">{item.degree}</h3>
