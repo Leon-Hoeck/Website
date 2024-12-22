@@ -22,34 +22,34 @@ export default function WorkExperience({ work }: WorkExperienceProps) {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+    show: { opacity: 1, y: 0 },
   };
 
   return (
-    <>
-      <motion.h2 
+    <section className="py-12" id="experience">
+      <motion.h2
         className="text-3xl font-bold mb-8 text-white"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
+        initial="hidden"
+        animate="show"
+        variants={container}
       >
         {t('work.title')}
       </motion.h2>
-      <motion.div 
+      <motion.div
         className="space-y-8"
         variants={container}
         initial="hidden"
         animate="show"
       >
         {work.map((item, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             variants={item}
             className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -67,6 +67,6 @@ export default function WorkExperience({ work }: WorkExperienceProps) {
           </motion.div>
         ))}
       </motion.div>
-    </>
+    </section>
   );
 } 

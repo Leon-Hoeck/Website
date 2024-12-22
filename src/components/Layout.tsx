@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="space-y-2">
               <p>{t('footer.responsible')}</p>
               <p>Leon Höck</p>
-              <p>E-Mail: contact@leonhoeck.ch</p>
+              <p>contact@leonhoeck.ch</p>
             </div>
             <div className="mt-6 text-xs">
               <p>© {new Date().getFullYear()} Leon Höck. {t('footer.rights')}</p>

@@ -13,6 +13,15 @@ export async function POST(request: Request) {
       );
     }
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
+
     // Create transporter (replace with your email service credentials)
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -29,19 +38,8 @@ export async function POST(request: Request) {
       from: process.env.SMTP_FROM,
       to: process.env.CONTACT_EMAIL,
       subject: `New Contact Form Message from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Message:
-${message}
-      `,
-      html: `
-<h2>New Contact Form Message</h2>
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Email:</strong> ${email}</p>
-<p><strong>Message:</strong></p>
-<p>${message.replace(/\n/g, '<br>')}</p>
-      `,
+      text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+      html: `<h2>New Contact Form Message</h2><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
     };
 
     // Send email

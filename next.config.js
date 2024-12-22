@@ -1,7 +1,13 @@
+const { i18n } = require('./next-i18next.config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Pass the i18n object so Next.js knows about your locales
+  i18n,
+  
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+
   async headers() {
     return [
       {
@@ -31,13 +37,9 @@ const nextConfig = {
       }
     ];
   },
+
   async redirects() {
     return [
-      {
-        source: '/',
-        destination: '/en',
-        permanent: false
-      }
     ];
   }
 };

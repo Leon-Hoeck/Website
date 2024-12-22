@@ -1,33 +1,26 @@
-export interface CV {
-  basics: Basics;
-  work: Work[];
-  education: Education[];
+export interface CVData {
+  basics: {
+    name: string;
+    label: string;
+    email: string;
+    location: {
+      city: string;
+      country: string;
+    };
+  };
+  profiles?: ProfileItem[]; // Optional property
+  work: WorkItem[];
+  education: EducationItem[];
   skills: Skill[];
-  languages: Language[];
-  interests: Interest[];
-  references: Reference[];
   projects: Project[];
 }
 
-export interface Basics {
-  name: string;
-  label: string;
-  email: string;
-  location: Location;
-  profiles: Profile[];
-}
-
-export interface Location {
-  city: string;
-  country: string;
-}
-
-export interface Profile {
+export interface ProfileItem {
   network: string;
   url: string;
 }
 
-export interface Work {
+export interface WorkItem {
   company: string;
   position: string;
   startDate: string;
@@ -35,7 +28,7 @@ export interface Work {
   highlights: string[];
 }
 
-export interface Education {
+export interface EducationItem {
   institution: string;
   url: string;
   area: string;
@@ -56,25 +49,10 @@ export interface Skill {
   relatedSkills?: string[];
 }
 
-export interface Language {
-  language: string;
-  fluency: string;
-}
-
-export interface Interest {
-  name: string;
-  keywords: string[];
-}
-
-export interface Reference {
-  name: string;
-  reference: string;
-}
-
 export interface Project {
   name: string;
   description: string;
   technologies: string[];
   sourceUrl?: string;
   highlights?: string[];
-} 
+}

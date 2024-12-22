@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -60,7 +60,7 @@ const transitionVariants = {
   }
 };
 
-export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: SkillsChartProps) {
+const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartProps) => {
   const [mounted, setMounted] = useState(false);
   const [fontSize, setFontSize] = useState(14);
   const [hoveredPoint, setHoveredPoint] = useState<number | null>(null);
@@ -241,4 +241,6 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
       </AnimatePresence>
     </div>
   );
-} 
+});
+
+export default SkillsChart; 
