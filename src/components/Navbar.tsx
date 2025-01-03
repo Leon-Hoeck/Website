@@ -43,14 +43,14 @@ export default function Navbar() {
             {hostname && ( // Check if hostname is set
               <>
                 <Link
-                  href={`http://www.en.${hostname}${router.asPath}`} // Correct placement of 'en' before 'www'
+                  href={`http://en.${hostname}${router.asPath}`} // Correct placement of 'en' before 'www'
                   className={`text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
                   aria-label="English"
                 >
                   English
                 </Link>
                 <Link
-                  href={`http://www.de.${hostname}${router.asPath}`} // Correct placement of 'de' before 'www'
+                  href={`http://de.${hostname}${router.asPath}`} // Correct placement of 'de' before 'www'
                   className={`text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
                   aria-label="Deutsch"
                 >
