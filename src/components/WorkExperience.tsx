@@ -1,72 +1,46 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { motion } from 'framer-motion';
-
-interface WorkItem {
-  company: string;
-  position: string;
-  startDate: string;
-  endDate?: string;
-  highlights: string[];
-}
+import { CVData } from '../types/cv';
 
 interface WorkExperienceProps {
-  work: WorkItem[];
+  work: CVData['work'];
 }
 
 export default function WorkExperience({ work }: WorkExperienceProps) {
   const { t } = useTranslation('common');
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section className="py-12" id="experience">
-      <motion.h2
-        className="text-3xl font-bold mb-8 text-white"
-        initial="hidden"
-        animate="show"
-        variants={container}
-      >
-        {t('work.title')}
-      </motion.h2>
-      <motion.div
-        className="space-y-8"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {work.map((item, index) => (
+    <section className="py-12">
+      <h2 className="text-3xl font-bold mb-8 text-white">{t('work.title')}</h2>
+      <div className="space-y-8">
+        {work.map((job, index) => (
           <motion.div
-            key={index}
-            variants={item}
-            className="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+            key={job.company}
+            className="bg-gray-800 rounded-lg p-6 shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-2">{item.position}</h3>
-            <p className="text-blue-400 mb-2">{item.company}</p>
-            <p className="text-gray-400 text-sm mb-4">
-              {item.startDate} - {item.endDate || t('work.present')}
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-              {item.highlights.map((highlight, idx) => (
-                <li key={idx} className="text-gray-300">{highlight}</li>
+            <h3 className="text-xl font-bold text-white mb-2">{job.position}</h3>
+            <div className="text-gray-300 mb-4">
+              <span className="font-medium">{job.company}</span>
+              <span className="mx-2">•</span>
+              <span>
+                {job.startDate} - {job.endDate || t('work.present')}
+              </span>
+            </div>
+            <ul className="space-y-2">
+              {job.highlights.map((highlight, i) => (
+                <li key={i} className="text-gray-300 flex items-start">
+                  <span className="mr-2">•</span>
+                  <span>{highlight}</span>
+                </li>
               ))}
             </ul>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 } 

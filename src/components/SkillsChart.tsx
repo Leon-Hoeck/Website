@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -60,12 +60,11 @@ const transitionVariants = {
   }
 };
 
-const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartProps) => {
+export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: SkillsChartProps) {
   const [mounted, setMounted] = useState(false);
   const [fontSize, setFontSize] = useState(14);
   const [hoveredPoint, setHoveredPoint] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -76,12 +75,6 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
     window.addEventListener('resize', updateFontSize);
     return () => window.removeEventListener('resize', updateFontSize);
   }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      setTimeout(() => setStartAnimation(true), 100);
-    }
-  }, [mounted]);
 
   const selectedSkillData = selectedSkill ? skills.find(s => s.name === selectedSkill) : null;
   const displaySkills = selectedSkillData?.keywords 
@@ -95,12 +88,8 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
   const handleSkillSelect = (skillName: string | null) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setStartAnimation(false);
     onSkillSelect?.(skillName);
-    setTimeout(() => {
-      setStartAnimation(true);
-      setIsTransitioning(false);
-    }, 100);
+    setTimeout(() => setIsTransitioning(false), 1000);
   };
 
   const data = {
@@ -108,7 +97,7 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
     datasets: [
       {
         label: 'Skill Level',
-        data: displaySkills.map(skill => startAnimation ? skill.level : 0),
+        data: displaySkills.map(skill => skill.level),
         backgroundColor: 'rgba(59, 130, 246, 0.1)',
         borderColor: 'rgba(59, 130, 246, 1)',
         borderWidth: 2,
@@ -132,18 +121,13 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
     maintainAspectRatio: false,
     animation: {
       duration: 800,
-      easing: 'easeInOutQuart',
+      easing: 'easeInOutQuart'
     },
     scales: {
       r: {
         min: 0,
         max: 100,
         beginAtZero: true,
-        animate: true,
-        animation: {
-          duration: 800,
-          easing: 'easeOutQuart',
-        },
         angleLines: {
           color: 'rgba(255, 255, 255, 0.05)',
           lineWidth: 1,
@@ -163,12 +147,11 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
             weight: 'bold',
             family: 'system-ui',
           },
-          padding: 45,
+          padding: 25,
         },
         ticks: {
           display: false,
           stepSize: 20,
-          backdropPadding: 15,
         },
       },
     },
@@ -225,9 +208,28 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
   return (
     <div className="relative">
       <AnimatePresence mode="wait">
-        <motion.div
+        {selectedSkill && (
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => !isTransitioning && handleSkillSelect(null)}
+            className="absolute top-4 left-6 z-10 px-6 py-3 text-base text-gray-300 bg-gray-800/90 rounded-lg 
+              hover:bg-gray-700 transition-colors flex items-center space-x-3 backdrop-blur-sm shadow-lg"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span className="font-medium">Back to Overview</span>
+          </motion.button>
+        )}
+      </AnimatePresence>
+      
+      <AnimatePresence mode="wait">
+        <motion.div 
           key={selectedSkill || 'main'}
-          className="w-full h-[400px] md:h-[600px] max-w-4xl mx-auto p-8 relative"
+          className="w-full h-[400px] md:h-[600px] max-w-4xl mx-auto p-4 relative"
           variants={transitionVariants}
           initial="initial"
           animate="animate"
@@ -241,6 +243,4 @@ const SkillsChart = memo(({ skills, onSkillSelect, selectedSkill }: SkillsChartP
       </AnimatePresence>
     </div>
   );
-});
-
-export default SkillsChart; 
+} 

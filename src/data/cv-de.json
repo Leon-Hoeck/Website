@@ -1,0 +1,78 @@
+{
+  "basics": {
+    "name": "Leon Höck",
+    "label": "Full Stack Entwickler",
+    "email": "contact@leonhoeck.ch",
+    "location": {
+      "city": "Baselland",
+      "country": "Schweiz"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "url": "https://github.com/Leon-Hoeck"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/leon-höck-663212343/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Beispiel GmbH",
+      "position": "Senior Entwickler",
+      "startDate": "2020-01",
+      "endDate": "Heute",
+      "highlights": [
+        "Entwicklung von Kernfunktionen",
+        "Performance um 50% verbessert"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "JavaScript",
+      "level": 90,
+      "keywords": ["React", "Node.js", "TypeScript"],
+      "category": "Programming Languages"
+    },
+    {
+      "name": "TypeScript",
+      "level": 85,
+      "keywords": ["Types", "Interfaces", "Generics"],
+      "category": "Programming Languages"
+    },
+    {
+      "name": "React",
+      "level": 88,
+      "keywords": ["Hooks", "Context", "Redux"],
+      "category": "Frameworks"
+    },
+    {
+      "name": "Next.js",
+      "level": 82,
+      "keywords": ["SSR", "SSG", "API Routes"],
+      "category": "Frameworks"
+    },
+    {
+      "name": "TailwindCSS",
+      "level": 85,
+      "keywords": ["Responsive", "Custom Themes", "JIT"],
+      "category": "Frameworks"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Interaktiver Lebenslauf",
+      "description": "Ein moderner, interaktiver webbasierter Lebenslauf mit Next.js und TypeScript",
+      "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "sourceUrl": "https://github.com/Leon-Hoeck/CV",
+      "highlights": [
+        "Responsives Design mit Tailwind CSS implementiert",
+        "Flüssige Animationen mit Framer Motion hinzugefügt",
+        "Mehrsprachige Unterstützung integriert"
+      ]
+    }
+  ]
+} 

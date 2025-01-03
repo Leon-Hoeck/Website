@@ -1,0 +1,93 @@
+{
+  "basics": {
+    "name": "Leon Höck",
+    "label": "Full Stack Developer",
+    "email": "contact@leonhoeck.ch",
+    "location": {
+      "city": "Basel-Country",
+      "country": "Switzerland"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "url": "https://github.com/Leon-Hoeck"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/leon-höck-663212343/e"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Example Company",
+      "position": "Senior Developer",
+      "startDate": "2020-01",
+      "endDate": "Present",
+      "highlights": [
+        "Led development of key features",
+        "Improved performance by 50%"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "JavaScript",
+      "level": 90,
+      "keywords": ["React", "Node.js", "TypeScript"],
+      "category": "Programming Languages",
+      "description": "Modern JavaScript including ES6+ features",
+      "yearsOfExperience": 5,
+      "relatedSkills": ["TypeScript", "Node.js"]
+    },
+    {
+      "name": "TypeScript",
+      "level": 85,
+      "keywords": ["Types", "Interfaces", "Generics"],
+      "category": "Programming Languages",
+      "description": "Strong typing and advanced TypeScript features",
+      "yearsOfExperience": 3,
+      "relatedSkills": ["JavaScript", "React"]
+    },
+    {
+      "name": "React",
+      "level": 88,
+      "keywords": ["Hooks", "Context", "Redux"],
+      "category": "Frameworks",
+      "description": "Modern React with hooks and state management",
+      "yearsOfExperience": 4,
+      "relatedSkills": ["JavaScript", "TypeScript", "Next.js"]
+    },
+    {
+      "name": "Next.js",
+      "level": 82,
+      "keywords": ["SSR", "SSG", "API Routes"],
+      "category": "Frameworks",
+      "description": "Server-side rendering and static site generation",
+      "yearsOfExperience": 2,
+      "relatedSkills": ["React", "TypeScript"]
+    },
+    {
+      "name": "TailwindCSS",
+      "level": 85,
+      "keywords": ["Responsive", "Custom Themes", "JIT"],
+      "category": "Frameworks",
+      "description": "Utility-first CSS framework",
+      "yearsOfExperience": 2,
+      "relatedSkills": ["CSS", "Web Design"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Interactive CV",
+      "description": "A modern, interactive web-based CV built with Next.js and TypeScript",
+      "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "sourceUrl": "https://github.com/Leon-Hoeck/CV",
+      "highlights": [
+        "Implemented responsive design with Tailwind CSS",
+        "Added smooth animations with Framer Motion",
+        "Integrated multilingual support"
+      ]
+    }
+  ]
+} 

@@ -7,7 +7,8 @@
     "url": "https://github.com/Leon-Hoeck/Private-CV.git"
   },
   "scripts": {
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "dev": "next dev"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",

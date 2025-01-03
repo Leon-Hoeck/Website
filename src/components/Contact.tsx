@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
-import ContactForm from './ContactForm';
 
 interface ContactProps {
   email: string;
@@ -11,7 +10,7 @@ interface ContactProps {
   };
 }
 
-export default function Contact({ location }: ContactProps) {
+export default function Contact({ email, location }: ContactProps) {
   const { t } = useTranslation('common');
 
   return (
@@ -20,18 +19,17 @@ export default function Contact({ location }: ContactProps) {
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
           <a
-            href="mailto:contact@leonhoeck.ch"
+            href={`mailto:${email}`}
             className="flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors"
           >
             <EnvelopeIcon className="w-6 h-6" />
-            <span>contact@leonhoeck.ch</span>
+            <span>{email}</span>
           </a>
           <div className="flex items-center space-x-3 text-gray-300">
             <MapPinIcon className="w-6 h-6" />
             <span>{`${location.city}, ${location.country}`}</span>
           </div>
         </div>
-        <ContactForm />
       </div>
     </section>
   );
