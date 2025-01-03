@@ -28,9 +28,9 @@ export default function Home({ mainData }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('getStaticProps - Locale:', context.locale);
+  console.log('getStaticProps - Locale:', context.locale); // Debug log
 
-  const lang = context.locale || 'en';
+  const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
   const mainData = await import(`../data/main-${lang}.json`).then((m) => m.default);
 
   return {
@@ -40,4 +40,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
+
 
