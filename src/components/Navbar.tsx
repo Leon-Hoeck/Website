@@ -10,10 +10,10 @@ export default function Navbar() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const currentHostname = window.location.hostname;
-      // Remove any existing subdomain (e.g., "en.", "de.")
+      // Clean the hostname by removing subdomains like "en." or "de."
       const cleanHostname = currentHostname.replace(/^(en|de)\./, '');
       setHostname(cleanHostname);
-      // Set language based on the hostname
+      // Detect the current language from the subdomain
       setLang(currentHostname.startsWith('en.') ? 'en' : 'de');
     }
   }, []);
@@ -43,14 +43,14 @@ export default function Navbar() {
             {hostname && ( // Check if hostname is set
               <>
                 <Link
-                  href={`http://en.${hostname}:3000${router.asPath}`} // Direct link to English subdomain
+                  href={`http://www.${hostname}/en${router.asPath}`} // Direct link to English subdomain
                   className={`text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
                   aria-label="English"
                 >
                   English
                 </Link>
                 <Link
-                  href={`http://de.${hostname}:3000${router.asPath}`} // Direct link to German subdomain
+                  href={`http://www.${hostname}/de${router.asPath}`} // Direct link to German subdomain
                   className={`text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
                   aria-label="Deutsch"
                 >
