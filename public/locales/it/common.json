@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "about": "Chi Sono",
+    "skills": "Competenze",
+    "experience": "Esperienza",
+    "projects": "Progetti",
+    "contact": "Contatti"
+  },
+  "skills": {
+    "title": "Competenze",
+    "categories": {
+      "Programming Languages": "Linguaggi di Programmazione",
+      "Frameworks": "Framework & Librerie",
+      "Tools": "Strumenti & Tecnologie",
+      "Soft Skills": "Competenze Trasversali"
+    }
+  },
+  "work": {
+    "title": "Esperienza Professionale",
+    "present": "Presente"
+  },
+  "projects": {
+    "title": "Progetti",
+    "live": "Demo Live",
+    "source": "Codice Sorgente"
+  },
+  "contact": {
+    "title": "Contatti"
+  }
+} 

@@ -1,0 +1,94 @@
+{
+  "basics": {
+    "name": "Leon Höck",
+    "label": "Aspirant Informaticien",
+    "email": "contact@leonhoeck.ch",
+    "location": {
+      "city": "Bâle-Campagne",
+      "country": "Suisse"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "url": "https://github.com/Leon-Hoeck"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/leon-höck-663212343/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Centre d'Intégration Professionnelle Bâle-Campagne",
+      "position": "Participant (Programme à temps plein)",
+      "startDate": "2024-10",
+      "endDate": "Présent",
+      "highlights": [
+        "Participation à un programme d'intégration et de compétences à temps plein (Mathématiques, Allemand, IT, Formation aux candidatures)",
+        "Actif dans un environnement d'atelier pour réaliser des projets avec des machines pilotées par logiciel",
+        "Préparation et envoi de candidatures d'apprentissage pour le Développement d'Applications et le Développement de Plateformes",
+        "Obtention d'un excellent résultat au ICT Multicheck (1.2 & 87/100 points) démontrant de solides compétences fondamentales"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Administration Système Windows",
+      "level": 85,
+      "keywords": ["Édition du Registre", "Optimisation des Performances", "Assemblage Hardware"],
+      "category": "Systèmes d'Exploitation",
+      "description": "Compétent en configuration Windows, optimisation des performances et assemblage PC.",
+      "yearsOfExperience": 3,
+      "relatedSkills": ["Dépannage", "Réparation Hardware"]
+    },
+    {
+      "name": "Réseaux de Base",
+      "level": 70,
+      "keywords": ["Configuration LAN", "Configuration Switch", "Syncthing"],
+      "category": "Infrastructure IT",
+      "description": "Expérience pratique en conception de petits réseaux, solutions de synchronisation de fichiers et gestion d'appareils en réseau.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["TCP/IP", "VPN", "Bases du Pare-feu"]
+    },
+    {
+      "name": "Java (Débutant)",
+      "level": 35,
+      "keywords": ["Bases Java", "Scripts de Jeux Simples", "Programmation Orientée Objet"],
+      "category": "Langages de Programmation",
+      "description": "Création de petits scripts pour jeux et applications Java basiques. Familier avec le modding et l'extension de projets existants.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["Utilisation IDE", "Contrôle de Version"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "CV Interactif",
+      "description": "Un CV web moderne et interactif construit avec Next.js et TypeScript",
+      "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "sourceUrl": "https://github.com/Leon-Hoeck/CV",
+      "highlights": [
+        "Implémentation d'un design responsive avec Tailwind CSS",
+        "Ajout d'animations fluides avec Framer Motion",
+        "Intégration du support multilingue"
+      ]
+    },
+    {
+      "name": "Configuration Réseau Atelier",
+      "description": "Conception et implémentation d'un réseau local d'atelier pour la synchronisation de données en temps réel entre plusieurs appareils.",
+      "technologies": [
+        "Syncthing",
+        "Réseaux LAN",
+        "Configuration Switch",
+        "Imprimantes 3D",
+        "Machines CNC",
+        "Découpe Laser"
+      ],
+      "highlights": [
+        "Configuration de trois PC d'atelier pour synchronisation sécurisée via Syncthing",
+        "Activation des connexions LAN directes pour imprimantes 3D et machines CNC",
+        "Optimisation du flux de travail par centralisation des données"
+      ]
+    }
+  ]
+} 

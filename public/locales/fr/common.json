@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "skills": {
+    "title": "Compétences",
+    "categories": {
+      "Programming Languages": "Langages de Programmation",
+      "Frameworks": "Frameworks & Bibliothèques",
+      "Tools": "Outils & Technologies",
+      "Soft Skills": "Compétences Générales"
+    }
+  },
+  "work": {
+    "title": "Expérience Professionnelle",
+    "present": "Présent"
+  },
+  "projects": {
+    "title": "Projets",
+    "live": "Démo en Direct",
+    "source": "Code Source"
+  },
+  "contact": {
+    "title": "Contact"
+  }
+} 
