@@ -22,6 +22,14 @@ const nextConfig = {
         source: '/:path*',
         headers: [
           {
+            key: 'X-Robots-Tag',
+            value: "noindex, nofollow"
+          },
+          {
+            key: 'Cache-Control',
+            value: "no-store"
+          },
+          {
             key: 'Content-Security-Policy',
             value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' vercel.com *.vercel.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' vercel.com *.vercel.com; frame-ancestors 'none';"
           },

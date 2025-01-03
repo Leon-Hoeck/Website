@@ -6,6 +6,7 @@ import '../i18n';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head'; // Import Head for adding meta tags
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -25,10 +26,16 @@ function App({ Component, pageProps }: AppProps) {
   }, [router]);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-      <SpeedInsights />
-    </Layout>
+    <>
+      <Head>
+        {/* Block indexing and following */}
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+        <SpeedInsights />
+      </Layout>
+    </>
   );
 }
 
