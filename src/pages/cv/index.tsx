@@ -43,16 +43,16 @@ export default function Home({ cvData }: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  // Determine the language based on the subdomain
-  const lang = 'en'; // Default to English; you can adjust this based on your logic
+export const getStaticProps: GetStaticProps = async (context) => {
+  console.log('getStaticProps - Locale:', context.locale); // Debug log
 
-  const cvData = await import(`../../data/cv-${lang}.json`).then(m => m.default);
+  const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
+  const mainData = await import(`../../data/cv-${lang}.json`).then((m) => m.default);
 
   return {
     props: {
-      cvData,
+      mainData,
       ...(await serverSideTranslations(lang, ['common'])),
     },
   };
-}; 
+};
