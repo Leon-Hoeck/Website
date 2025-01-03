@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -6,18 +6,10 @@ import { useTranslation } from 'next-i18next';
 export default function Navbar() {
   const router = useRouter();
   const { t } = useTranslation('common');
-  const [hostname, setHostname] = useState<string | null>(null);
-  const [lang, setLang] = useState<string>('en');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const currentHostname = window.location.hostname;
-      const cleanHostname = currentHostname.replace(/^(en|de)\./, '');
-      setHostname(cleanHostname);
-      setLang(currentHostname.startsWith('en.') ? 'en' : 
-              currentHostname.startsWith('de.') ? 'de' : 'en');
-    }
-  }, []);
+  const currentHostname = typeof window !== 'undefined' ? window.location.hostname : '';
+  const isLocalhost = currentHostname.includes('localhost');
+  const baseUrl = isLocalhost ? 'localhost:3000' : currentHostname.split('.').slice(1).join('.');
+  const currentLang = currentHostname.startsWith('de.') ? 'de' : 'en';
 
   return (
     <nav className="bg-gray-900 border-b border-gray-800">
@@ -41,24 +33,20 @@ export default function Navbar() {
             >
               {t('nav.viewCV')}
             </Link>
-            {hostname && (
-              <>
-                <Link
-                  href={`http://en.${hostname}${router.asPath}`}
-                  className={`text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-                  aria-label="English"
-                >
-                  EN
-                </Link>
-                <Link
-                  href={`http://de.${hostname}${router.asPath}`}
-                  className={`text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-                  aria-label="Deutsch"
-                >
-                  DE
-                </Link>
-              </>
-            )}
+            <Link
+              href={`http://en.${baseUrl}${router.asPath}`}
+              className={`text-sm ${currentLang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
+              aria-label="English"
+            >
+              EN
+            </Link>
+            <Link
+              href={`http://de.${baseUrl}${router.asPath}`}
+              className={`text-sm ${currentLang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
+              aria-label="Deutsch"
+            >
+              DE
+            </Link>
           </div>
         </div>
       </div>
