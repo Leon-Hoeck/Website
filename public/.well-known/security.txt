@@ -1,5 +1,5 @@
 # Contact information for security issues
-Contact: mailto:your.email@example.com
+Contact: mailto:admin@leonhoeck.ch
 
 # Languages for security-related communication
 Preferred-Languages: en, de

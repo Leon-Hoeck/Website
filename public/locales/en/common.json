@@ -34,20 +34,7 @@
     "live": "View Live",
     "source": "Source Code"
   },
-  "contact": {
-    "title": "Contact",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "submit": "Send Message",
-      "sending": "Sending...",
-      "success": "Message sent successfully!",
-      "error": "There was an error sending your message. Please try again."
-    }
-  },
-  "pdf": {
-    "download": "Download CV",
-    "generating": "Generating PDF..."
-  }
+  "title": "Placeholder",
+  "text": "Placeholder text",
+  "cv": "View CV"
 } 

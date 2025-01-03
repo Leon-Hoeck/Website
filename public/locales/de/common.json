@@ -34,20 +34,7 @@
     "live": "Live Demo",
     "source": "Quellcode"
   },
-  "contact": {
-    "title": "Kontakt",
-    "form": {
-      "name": "Name",
-      "email": "E-Mail",
-      "message": "Nachricht",
-      "submit": "Nachricht senden",
-      "sending": "Wird gesendet...",
-      "success": "Nachricht erfolgreich gesendet!",
-      "error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
-    }
-  },
-  "pdf": {
-    "download": "Lebenslauf herunterladen",
-    "generating": "PDF wird erstellt..."
-  }
+  "title": "Platzhalter",
+  "text": "Text Platzhalter",
+  "cv": "CV anschauen"
 } 
