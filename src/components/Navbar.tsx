@@ -9,7 +9,17 @@ export default function Navbar() {
   const currentHostname = typeof window !== 'undefined' ? window.location.hostname : '';
   const isLocalhost = currentHostname.includes('localhost');
   const baseUrl = isLocalhost ? 'localhost:3000' : currentHostname.split('.').slice(1).join('.');
-  const currentLang = currentHostname.startsWith('de.') ? 'de' : 'en';
+  
+  // Extract language from subdomain
+  const currentLang = currentHostname.split('.')[0] || 'en';
+  
+  // Define supported languages
+  const languages = [
+    { code: 'en', label: 'EN' },
+    { code: 'de', label: 'DE' },
+    { code: 'fr', label: 'FR' },
+    { code: 'it', label: 'IT' }
+  ];
 
   return (
     <nav className="bg-gray-900 border-b border-gray-800">
@@ -33,20 +43,24 @@ export default function Navbar() {
             >
               {t('nav.viewCV')}
             </Link>
-            <Link
-              href={`http://en.${baseUrl}${router.asPath}`}
-              className={`text-sm ${currentLang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-              aria-label="English"
-            >
-              EN
-            </Link>
-            <Link
-              href={`http://de.${baseUrl}${router.asPath}`}
-              className={`text-sm ${currentLang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-              aria-label="Deutsch"
-            >
-              DE
-            </Link>
+            
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-2">
+              {languages.map((lang) => (
+                <Link
+                  key={lang.code}
+                  href={`http://${lang.code}.${baseUrl}${router.asPath}`}
+                  className={`text-sm ${
+                    currentLang === lang.code 
+                      ? 'text-blue-400' 
+                      : 'text-gray-300 hover:text-white'
+                  } transition-colors`}
+                  aria-label={lang.label}
+                >
+                  {lang.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
