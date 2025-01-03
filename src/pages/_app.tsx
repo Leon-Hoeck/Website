@@ -6,21 +6,19 @@ import '../i18n';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head'; // Import Head for adding meta tags
+import Head from 'next/head';
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
- useEffect(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
+      const hostname = window.location.hostname; // e.g., 'de.example.com'
       const subdomain = hostname.split('.')[0]; // Extract 'de' or 'en'
 
       // Update locale dynamically based on the subdomain
-      if (subdomain === 'de' && router.locale !== 'de') {
-        router.push(router.asPath, router.asPath, { locale: 'de' });
-      } else if (subdomain === 'en' && router.locale !== 'en') {
-        router.push(router.asPath, router.asPath, { locale: 'en' });
+      if (['de', 'en'].includes(subdomain) && router.locale !== subdomain) {
+        router.replace(router.asPath, router.asPath, { locale: subdomain });
       }
     }
   }, [router]);

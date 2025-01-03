@@ -1,11 +1,22 @@
-
 const { i18n } = require('./next-i18next.config');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Pass the i18n object so Next.js knows about your locales
-  i18n,
-  
+  i18n: {
+    locales: ['en', 'de'], // Supported locales
+    defaultLocale: 'en',   // Default locale
+    localeDetection: false, // Disable browser locale detection
+    domains: [
+      {
+        domain: 'en.leonhoeck.ch', // English subdomain
+        defaultLocale: 'en',
+      },
+      {
+        domain: 'de.leonhoeck.ch', // German subdomain
+        defaultLocale: 'de',
+      },
+    ],
+  },
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
 
@@ -16,41 +27,42 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Robots-Tag',
-            value: "noindex, nofollow"
+            value: 'noindex, nofollow',
           },
           {
             key: 'Cache-Control',
-            value: "no-store"
+            value: 'no-store',
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' vercel.com *.vercel.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' vercel.com *.vercel.com; frame-ancestors 'none';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' vercel.com *.vercel.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' vercel.com *.vercel.com; frame-ancestors 'none';",
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY'
+            value: 'DENY',
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: 'nosniff',
           },
           {
             key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            value: 'strict-origin-when-cross-origin',
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          }
-        ]
-      }
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
     ];
   },
 
   async redirects() {
     return [
+      // Add additional redirects if needed
     ];
-  }
+  },
 };
 
 module.exports = nextConfig;
