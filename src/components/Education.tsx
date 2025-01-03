@@ -1,17 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
-interface EducationItem {
+type EducationItem = {
+  title: string;
   institution: string;
-  url: string;
-  area: string;
-  studyType: string;
-  startDate: string;
-  endDate: string;
-  score: string;
+  year: string;
   courses: string[];
-}
+  [key: string]: any;
+};
 
 interface EducationProps {
   education: EducationItem[];
@@ -33,6 +30,10 @@ export default function Education({ education }: EducationProps) {
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
+  };
+
+  const educationVariants: Variants = {
+    // Define your animation variants here
   };
 
   return (
@@ -61,7 +62,7 @@ export default function Education({ education }: EducationProps) {
             <p className="text-blue-400 mb-2">{item.institution}</p>
             <p className="text-gray-400 text-sm mb-4">{item.startDate} - {item.endDate}</p>
             <ul className="list-disc list-inside space-y-2">
-              {item.courses.map((course, idx) => (
+              {item.courses.map((course: string, idx: number) => (
                 <li key={idx} className="text-gray-300">{course}</li>
               ))}
             </ul>
