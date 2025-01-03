@@ -47,11 +47,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
   console.log('getStaticProps - Locale:', context.locale); // Debug log
 
   const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
-  const mainData = await import(`../../data/cv-${lang}.json`).then((m) => m.default);
+
+  // Safely load the data file and handle errors gracefully
+  const cvData = await import(`../../data/cv-${lang}.json`)
+    .then((m) => m.default)
+    .catch((e) => {
+      console.error('Error loading CV data:', e);
+      return null; // Return null if data fails to load
+    });
+
+  if (!cvData) {
+    return {
+      notFound: true, // Trigger a 404 if data is missing
+    };
+  }
 
   return {
     props: {
-      mainData,
+      cvData, // Return the correct variable
       ...(await serverSideTranslations(lang, ['common'])),
     },
   };

@@ -11,10 +11,10 @@ import Head from 'next/head'; // Import Head for adding meta tags
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-  useEffect(() => {
+ useEffect(() => {
     if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname; // e.g., "de.leonhoeck.ch"
-      const subdomain = hostname.split('.')[0]; // Extract "de" or "en"
+      const hostname = window.location.hostname;
+      const subdomain = hostname.split('.')[0]; // Extract 'de' or 'en'
 
       // Update locale dynamically based on the subdomain
       if (subdomain === 'de' && router.locale !== 'de') {
