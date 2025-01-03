@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Leon Höck",
-    "label": "Angehender Informatiker",
+    "label": "Full Stack Entwickler",
     "email": "contact@leonhoeck.ch",
     "location": {
       "city": "Baselland",
@@ -20,63 +20,46 @@
   },
   "work": [
     {
-      "company": "Zentrum Berufsintegration Baselland",
-      "position": "Teilnehmer (Vollzeitprogramm)",
-      "startDate": "2024-10",
+      "company": "Beispiel GmbH",
+      "position": "Senior Entwickler",
+      "startDate": "2020-01",
       "endDate": "Heute",
       "highlights": [
-        "Teilnahme an einem Vollzeit-Integrations- und Qualifizierungsprogramm (Mathematik, Deutsch, IT, Bewerbungstraining)",
-        "Aktiv in einer Werkstattumgebung zur Realisierung von Projekten mit softwaregesteuerten Maschinen",
-        "Vorbereitung und Versand von Bewerbungen für Applikationsentwicklung und Plattform Entwicklung",
-        "Erreichung eines starken ICT Multicheck-Ergebnisses (1,2 & 87/100 Punkte) als Nachweis solider Grundkenntnisse"
+        "Entwicklung von Kernfunktionen",
+        "Performance um 50% verbessert"
       ]
     }
   ],
   "skills": [
     {
-      "name": "Windows Systemadministration",
+      "name": "JavaScript",
+      "level": 90,
+      "keywords": ["React", "Node.js", "TypeScript"],
+      "category": "Programming Languages"
+    },
+    {
+      "name": "TypeScript",
       "level": 85,
-      "keywords": ["Registry-Bearbeitung", "Systemoptimierung", "Hardware-Montage"],
-      "category": "Betriebssysteme",
-      "description": "Versiert in Windows-Konfiguration, Leistungsoptimierung und PC-Zusammenbau.",
-      "yearsOfExperience": 3,
-      "relatedSkills": ["Fehlerbehebung", "Hardware-Reparatur"]
+      "keywords": ["Types", "Interfaces", "Generics"],
+      "category": "Programming Languages"
     },
     {
-      "name": "Grundlegende Netzwerktechnik",
-      "level": 70,
-      "keywords": ["LAN-Einrichtung", "Switch-Konfiguration", "Syncthing"],
-      "category": "IT-Infrastruktur",
-      "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschließlich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall-Grundlagen"]
+      "name": "React",
+      "level": 88,
+      "keywords": ["Hooks", "Context", "Redux"],
+      "category": "Frameworks"
     },
     {
-      "name": "Java (Anfänger)",
-      "level": 35,
-      "keywords": ["Java-Grundlagen", "Einfache Spiele-Skripte", "Objektorientierte Programmierung"],
-      "category": "Programmiersprachen",
-      "description": "Erstellung kleiner Skripte für Spiele und grundlegende Java-Anwendungen. Vertraut mit Modding und Erweiterung bestehender Projekte.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["IDE-Nutzung", "Versionskontrolle"]
+      "name": "Next.js",
+      "level": 82,
+      "keywords": ["SSR", "SSG", "API Routes"],
+      "category": "Frameworks"
     },
     {
-      "name": "3D-Druck & Modellierung",
-      "level": 65,
-      "keywords": ["CAD", "Cura", "LAN-verbundene Drucker"],
-      "category": "Fertigung & Design",
-      "description": "Praktische Erfahrung mit 3D-Druckern (Craftbot Flow Index, Formlabs 3) und grundlegender 3D-Modellierung für Prototyping.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["CNC-Nutzung", "Laserschneiden"]
-    },
-    {
-      "name": "Office & Produktivitätstools",
-      "level": 80,
-      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
-      "category": "Software-Kenntnisse",
-      "description": "Versiert in der Nutzung von Word, Excel, PowerPoint, Outlook, LibreOffice Suite und Adobe Creative Cloud Tools für verschiedene Aufgaben.",
-      "yearsOfExperience": 4,
-      "relatedSkills": ["Dokumentation", "Präsentation"]
+      "name": "TailwindCSS",
+      "level": 85,
+      "keywords": ["Responsive", "Custom Themes", "JIT"],
+      "category": "Frameworks"
     }
   ],
   "projects": [
@@ -89,35 +72,6 @@
         "Responsives Design mit Tailwind CSS implementiert",
         "Flüssige Animationen mit Framer Motion hinzugefügt",
         "Mehrsprachige Unterstützung integriert"
-      ]
-    },
-    {
-      "name": "Werkstatt-Netzwerk-Einrichtung",
-      "description": "Konzeption und Implementierung eines lokalen Werkstattnetzwerks für Echtzeit-Datensynchronisation zwischen mehreren Geräten.",
-      "technologies": [
-        "Syncthing",
-        "LAN-Netzwerke",
-        "Switch-Konfiguration",
-        "3D-Drucker (Craftbot Flow Index, Formlabs 3)",
-        "CNC-Maschinen",
-        "Laserschneider"
-      ],
-      "sourceUrl": "",
-      "highlights": [
-        "Konfiguration von drei Werkstatt-PCs für sichere und sofortige Dateisynchronisation via Syncthing",
-        "Einrichtung direkter LAN-Verbindungen für 3D-Drucker und CNC-Maschinen zur Minimierung von USB-Stick-Transfers",
-        "Optimierung des Workflows durch zentralisierten Datenzugriff und -aktualisierungen für Mitarbeiter und Schüler"
-      ]
-    },
-    {
-      "name": "Diverse 3D-Druck & CNC-Projekte",
-      "description": "Kurze Prototypen und Designs, erstellt mit 3D-Druckern, Laserschneidern und CNC-Maschinen in der Werkstatt.",
-      "technologies": ["3D-Modellierung (CAD)", "CNC-Fräse", "Laserschneider"],
-      "sourceUrl": "",
-      "highlights": [
-        "Erlernen von 3D-Modellierung-Grundlagen und Slicer-Software-Nutzung",
-        "Herstellung funktionaler Prototypen mit minimalem Ausschuss",
-        "Praktische Erfahrung mit Hardware, Sicherheitsprotokollen und Maschinenbedienung"
       ]
     }
   ]

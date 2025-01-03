@@ -3,30 +3,19 @@ const { i18n } = require('./next-i18next.config');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   i18n: {
-    locales: ['en', 'de', 'fr', 'it'],
-    defaultLocale: 'en',
+    locales: ['en', 'de'], // Supported locales
+    defaultLocale: 'en',   // Default locale
+    localeDetection: false, // Disable browser locale detection
     domains: [
       {
-        domain: 'en.leonhoeck.ch',
+        domain: 'en.leonhoeck.ch', // English subdomain
         defaultLocale: 'en',
-        locales: ['en']
       },
       {
-        domain: 'de.leonhoeck.ch',
+        domain: 'de.leonhoeck.ch', // German subdomain
         defaultLocale: 'de',
-        locales: ['de']
       },
-      {
-        domain: 'fr.leonhoeck.ch',
-        defaultLocale: 'fr',
-        locales: ['fr']
-      },
-      {
-        domain: 'it.leonhoeck.ch',
-        defaultLocale: 'it',
-        locales: ['it']
-      }
-    ]
+    ],
   },
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],

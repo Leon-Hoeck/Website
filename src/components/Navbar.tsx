@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
 
 export default function Navbar() {
   const router = useRouter();
-  const { t } = useTranslation('common');
-  const currentHostname = typeof window !== 'undefined' ? window.location.hostname : '';
-  const isLocalhost = currentHostname.includes('localhost');
-  const baseUrl = isLocalhost ? 'localhost:3000' : currentHostname.split('.').slice(1).join('.');
-  
-  // Extract language from subdomain
-  const currentLang = currentHostname.split('.')[0] || 'en';
-  
-  // Define supported languages
-  const languages = [
-    { code: 'en', label: 'EN' },
-    { code: 'de', label: 'DE' },
-    { code: 'fr', label: 'FR' },
-    { code: 'it', label: 'IT' }
-  ];
+  const [hostname, setHostname] = useState<string | null>(null);
+  const [lang, setLang] = useState<string>('en'); // Default to English
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const currentHostname = window.location.hostname;
+      // Remove subdomains like "en." or "de."
+      const cleanHostname = currentHostname.replace(/^(en|de)\./, '');
+      setHostname(cleanHostname);
+      // Detect the current language from the subdomain
+      setLang(currentHostname.startsWith('en.') ? 'en' : 'de');
+    }
+  }, []);
 
   return (
     <nav className="bg-gray-900 border-b border-gray-800">
@@ -39,28 +36,28 @@ export default function Navbar() {
             <Link
               href="/cv"
               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              aria-label={t('nav.viewCV')}
+              aria-label="View CV"
             >
-              {t('nav.viewCV')}
+              View CV
             </Link>
-            
-            {/* Language Switcher */}
-            <div className="flex items-center space-x-2">
-              {languages.map((lang) => (
+            {hostname && ( // Check if hostname is set
+              <>
                 <Link
-                  key={lang.code}
-                  href={`http://${lang.code}.${baseUrl}${router.asPath}`}
-                  className={`text-sm ${
-                    currentLang === lang.code 
-                      ? 'text-blue-400' 
-                      : 'text-gray-300 hover:text-white'
-                  } transition-colors`}
-                  aria-label={lang.label}
+                  href={`http://en.${hostname}${router.asPath}`} // Correct placement of 'en' before 'www'
+                  className={`text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
+                  aria-label="English"
                 >
-                  {lang.label}
+                  English
                 </Link>
-              ))}
-            </div>
+                <Link
+                  href={`http://de.${hostname}${router.asPath}`} // Correct placement of 'de' before 'www'
+                  className={`text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
+                  aria-label="Deutsch"
+                >
+                  Deutsch
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

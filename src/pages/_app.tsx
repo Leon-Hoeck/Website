@@ -12,14 +12,13 @@ function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-      const hostname = window.location.hostname;
-      const subdomain = hostname.split('.')[0];
-      const validLocales = ['en', 'de', 'fr', 'it'];
-      
-      if (validLocales.includes(subdomain) && router.locale !== subdomain) {
-        const newUrl = `https://${subdomain}.leonhoeck.ch${router.asPath}`;
-        window.location.href = newUrl;
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname; // e.g., 'de.example.com'
+      const subdomain = hostname.split('.')[0]; // Extract 'de' or 'en'
+
+      // Update locale dynamically based on the subdomain
+      if (['de', 'en'].includes(subdomain) && router.locale !== subdomain) {
+        router.replace(router.asPath, router.asPath, { locale: subdomain });
       }
     }
   }, [router]);
@@ -27,6 +26,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        {/* Block indexing and following */}
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Layout>

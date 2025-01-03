@@ -31,15 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   console.log('getStaticProps - Locale:', context.locale); // Debug log
 
   const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
-  
-  // Try to load locale-specific data, fallback to English if not found
-  let mainData;
-  try {
-    mainData = await import(`../data/main-${lang}.json`).then((m) => m.default);
-  } catch (error) {
-    console.warn(`Locale data not found for ${lang}, falling back to English`);
-    mainData = await import(`../data/main-en.json`).then((m) => m.default);
-  }
+  const mainData = await import(`../data/main-${lang}.json`).then((m) => m.default);
 
   return {
     props: {
