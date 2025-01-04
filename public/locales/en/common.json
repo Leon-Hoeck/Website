@@ -36,5 +36,8 @@
   },
   "title": "Placeholder",
   "text": "Placeholder text",
-  "cv": "View CV"
+  "cv": "View CV",
+  "contact": {
+    "title": "Contact"
+  }
 } 

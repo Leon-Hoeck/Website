@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Leon Höck",
-    "label": "Full Stack Developer",
+    "label": "Aspiring Computer scientist",
     "email": "contact@leonhoeck.ch",
     "location": {
       "city": "Basel-Country",
@@ -14,67 +14,69 @@
       },
       {
         "network": "LinkedIn",
-        "url": "https://www.linkedin.com/in/leon-höck-663212343/e"
+        "url": "https://www.linkedin.com/in/leon-höck-663212343/"
       }
     ]
   },
   "work": [
     {
-      "company": "Example Company",
-      "position": "Senior Developer",
-      "startDate": "2020-01",
+      "company": "Zentrum Berufsintegration Basel-Country",
+      "position": "Participant (Fulltime program)",
+      "startDate": "2024-10",
       "endDate": "Present",
       "highlights": [
-        "Led development of key features",
-        "Improved performance by 50%"
+        "Attending a full-time integration and skills program (Mathematics, German, IT,  Application training)",
+        "Active in a Werkstatt (workshop) environment to realize projects with software-driven machines",
+        "Prepared and sent apprenticeship applications for Applikationsentwicklung and Platform Development",
+        "Achieved a strong ICT Multicheck result (1.2 & 87/100 points) demonstrating solid foundational skills"
       ]
     }
   ],
   "skills": [
     {
-      "name": "JavaScript",
-      "level": 90,
-      "keywords": ["React", "Node.js", "TypeScript"],
-      "category": "Programming Languages",
-      "description": "Modern JavaScript including ES6+ features",
-      "yearsOfExperience": 5,
-      "relatedSkills": ["TypeScript", "Node.js"]
-    },
-    {
-      "name": "TypeScript",
+      "name": "Windows System Administration",
       "level": 85,
-      "keywords": ["Types", "Interfaces", "Generics"],
-      "category": "Programming Languages",
-      "description": "Strong typing and advanced TypeScript features",
+      "keywords": ["Registry Editing", "System Performance Optimization", "Hardware Assembly"],
+      "category": "Operating Systems",
+      "description": "Proficient in configuring Windows systems, optimizing performance, and assembling custom PCs.",
       "yearsOfExperience": 3,
-      "relatedSkills": ["JavaScript", "React"]
+      "relatedSkills": ["Troubleshooting", "Hardware Repair"]
     },
     {
-      "name": "React",
-      "level": 88,
-      "keywords": ["Hooks", "Context", "Redux"],
-      "category": "Frameworks",
-      "description": "Modern React with hooks and state management",
+      "name": "Basic Networking",
+      "level": 70,
+      "keywords": ["LAN Setup", "Switch Configuration", "Syncthing"],
+      "category": "IT Infrastructure",
+      "description": "Hands-on experience designing small networks, including file sync solutions and LAN-based device management.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["TCP/IP", "VPN", "Firewall Basics"]
+    },
+    {
+      "name": "Java (Beginner)",
+      "level": 35,
+      "keywords": ["Java Basics", "Simple Game Scripts", "Object-Oriented Programming"],
+      "category": "Programming Languages",
+      "description": "Created small scripts for games and basic Java applications. Familiar with modding and extending existing projects.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["IDE Usage", "Version Control"]
+    },
+    {
+      "name": "3D Printing & Modeling",
+      "level": 65,
+      "keywords": ["CAD", "Cura", "LAN-Connected Printers"],
+      "category": "Fabrication & Design",
+      "description": "Hands-on experience with 3D printers (Craftbot Flow Index, Formlabs 3) and basic 3D modeling for prototyping.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["CNC Usage", "Laser Cutting"]
+    },
+    {
+      "name": "Office & Productivity Tools",
+      "level": 80,
+      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "category": "Software Proficiency",
+      "description": "Adept at using Word, Excel, PowerPoint, Outlook, LibreOffice suite, and Adobe Creative Cloud tools for varied tasks.",
       "yearsOfExperience": 4,
-      "relatedSkills": ["JavaScript", "TypeScript", "Next.js"]
-    },
-    {
-      "name": "Next.js",
-      "level": 82,
-      "keywords": ["SSR", "SSG", "API Routes"],
-      "category": "Frameworks",
-      "description": "Server-side rendering and static site generation",
-      "yearsOfExperience": 2,
-      "relatedSkills": ["React", "TypeScript"]
-    },
-    {
-      "name": "TailwindCSS",
-      "level": 85,
-      "keywords": ["Responsive", "Custom Themes", "JIT"],
-      "category": "Frameworks",
-      "description": "Utility-first CSS framework",
-      "yearsOfExperience": 2,
-      "relatedSkills": ["CSS", "Web Design"]
+      "relatedSkills": ["Documentation", "Presentation"]
     }
   ],
   "projects": [
@@ -88,6 +90,35 @@
         "Added smooth animations with Framer Motion",
         "Integrated multilingual support"
       ]
+    },
+    {
+      "name": "Workshop Network Setup",
+      "description": "Designed and implemented a local workshop network for real-time data synchronization across multiple devices.",
+      "technologies": [
+        "Syncthing",
+        "LAN Networking",
+        "Switch Configuration",
+        "3D Printers (Craftbot Flow Index, Formlabs 3)",
+        "CNC Machines",
+        "Laser Cutter"
+      ],
+      "sourceUrl": "",
+      "highlights": [
+        "Configured three workshop PCs to sync files securely and instantly via Syncthing",
+        "Enabled direct LAN connections for 3D printers and CNC machines, minimizing USB stick transfers",
+        "Optimized workflow by centralizing data access and updates for staff and students"
+      ]
+    },
+    {
+      "name": "Multiple 3D Printing & CNC Projects",
+      "description": "Short prototypes and designs created using 3D printers, laser cutters, and CNC machines in the workshop.",
+      "technologies": ["3D Modeling (CAD)", "CNC Router", "Laser Cutter"],
+      "sourceUrl": "",
+      "highlights": [
+        "Learned 3D modeling fundamentals and slicer software usage",
+        "Produced functional prototypes with minimal waste",
+        "Gained hands-on experience with hardware, safety protocols, and machine operation"
+      ]
     }
   ]
-} 
+}

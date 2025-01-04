@@ -36,5 +36,8 @@
   },
   "title": "Platzhalter",
   "text": "Text Platzhalter",
-  "cv": "CV anschauen"
+  "cv": "CV anschauen",
+  "contact": {
+    "title": "Kontakt"
+  }
 } 

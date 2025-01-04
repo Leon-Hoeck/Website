@@ -1,5 +1,8 @@
 {
-      "title": "Placeholder",
-      "text": "Placeholder text",
-      "cv": "View CV"
+      "title": "Welcome to My Digital Space",
+      "text": "Exploring the intersection of technology and innovation through hands-on projects and continuous learning",
+      "cv": "View My CV",
+      "contact": {
+        "title": "Contact"
+      }
 }

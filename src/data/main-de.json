@@ -1,5 +1,8 @@
 {
-      "title": "Platzhalter",
-      "text": "Text Platzhalter",
-      "cv": "CV anschauen"
+      "title": "Willkommen in meinem digitalen Raum",
+      "text": "Entdecken Sie die Schnittstelle von Technologie und Innovation durch praktische Projekte und kontinuierliches Lernen",
+      "cv": "Lebenslauf ansehen",
+      "contact": {
+        "title": "Kontakt"
+      }
     }
