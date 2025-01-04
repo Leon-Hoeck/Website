@@ -8,11 +8,19 @@
   },
   "skills": {
     "title": "Fähigkeiten",
+    "relatedSkills": "Verwandte Fähigkeiten & Technologien",
     "categories": {
       "Programming Languages": "Programmiersprachen",
       "Frameworks": "Frameworks & Bibliotheken",
       "Tools": "Tools & Technologien",
       "Soft Skills": "Soft Skills"
+    },
+    "levels": {
+      "master": "Meister",
+      "expert": "Experte",
+      "advanced": "Fortgeschritten",
+      "intermediate": "Mittelstufe",
+      "beginner": "Anfänger"
     }
   },
   "work": {
@@ -23,7 +31,7 @@
     "title": "Sprachen",
     "fluency": {
       "native": "Muttersprache",
-      "fluent": "Fließend",
+      "fluent": "Fliessend",
       "professional": "Verhandlungssicher",
       "intermediate": "Fortgeschritten",
       "basic": "Grundkenntnisse"

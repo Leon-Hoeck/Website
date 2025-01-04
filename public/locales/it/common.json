@@ -8,22 +8,43 @@
   },
   "skills": {
     "title": "Competenze",
+    "relatedSkills": "Competenze & Tecnologie Correlate",
     "categories": {
       "Programming Languages": "Linguaggi di Programmazione",
       "Frameworks": "Framework & Librerie",
       "Tools": "Strumenti & Tecnologie",
       "Soft Skills": "Competenze Trasversali"
+    },
+    "levels": {
+      "master": "Maestro",
+      "expert": "Esperto",
+      "advanced": "Avanzato",
+      "intermediate": "Intermedio",
+      "beginner": "Principiante"
     }
   },
   "work": {
     "title": "Esperienza Professionale",
     "present": "Presente"
   },
+  "languages": {
+    "title": "Lingue",
+    "fluency": {
+      "native": "Madrelingua",
+      "fluent": "Fluente",
+      "professional": "Professionale",
+      "intermediate": "Intermedio",
+      "basic": "Base"
+    }
+  },
   "projects": {
     "title": "Progetti",
     "live": "Demo Live",
     "source": "Codice Sorgente"
   },
+  "title": "Segnaposto",
+  "text": "Testo Segnaposto",
+  "cv": "Vedi CV",
   "contact": {
     "title": "Contatti"
   }

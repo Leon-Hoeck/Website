@@ -18,6 +18,28 @@
       }
     ]
   },
+  "languageSkills": [
+    {
+      "language": "Deutsch",
+      "level": "Muttersprache",
+      "skills": {
+        "speaking": "Muttersprache",
+        "listening": "Muttersprache",
+        "writing": "Muttersprache",
+        "reading": "Muttersprache"
+      }
+    },
+    {
+      "language": "Englisch",
+      "level": "Fliessend",
+      "skills": {
+        "speaking": "Fliessend",
+        "listening": "Fliessend",
+        "writing": "Fliessend",
+        "reading": "Fliessend"
+      }
+    }
+  ],
   "work": [
     {
       "company": "Zentrum Berufsintegration Baselland",
@@ -36,7 +58,7 @@
     {
       "name": "Windows Systemadministration",
       "level": 85,
-      "keywords": ["Registry-Bearbeitung", "Systemoptimierung", "Hardware-Montage"],
+      "keywords": ["Registry", "Systemoptimierung", "Hardware-Montage"],
       "category": "Betriebssysteme",
       "description": "Versiert in Windows-Konfiguration, Leistungsoptimierung und PC-Zusammenbau.",
       "yearsOfExperience": 3,
@@ -45,11 +67,11 @@
     {
       "name": "Grundlegende Netzwerktechnik",
       "level": 70,
-      "keywords": ["LAN-Einrichtung", "Switch-Konfiguration", "Syncthing"],
+      "keywords": ["LAN", "Switch", "Syncthing"],
       "category": "IT-Infrastruktur",
-      "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschließlich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
+      "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschliesslich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall-Grundlagen"]
+      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
     },
     {
       "name": "Java (Anfänger)",

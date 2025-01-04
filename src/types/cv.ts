@@ -29,9 +29,15 @@ export interface CVData {
     yearsOfExperience?: number;
     relatedSkills?: string[];
   }[];
-  languages: {
+  languageSkills: {
     language: string;
-    fluency: string;
+    level: string;
+    skills: {
+      speaking: string;
+      listening: string;
+      writing: string;
+      reading: string;
+    };
   }[];
   projects: {
     name: string;

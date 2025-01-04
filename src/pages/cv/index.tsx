@@ -6,6 +6,7 @@ import Skills from '../../components/Skills';
 import WorkExperience from '../../components/WorkExperience';
 import Projects from '../../components/Projects';
 import Contact from '../../components/Contact';
+import LanguageSkills from '../../components/LanguageSkills';
 
 interface HomeProps {
   cvData: CVData;
@@ -30,6 +31,10 @@ export default function Home({ cvData }: HomeProps) {
 
         <section id="projects" className="mb-16">
           <Projects projects={cvData.projects} />
+        </section>
+
+        <section id="languages" className="mb-16">
+          <LanguageSkills languageSkills={cvData.languageSkills} />
         </section>
 
         <section id="contact" className="mb-16">

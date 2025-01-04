@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 
 interface SkillsLegendProps {
   skills: {
@@ -11,7 +12,16 @@ interface SkillsLegendProps {
   onSkillSelect: (skillName: string | null) => void;
 }
 
+const getSkillLevelText = (level: number, t: any): string => {
+  if (level >= 90) return t('skills.levels.master');
+  if (level >= 80) return t('skills.levels.expert');
+  if (level >= 60) return t('skills.levels.advanced');
+  if (level >= 40) return t('skills.levels.intermediate');
+  return t('skills.levels.beginner');
+};
+
 export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: SkillsLegendProps) {
+  const { t } = useTranslation('common');
   const selectedSkillData = selectedSkill 
     ? skills.find(skill => skill.name === selectedSkill)
     : null;
@@ -36,7 +46,15 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
               selectedSkill === skill.name ? 'bg-blue-500' : 'bg-blue-500/70'
             }`} />
             <span className="text-sm text-gray-300">
-              {skill.name} - {skill.level}%
+              {skill.name} - {(() => {
+                const level = skill.level;
+                let levelKey = 'skills.levels.beginner';
+                if (level >= 90) levelKey = 'skills.levels.master';
+                else if (level >= 80) levelKey = 'skills.levels.expert';
+                else if (level >= 60) levelKey = 'skills.levels.advanced';
+                else if (level >= 40) levelKey = 'skills.levels.intermediate';
+                return t(levelKey);
+              })()}
             </span>
           </motion.button>
         ))}
@@ -54,7 +72,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
           >
             <div className="p-4 bg-gray-800 rounded-lg mt-4">
               <h4 className="text-sm font-medium text-gray-400 mb-3">
-                Related Skills & Technologies
+                {t('skills.relatedSkills')}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {selectedSkillData.keywords.map((keyword) => (

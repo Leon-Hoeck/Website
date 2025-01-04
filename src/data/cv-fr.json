@@ -18,6 +18,28 @@
       }
     ]
   },
+  "languageSkills": [
+    {
+      "language": "Allemand",
+      "level": "Langue Maternelle",
+      "skills": {
+        "speaking": "Langue Maternelle",
+        "listening": "Langue Maternelle",
+        "writing": "Langue Maternelle",
+        "reading": "Langue Maternelle"
+      }
+    },
+    {
+      "language": "Anglais",
+      "level": "Courant",
+      "skills": {
+        "speaking": "Courant",
+        "listening": "Courant",
+        "writing": "Courant",
+        "reading": "Courant"
+      }
+    }
+  ],
   "work": [
     {
       "company": "Centre d'Intégration Professionnelle Bâle-Campagne",
@@ -36,7 +58,7 @@
     {
       "name": "Administration Système Windows",
       "level": 85,
-      "keywords": ["Édition du Registre", "Optimisation des Performances", "Assemblage Hardware"],
+      "keywords": ["Registry", "Optimisation des Performances", "Assemblage Hardware"],
       "category": "Systèmes d'Exploitation",
       "description": "Compétent en configuration Windows, optimisation des performances et assemblage PC.",
       "yearsOfExperience": 3,
@@ -45,20 +67,38 @@
     {
       "name": "Réseaux de Base",
       "level": 70,
-      "keywords": ["Configuration LAN", "Configuration Switch", "Syncthing"],
+      "keywords": ["LAN", "Switch", "Syncthing"],
       "category": "Infrastructure IT",
       "description": "Expérience pratique en conception de petits réseaux, solutions de synchronisation de fichiers et gestion d'appareils en réseau.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Bases du Pare-feu"]
+      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
     },
     {
       "name": "Java (Débutant)",
       "level": 35,
-      "keywords": ["Bases Java", "Scripts de Jeux Simples", "Programmation Orientée Objet"],
+      "keywords": ["Java", "Scripts de Jeux", "Programmation Orientée Objet"],
       "category": "Langages de Programmation",
       "description": "Création de petits scripts pour jeux et applications Java basiques. Familier avec le modding et l'extension de projets existants.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["Utilisation IDE", "Contrôle de Version"]
+      "relatedSkills": ["IDE", "Git"]
+    },
+    {
+      "name": "Impression 3D & Modélisation",
+      "level": 65,
+      "keywords": ["CAD", "Cura", "Imprimantes en réseau"],
+      "category": "Fabrication & Design",
+      "description": "Expérience pratique avec les imprimantes 3D (Craftbot Flow IDEX, Formlabs 3) et modélisation 3D de base pour le prototypage.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["CNC", "Découpe Laser"]
+    },
+    {
+      "name": "Outils Bureautiques & Productivité",
+      "level": 80,
+      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "category": "Maîtrise Logicielle",
+      "description": "Compétent dans l'utilisation de Word, Excel, PowerPoint, Outlook, suite LibreOffice et outils Adobe Creative Cloud pour diverses tâches.",
+      "yearsOfExperience": 4,
+      "relatedSkills": ["Documentation", "Présentation"]
     }
   ],
   "projects": [
@@ -78,16 +118,29 @@
       "description": "Conception et implémentation d'un réseau local d'atelier pour la synchronisation de données en temps réel entre plusieurs appareils.",
       "technologies": [
         "Syncthing",
-        "Réseaux LAN",
-        "Configuration Switch",
-        "Imprimantes 3D",
-        "Machines CNC",
+        "LAN",
+        "Switch",
+        "Craftbot Flow IDEX",
+        "Formlabs 3",
+        "CNC",
         "Découpe Laser"
       ],
+      "sourceUrl": "",
       "highlights": [
         "Configuration de trois PC d'atelier pour synchronisation sécurisée via Syncthing",
         "Activation des connexions LAN directes pour imprimantes 3D et machines CNC",
-        "Optimisation du flux de travail par centralisation des données"
+        "Optimisation du flux de travail par centralisation des données pour le personnel et les étudiants"
+      ]
+    },
+    {
+      "name": "Divers Projets d'Impression 3D & CNC",
+      "description": "Prototypes et designs créés à l'aide d'imprimantes 3D, découpeuses laser et machines CNC dans l'atelier.",
+      "technologies": ["CAD", "CNC", "Découpe Laser"],
+      "sourceUrl": "",
+      "highlights": [
+        "Apprentissage des fondamentaux de la modélisation 3D et utilisation de logiciels de tranchage",
+        "Production de prototypes fonctionnels avec un minimum de déchets",
+        "Acquisition d'expérience pratique avec le matériel, les protocoles de sécurité et l'utilisation des machines"
       ]
     }
   ]

@@ -18,6 +18,28 @@
       }
     ]
   },
+  "languageSkills": [
+    {
+      "language": "German",
+      "level": "Native",
+      "skills": {
+        "speaking": "Native",
+        "listening": "Native",
+        "writing": "Native",
+        "reading": "Native"
+      }
+    },
+    {
+      "language": "English",
+      "level": "Fluent",
+      "skills": {
+        "speaking": "Fluent",
+        "listening": "Fluent",
+        "writing": "Fluent",
+        "reading": "Fluent"
+      }
+    }
+  ],
   "work": [
     {
       "company": "Zentrum Berufsintegration Basel-Country",
