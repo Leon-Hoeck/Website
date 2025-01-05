@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 export default function Navbar() {
   const router = useRouter();
+  const { t } = useTranslation('common');
   const [hostname, setHostname] = useState<string | null>(null);
   const [lang, setLang] = useState<string>('en');
 
@@ -35,9 +37,9 @@ export default function Navbar() {
             <Link
               href="/cv"
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              aria-label="View CV"
+              aria-label={t('cv')}
             >
-              View CV
+              {t('cv')}
             </Link>
           </div>
 
