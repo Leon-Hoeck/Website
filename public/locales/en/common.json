@@ -9,6 +9,7 @@
   "skills": {
     "title": "Skills",
     "relatedSkills": "Related Skills & Technologies",
+    "backToOverview": "Back to Overview",
     "categories": {
       "Programming Languages": "Programming Languages",
       "Frameworks": "Frameworks & Libraries",

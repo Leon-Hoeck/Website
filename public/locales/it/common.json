@@ -9,6 +9,7 @@
   "skills": {
     "title": "Competenze",
     "relatedSkills": "Competenze & Tecnologie Correlate",
+    "backToOverview": "Torna alla panoramica",
     "categories": {
       "Programming Languages": "Linguaggi di Programmazione",
       "Frameworks": "Framework & Librerie",

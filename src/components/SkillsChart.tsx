@@ -294,7 +294,7 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
             <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            <span className="font-medium">Back to Overview</span>
+            <span className="font-medium">{t('skills.backToOverview')}</span>
           </motion.button>
         )}
       </AnimatePresence>
