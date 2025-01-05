@@ -27,7 +27,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-8">
             <Link 
               href="/"
-              className="no-underline text-xl font-bold tracking-wide bg-gradient-to-r from-teal-400 to-pink-500 bg-clip-text text-transparent hover:from-teal-500 hover:to-pink-600 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-300"
+              className="text-xl font-bold tracking-wide bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent hover:from-blue-500 hover:to-purple-600 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-300"
               aria-label="Home"
             >
               Leon Höck

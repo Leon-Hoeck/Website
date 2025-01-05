@@ -68,21 +68,32 @@ const getSubskillLevel = (keyword: string, parentSkillLevel: number): number => 
 };
 
 const transitionVariants = {
-  initial: { opacity: 0, scale: 0.95 },
+  initial: { 
+    opacity: 0, 
+    scale: 0.8,
+    rotate: -10
+  },
   animate: { 
     opacity: 1, 
     scale: 1,
+    rotate: 0,
     transition: {
-      duration: 0.3,
-      ease: "easeOut"
+      duration: 0.6,
+      ease: [0.34, 1.56, 0.64, 1], // Custom spring-like easing
+      scale: {
+        type: "spring",
+        damping: 8,
+        stiffness: 100
+      }
     }
   },
   exit: { 
     opacity: 0, 
-    scale: 0.95,
+    scale: 0.9,
+    rotate: 10,
     transition: { 
-      duration: 0.2,
-      ease: "easeIn"
+      duration: 0.4,
+      ease: "backIn"
     }
   }
 };
@@ -159,7 +170,10 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         pointHoverBorderColor: 'rgba(59, 130, 246, 1)',
         pointHoverRadius: 8,
         pointRadius: 4,
-        tension: 0.15,
+        tension: 0.4,
+        borderJoinStyle: 'round' as const,
+        borderCapStyle: 'round' as const,
+        fill: true,
       },
     ],
   };
@@ -168,8 +182,20 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
     responsive: true,
     maintainAspectRatio: false,
     animation: {
-      duration: 800,
-      easing: 'easeInOutQuart'
+      duration: 1200,
+      easing: 'easeOutElastic',
+      delay: (context) => {
+        const dataIndex = context.dataIndex || 0;
+        return dataIndex * 100;
+      }
+    },
+    transitions: {
+      active: {
+        animation: {
+          duration: 400,
+          easing: 'easeOutBounce'
+        }
+      }
     },
     scales: {
       r: {
@@ -179,6 +205,7 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         angleLines: {
           color: 'rgba(255, 255, 255, 0.05)',
           lineWidth: 1,
+          borderDash: [],
         },
         grid: {
           color: 'rgba(255, 255, 255, 0.05)',
@@ -200,8 +227,23 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         ticks: {
           display: false,
           stepSize: 20,
-        },
+        }
       },
+    },
+    elements: {
+      line: {
+        tension: 0.4,
+        borderWidth: 2,
+        borderJoinStyle: 'round' as const,
+        borderCapStyle: 'round' as const,
+      },
+      point: {
+        radius: 4,
+        borderWidth: 2,
+        hitRadius: 10,
+        hoverRadius: 8,
+        hoverBorderWidth: 2,
+      }
     },
     plugins: {
       tooltip: {
