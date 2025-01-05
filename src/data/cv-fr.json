@@ -23,9 +23,9 @@
       "language": "Allemand",
       "level": "Langue Maternelle",
       "skills": {
-        "speaking": "Langue Maternelle",
-        "listening": "Langue Maternelle",
+        "speaking": "Courant",
         "writing": "Langue Maternelle",
+        "listening": "Langue Maternelle",
         "reading": "Langue Maternelle"
       }
     },
@@ -33,9 +33,9 @@
       "language": "Anglais",
       "level": "Courant",
       "skills": {
-        "speaking": "Courant",
+        "speaking": "Professionnel",
+        "writing": "Professionnel",
         "listening": "Courant",
-        "writing": "Courant",
         "reading": "Courant"
       }
     }
@@ -58,14 +58,14 @@
     {
       "name": "Administration Système Windows",
       "level": 85,
-      "keywords": ["Registry", "Optimisation des Performances", "Assemblage Hardware"],
+      "keywords": ["Registry", "Optimisation système", "Matériel informatique"],
       "category": "Systèmes d'Exploitation",
       "description": "Compétent en configuration Windows, optimisation des performances et assemblage PC.",
       "yearsOfExperience": 3,
-      "relatedSkills": ["Dépannage", "Réparation Hardware"]
+      "relatedSkills": ["Dépannage", "Réparation du matériel informatique"]
     },
     {
-      "name": "Réseaux de Base",
+      "name": "Réseaux et Connectivité",
       "level": 70,
       "keywords": ["LAN", "Switch", "Syncthing"],
       "category": "Infrastructure IT",
@@ -76,20 +76,20 @@
     {
       "name": "Java (Débutant)",
       "level": 35,
-      "keywords": ["Java", "Scripts de Jeux", "Programmation Orientée Objet"],
+      "keywords": ["Java", "Scripts de jeux", "Programmation orientée objet"],
       "category": "Langages de Programmation",
       "description": "Création de petits scripts pour jeux et applications Java basiques. Familier avec le modding et l'extension de projets existants.",
       "yearsOfExperience": 1,
       "relatedSkills": ["IDE", "Git"]
     },
     {
-      "name": "Impression 3D & Modélisation",
+      "name": "Impression et Modélisation 3D",
       "level": 65,
       "keywords": ["CAD", "Cura", "Imprimantes en réseau"],
       "category": "Fabrication & Design",
       "description": "Expérience pratique avec les imprimantes 3D (Craftbot Flow IDEX, Formlabs 3) et modélisation 3D de base pour le prototypage.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["CNC", "Découpe Laser"]
+      "relatedSkills": ["CNC", "Découpe laser"]
     },
     {
       "name": "Outils Bureautiques & Productivité",
@@ -103,7 +103,7 @@
   ],
   "projects": [
     {
-      "name": "CV Interactif",
+      "name": "Interactive CV",
       "description": "Un CV web moderne et interactif construit avec Next.js et TypeScript",
       "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       "sourceUrl": "https://github.com/Leon-Hoeck/CV",
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "name": "Configuration Réseau Atelier",
+      "name": "Workshop Network Setup",
       "description": "Conception et implémentation d'un réseau local d'atelier pour la synchronisation de données en temps réel entre plusieurs appareils.",
       "technologies": [
         "Syncthing",
@@ -123,7 +123,7 @@
         "Craftbot Flow IDEX",
         "Formlabs 3",
         "CNC",
-        "Découpe Laser"
+        "Laser Cutting"
       ],
       "sourceUrl": "",
       "highlights": [

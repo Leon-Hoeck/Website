@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
@@ -22,26 +22,87 @@ const getSkillLevelText = (level: number, t: any): string => {
 
 export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: SkillsLegendProps) {
   const { t } = useTranslation('common');
+  const [showInitialGlow, setShowInitialGlow] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const selectedSkillData = selectedSkill 
     ? skills.find(skill => skill.name === selectedSkill)
     : null;
 
+  // Calculate total animation time based on grid size
+  const COLS = 4; // md:grid-cols-4
+  const totalItems = skills.length;
+  const ROWS = Math.ceil(totalItems / COLS);
+  const TOTAL_DIAGONALS = ROWS + COLS - 1;
+  const DELAY_PER_DIAGONAL = 0.4; // Increased from 0.2 to 0.4 seconds between diagonals
+  const TOTAL_DURATION = TOTAL_DIAGONALS * DELAY_PER_DIAGONAL + 2; // Increased from 1.5 to 2 seconds for individual animation
+
+  useEffect(() => {
+    if (hasBeenVisible) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasBeenVisible) {
+          setShowInitialGlow(true);
+          setHasBeenVisible(true);
+          setTimeout(() => {
+            setShowInitialGlow(false);
+          }, TOTAL_DURATION * 1000); // Convert to milliseconds
+        }
+      },
+      {
+        threshold: 0.2
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [hasBeenVisible, TOTAL_DURATION]);
+
+  const getDelayForPosition = (index: number) => {
+    const row = Math.floor(index / COLS);
+    const col = index % COLS;
+    return (row + col) * DELAY_PER_DIAGONAL; // Delay based on diagonal position
+  };
+
   return (
-    <div className="mt-6 space-y-4">
+    <div ref={containerRef} className="mt-6 space-y-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {skills.map((skill, index) => (
           <motion.button
             key={skill.name}
-            className={`flex items-center space-x-2 p-2 rounded-lg transition-colors ${
+            className={`flex items-center space-x-2 p-2 rounded-lg transition-all duration-300 relative overflow-hidden ${
               selectedSkill === skill.name 
-                ? 'bg-gray-700 ring-1 ring-blue-500'
-                : 'hover:bg-gray-800'
+                ? 'bg-gray-700 ring-1 ring-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
+                : 'hover:bg-gray-800 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)]'
             }`}
             onClick={() => onSkillSelect(selectedSkill === skill.name ? null : skill.name)}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: { delay: index * 0.1 }
+            }}
           >
+            {showInitialGlow && (
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-400/20 to-transparent"
+                initial={{ x: "-200%", y: "-200%" }}
+                animate={{ x: "200%", y: "200%" }}
+                transition={{
+                  duration: 2, // Increased from 1.5 to 2 seconds
+                  delay: getDelayForPosition(index),
+                  ease: "easeOut"
+                }}
+              />
+            )}
             <div className={`w-3 h-3 rounded-full transition-colors ${
               selectedSkill === skill.name ? 'bg-blue-500' : 'bg-blue-500/70'
             }`} />

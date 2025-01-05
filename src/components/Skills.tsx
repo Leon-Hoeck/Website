@@ -21,7 +21,7 @@ export default function Skills({ skills }: SkillsProps) {
     .slice(0, 8);
 
   return (
-    <section className="py-12">
+    <section className="py-8">
       <h2 className="text-3xl font-bold mb-8 text-white">{t('skills.title')}</h2>
       
       <div className="mb-12">

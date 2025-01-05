@@ -24,23 +24,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Left side - Brand/Home */}
-          <Link 
-            href="/"
-            className="text-white font-medium hover:text-gray-300 transition-colors"
-            aria-label="Home"
-          >
-            Leon Höck
-          </Link>
-
-          {/* Right side - Navigation */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-8">
+            <Link 
+              href="/"
+              className="no-underline text-xl font-bold tracking-wide bg-gradient-to-r from-teal-400 to-pink-500 bg-clip-text text-transparent hover:from-teal-500 hover:to-pink-600 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-300"
+              aria-label="Home"
+            >
+              Leon Höck
+            </Link>
             <Link
               href="/cv"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
               aria-label="View CV"
             >
               View CV
             </Link>
+          </div>
+
+          {/* Right side - Language Selection */}
+          <div className="flex items-center space-x-4">
             {hostname && (
               <>
                 <Link

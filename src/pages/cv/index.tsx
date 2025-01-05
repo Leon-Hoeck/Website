@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CVData } from '../../types/cv';
@@ -7,69 +7,118 @@ import WorkExperience from '../../components/WorkExperience';
 import Projects from '../../components/Projects';
 import Contact from '../../components/Contact';
 import LanguageSkills from '../../components/LanguageSkills';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 interface HomeProps {
   cvData: CVData;
 }
 
-export default function Home({ cvData }: HomeProps) {
+export default function CV({ cvData }: HomeProps) {
+  const { t } = useTranslation('common');
+  const [showArrow, setShowArrow] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowArrow(false);
+        setShowContent(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen w-full bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header id="about" className="text-center mb-16 min-h-[calc(100vh-6rem)] flex flex-col justify-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">{cvData.basics.name}</h1>
-          <p className="text-xl text-gray-400">{cvData.basics.label}</p>
-        </header>
-
-        <section id="experience" className="mb-16">
-          <WorkExperience work={cvData.work} />
-        </section>
-
-        <section id="skills" className="mb-16">
-          <Skills skills={cvData.skills} />
-        </section>
-
-        <section id="projects" className="mb-16">
-          <Projects projects={cvData.projects} />
-        </section>
-
-        <section id="languages" className="mb-16">
-          <LanguageSkills languageSkills={cvData.languageSkills} />
-        </section>
-
-        <section id="contact" className="mb-16">
-          <Contact
-            email={cvData.basics.email}
-            location={cvData.basics.location}
-          />
-        </section>
+    <>
+      <div id="about" className="text-center min-h-screen flex flex-col justify-center relative -mt-32 mb-32">
+        <h1 className="inline-block text-4xl font-bold mb-2 tracking-wide bg-gradient-to-r from-teal-400 to-pink-500 bg-clip-text text-transparent hover:from-teal-500 hover:to-pink-600 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-300">
+          {cvData.basics.name}
+        </h1>
+        <p className="text-xl text-gray-400">{cvData.basics.label}</p>
+        <AnimatePresence>
+          {showArrow && (
+            <motion.div 
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+              animate={{ y: [0, 10, 0] }}
+              exit={{ 
+                opacity: 0,
+                y: 10,
+                transition: { duration: 0.5 }
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: showArrow ? Infinity : 0,
+                ease: "easeInOut",
+                repeatType: "reverse"
+              }}
+            >
+              <ChevronDownIcon className="w-8 h-8 text-blue-400" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+
+      <AnimatePresence>
+        {showContent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <section id="experience">
+              <WorkExperience work={cvData.work} />
+            </section>
+
+            <section id="skills">
+              <Skills skills={cvData.skills} />
+            </section>
+
+            <section id="projects">
+              <Projects projects={cvData.projects} />
+            </section>
+
+            <section id="languages">
+              <LanguageSkills languageSkills={cvData.languageSkills} />
+            </section>
+
+            <section id="contact">
+              <Contact
+                email={cvData.basics.email}
+                location={cvData.basics.location}
+              />
+            </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('getStaticProps - Locale:', context.locale); // Debug log
+  console.log('getStaticProps - Locale:', context.locale);
 
-  const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
+  const lang = context.locale || 'en';
 
-  // Safely load the data file and handle errors gracefully
   const cvData = await import(`../../data/cv-${lang}.json`)
     .then((m) => m.default)
     .catch((e) => {
       console.error('Error loading CV data:', e);
-      return null; // Return null if data fails to load
+      return null;
     });
 
   if (!cvData) {
     return {
-      notFound: true, // Trigger a 404 if data is missing
+      notFound: true,
     };
   }
 
   return {
     props: {
-      cvData, // Return the correct variable
+      cvData,
       ...(await serverSideTranslations(lang, ['common'])),
     },
   };

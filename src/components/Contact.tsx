@@ -14,7 +14,7 @@ export default function Contact({ email, location }: ContactProps) {
   const { t } = useTranslation('common');
 
   return (
-    <section className="py-12">
+    <section className="py-8">
       <h2 className="text-3xl font-bold mb-8 text-white">{t('contact.title')}</h2>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">

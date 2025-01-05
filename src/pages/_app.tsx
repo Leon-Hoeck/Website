@@ -10,6 +10,16 @@ import Head from 'next/head';
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const profiles = pageProps.cvData?.basics?.profiles || pageProps.mainData?.profiles || [
+    {
+      network: "GitHub",
+      url: "https://github.com/Leon-Hoeck"
+    },
+    {
+      network: "LinkedIn",
+      url: "https://www.linkedin.com/in/leon-höck-663212343/"
+    }
+  ];
 
   useEffect(() => {
     if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
@@ -29,7 +39,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <Layout>
+      <Layout profiles={profiles}>
         <Component {...pageProps} />
         <SpeedInsights />
       </Layout>
