@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import Layout from '../components/Layout';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -47,6 +48,7 @@ function App({ Component, pageProps }: AppProps) {
       <Layout profiles={profiles}>
         <Component {...pageProps} />
         <SpeedInsights />
+        <Analytics />
       </Layout>
     </>
   );
