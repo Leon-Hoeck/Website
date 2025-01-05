@@ -32,8 +32,8 @@ export default function CV({ cvData }: HomeProps) {
 
   return (
     <>
-      <div id="about" className="min-h-[100vh] flex flex-col justify-center items-center relative">
-        <div className="text-center space-y-4">
+      <div id="about" className="min-h-[90vh] flex flex-col justify-center items-center relative">
+        <div className="text-center space-y-4 -mt-32">
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
             {cvData.basics.name}
           </h1>
@@ -42,7 +42,7 @@ export default function CV({ cvData }: HomeProps) {
         <AnimatePresence>
           {showArrow && (
             <motion.div 
-              className="absolute bottom-16 left-1/2 transform -translate-x-1/2"
+              className="absolute bottom-24 inset-x-0 mx-auto w-fit"
               animate={{ y: [0, 10, 0] }}
               exit={{ 
                 opacity: 0,

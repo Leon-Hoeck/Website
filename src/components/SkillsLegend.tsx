@@ -34,8 +34,9 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
   const totalItems = skills.length;
   const ROWS = Math.ceil(totalItems / COLS);
   const TOTAL_DIAGONALS = ROWS + COLS - 1;
-  const DELAY_PER_DIAGONAL = 0.4; // Increased from 0.2 to 0.4 seconds between diagonals
-  const TOTAL_DURATION = TOTAL_DIAGONALS * DELAY_PER_DIAGONAL + 2; // Increased from 1.5 to 2 seconds for individual animation
+  const DELAY_PER_ITEM = 0.15; // Reduced from 0.4 to create more overlap
+  const ANIMATION_DURATION = 1.5; // Duration for each individual animation
+  const TOTAL_DURATION = TOTAL_DIAGONALS * DELAY_PER_ITEM + ANIMATION_DURATION;
 
   useEffect(() => {
     if (hasBeenVisible) return;
@@ -46,8 +47,11 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
           setShowInitialGlow(true);
           setHasBeenVisible(true);
           setTimeout(() => {
-            setShowInitialGlow(false);
-          }, TOTAL_DURATION * 1000); // Convert to milliseconds
+            const glowElements = document.querySelectorAll('.skill-glow');
+            glowElements.forEach(el => {
+              (el as HTMLElement).style.opacity = '0';
+            });
+          }, TOTAL_DURATION * 1000);
         }
       },
       {
@@ -69,7 +73,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
   const getDelayForPosition = (index: number) => {
     const row = Math.floor(index / COLS);
     const col = index % COLS;
-    return (row + col) * DELAY_PER_DIAGONAL; // Delay based on diagonal position
+    return (row + col) * DELAY_PER_ITEM; // Diagonal position delay
   };
 
   return (
@@ -93,14 +97,15 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
           >
             {showInitialGlow && (
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-400/20 to-transparent"
-                initial={{ x: "-200%", y: "-200%" }}
-                animate={{ x: "200%", y: "200%" }}
+                className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-400/20 to-transparent skill-glow"
+                initial={{ x: "-200%", y: "-200%", opacity: 1 }}
+                animate={{ x: "200%", y: "200%", opacity: 1 }}
                 transition={{
-                  duration: 2, // Increased from 1.5 to 2 seconds
+                  duration: ANIMATION_DURATION,
                   delay: getDelayForPosition(index),
                   ease: "easeOut"
                 }}
+                style={{ pointerEvents: 'none' }}
               />
             )}
             <div className={`w-3 h-3 rounded-full transition-colors ${
@@ -125,32 +130,46 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
         {selectedSkillData && selectedSkillData.keywords && (
           <motion.div
             key="subskills"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ 
+              duration: 0.3,
+              ease: [0.4, 0, 0.2, 1],
+              opacity: { duration: 0.2 }
+            }}
             className="overflow-hidden"
           >
-            <div className="p-4 bg-gray-800 rounded-lg mt-4">
-              <h4 className="text-sm font-medium text-gray-400 mb-3">
-                {t('skills.relatedSkills')}
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {selectedSkillData.keywords.map((keyword) => (
-                  <motion.span
-                    key={keyword}
-                    className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {keyword}
-                  </motion.span>
-                ))}
+            <motion.div
+              className="bg-gray-800 rounded-lg relative overflow-hidden group hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+              initial={false}
+              layout
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/5 transition-all duration-500"
+                initial={false}
+              />
+              <div className="relative z-10 p-4">
+                <h4 className="text-sm font-medium text-gray-400 mb-3">
+                  {t('skills.relatedSkills')}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedSkillData.keywords.map((keyword) => (
+                    <motion.span
+                      key={keyword}
+                      className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm relative"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {keyword}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -29,6 +29,7 @@
   },
   "languages": {
     "title": "Lingue",
+    "proficiency": "Dettagli di competenza",
     "fluency": {
       "native": "Madrelingua",
       "fluent": "Fluente",
@@ -39,7 +40,7 @@
   },
   "projects": {
     "title": "Progetti",
-    "live": "Demo Live",
+    "live": "Versione Live",
     "source": "Codice Sorgente"
   },
   "title": "Segnaposto",

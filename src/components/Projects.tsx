@@ -83,7 +83,7 @@ export default function Projects({ projects }: ProjectsProps) {
                 {project.technologies.map((tech) => (
                   <motion.span
                     key={tech}
-                    className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm hover:bg-gray-600 transition-colors"
+                    className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm relative"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

@@ -25,21 +25,22 @@
   },
   "work": {
     "title": "Berufserfahrung",
-    "present": "Heute"
+    "present": "Aktuell"
   },
   "languages": {
     "title": "Sprachen",
+    "proficiency": "Sprachniveau",
     "fluency": {
       "native": "Muttersprache",
       "fluent": "Fliessend",
-      "professional": "Verhandlungssicher",
+      "professional": "Geschäftsfähig",
       "intermediate": "Fortgeschritten",
       "basic": "Grundkenntnisse"
     }
   },
   "projects": {
     "title": "Projekte",
-    "live": "Live Demo",
+    "live": "Live Version",
     "source": "Quellcode"
   },
   "title": "Platzhalter",

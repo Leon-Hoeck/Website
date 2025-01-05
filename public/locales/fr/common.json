@@ -29,6 +29,7 @@
   },
   "languages": {
     "title": "Langues",
+    "proficiency": "Détails du niveau",
     "fluency": {
       "native": "Langue Maternelle",
       "fluent": "Courant",
@@ -39,7 +40,7 @@
   },
   "projects": {
     "title": "Projets",
-    "live": "Démo en Direct",
+    "live": "Version en Direct",
     "source": "Code Source"
   },
   "title": "Espace Réservé",

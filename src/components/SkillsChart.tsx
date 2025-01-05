@@ -68,32 +68,21 @@ const getSubskillLevel = (keyword: string, parentSkillLevel: number): number => 
 };
 
 const transitionVariants = {
-  initial: { 
-    opacity: 0, 
-    scale: 0.8,
-    rotate: -10
-  },
+  initial: { opacity: 0, scale: 0.95 },
   animate: { 
     opacity: 1, 
     scale: 1,
-    rotate: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.34, 1.56, 0.64, 1], // Custom spring-like easing
-      scale: {
-        type: "spring",
-        damping: 8,
-        stiffness: 100
-      }
+      duration: 0.3,
+      ease: "easeOut"
     }
   },
   exit: { 
     opacity: 0, 
-    scale: 0.9,
-    rotate: 10,
+    scale: 0.95,
     transition: { 
-      duration: 0.4,
-      ease: "backIn"
+      duration: 0.2,
+      ease: "easeIn"
     }
   }
 };
@@ -157,22 +146,17 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
       {
         label: 'Skill Level',
         data: displaySkills.map(skill => skill.level),
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-        borderColor: 'rgba(59, 130, 246, 1)',
-        borderWidth: 2,
-        pointBackgroundColor: displaySkills.map((_, index) => 
-          hoveredPoint === index ? '#fff' : 'rgba(59, 130, 246, 1)'
-        ),
-        pointBorderColor: displaySkills.map((_, index) => 
-          hoveredPoint === index ? 'rgba(59, 130, 246, 1)' : '#fff'
-        ),
+        backgroundColor: 'rgba(59, 130, 246, 0.15)',
+        borderColor: 'rgba(59, 130, 246, 0.8)',
+        borderWidth: 1.5,
+        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+        pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(59, 130, 246, 1)',
         pointHoverRadius: 8,
         pointRadius: 4,
-        tension: 0.4,
-        borderJoinStyle: 'round' as const,
-        borderCapStyle: 'round' as const,
+        pointBorderWidth: 1.5,
+        tension: 0,
         fill: true,
       },
     ],
@@ -182,20 +166,8 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
     responsive: true,
     maintainAspectRatio: false,
     animation: {
-      duration: 1200,
-      easing: 'easeOutElastic',
-      delay: (context) => {
-        const dataIndex = context.dataIndex || 0;
-        return dataIndex * 100;
-      }
-    },
-    transitions: {
-      active: {
-        animation: {
-          duration: 400,
-          easing: 'easeOutBounce'
-        }
-      }
+      duration: 800,
+      easing: 'easeOutQuart'
     },
     scales: {
       r: {
@@ -203,46 +175,47 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
         max: 100,
         beginAtZero: true,
         angleLines: {
-          color: 'rgba(255, 255, 255, 0.05)',
+          color: 'rgba(255, 255, 255, 0.1)',
           lineWidth: 1,
-          borderDash: [],
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.05)',
+          color: 'rgba(255, 255, 255, 0.1)',
           circular: true,
           lineWidth: 1,
         },
         pointLabels: {
           color: (context) => {
-            const index = context.index;
-            return hoveredPoint === index ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.7)';
+            return hoveredPoint === context.index ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.7)';
           },
           font: {
             size: fontSize,
-            weight: 'bold',
+            weight: '500',
             family: 'system-ui',
           },
-          padding: padding,
+          padding: padding + 5,
         },
         ticks: {
-          display: false,
+          display: true,
+          color: 'rgba(255, 255, 255, 0.4)',
+          backdropColor: 'transparent',
+          font: {
+            size: 10,
+          },
+          count: 5,
           stepSize: 20,
-        }
+        },
       },
     },
     elements: {
       line: {
-        tension: 0.4,
-        borderWidth: 2,
-        borderJoinStyle: 'round' as const,
-        borderCapStyle: 'round' as const,
+        tension: 0,
+        borderWidth: 1.5,
       },
       point: {
-        radius: 4,
-        borderWidth: 2,
-        hitRadius: 10,
+        hitRadius: 8,
         hoverRadius: 8,
-        hoverBorderWidth: 2,
+        radius: 4,
+        borderWidth: 1.5,
       }
     },
     plugins: {
