@@ -4,12 +4,9 @@ import { appWithTranslation } from 'next-i18next';
 import Layout from '../components/Layout';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
   const profiles = pageProps.cvData?.basics?.profiles || pageProps.mainData?.profiles || [
     {
       network: "GitHub",
@@ -20,19 +17,6 @@ function App({ Component, pageProps }: AppProps) {
       url: "https://www.linkedin.com/in/leon-höck-663212343/"
     }
   ];
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-      const hostname = window.location.hostname;
-      const subdomain = hostname.split('.')[0];
-      const validLocales = ['en', 'de', 'fr', 'it'];
-      
-      if (validLocales.includes(subdomain) && router.locale !== subdomain) {
-        const newUrl = `https://${subdomain}.leonhoeck.ch${router.asPath}`;
-        window.location.href = newUrl;
-      }
-    }
-  }, [router]);
 
   const getTitle = () => {
     const name = pageProps.cvData?.basics?.name || "Leon Höck";

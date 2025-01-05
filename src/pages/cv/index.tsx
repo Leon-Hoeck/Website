@@ -12,12 +12,22 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
 interface HomeProps {
-  cvData: CVData;
+  cvData?: CVData;
 }
 
 export default function CV({ cvData }: HomeProps) {
   const { t } = useTranslation('common');
   const [showArrow, setShowArrow] = useState(true);
+
+  if (!cvData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl text-white mb-4">Loading...</h1>
+        </div>
+      </div>
+    );
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,27 +101,27 @@ export default function CV({ cvData }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('getStaticProps - Locale:', context.locale);
-
   const lang = context.locale || 'en';
 
-  const cvData = await import(`../../data/cv-${lang}.json`)
-    .then((m) => m.default)
-    .catch((e) => {
-      console.error('Error loading CV data:', e);
-      return null;
-    });
+  try {
+    const cvData = await import(`../../data/cv-${lang}.json`)
+      .then((m) => m.default)
+      .catch(async () => {
+        // Silently fall back to English
+        return await import('../../data/cv-en.json').then((m) => m.default);
+      });
 
-  if (!cvData) {
+    if (!cvData) {
+      return { notFound: true };
+    }
+
     return {
-      notFound: true,
+      props: {
+        cvData,
+        ...(await serverSideTranslations(lang, ['common'])),
+      },
     };
+  } catch (error) {
+    return { notFound: true };
   }
-
-  return {
-    props: {
-      cvData,
-      ...(await serverSideTranslations(lang, ['common'])),
-    },
-  };
 };

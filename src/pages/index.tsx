@@ -38,25 +38,28 @@ export default function Home({ mainData }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const lang = context.locale || 'en';
-  const mainData = await import(`../data/main-${lang}.json`)
-    .then((m) => m.default)
-    .catch((e) => {
-      console.error('Error loading main data:', e);
-      return null;
-    });
 
-  if (!mainData) {
+  try {
+    const mainData = await import(`../data/main-${lang}.json`)
+      .then((m) => m.default)
+      .catch(async () => {
+        // Silently fall back to English
+        return await import('../data/main-en.json').then((m) => m.default);
+      });
+
+    if (!mainData) {
+      return { notFound: true };
+    }
+
     return {
-      notFound: true,
+      props: {
+        mainData,
+        ...(await serverSideTranslations(lang, ['common'])),
+      },
     };
+  } catch (error) {
+    return { notFound: true };
   }
-
-  return {
-    props: {
-      mainData,
-      ...(await serverSideTranslations(lang, ['common'])),
-    },
-  };
 };
 
 

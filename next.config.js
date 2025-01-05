@@ -2,32 +2,7 @@ const { i18n } = require('./next-i18next.config');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'de', 'fr', 'it'],
-    defaultLocale: 'en',
-    domains: [
-      {
-        domain: 'en.leonhoeck.ch',
-        defaultLocale: 'en',
-        locales: ['en']
-      },
-      {
-        domain: 'de.leonhoeck.ch',
-        defaultLocale: 'de',
-        locales: ['de']
-      },
-      {
-        domain: 'fr.leonhoeck.ch',
-        defaultLocale: 'fr',
-        locales: ['fr']
-      },
-      {
-        domain: 'it.leonhoeck.ch',
-        defaultLocale: 'it',
-        locales: ['it']
-      }
-    ]
-  },
+  i18n,
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
 
@@ -77,3 +52,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
