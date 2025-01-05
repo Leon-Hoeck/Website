@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CVData } from '../../types/cv';
@@ -6,65 +6,111 @@ import Skills from '../../components/Skills';
 import WorkExperience from '../../components/WorkExperience';
 import Projects from '../../components/Projects';
 import Contact from '../../components/Contact';
+import LanguageSkills from '../../components/LanguageSkills';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 interface HomeProps {
   cvData: CVData;
 }
 
-export default function Home({ cvData }: HomeProps) {
-  return (
-    <div className="min-h-screen w-full bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header id="about" className="text-center mb-16 min-h-[calc(100vh-6rem)] flex flex-col justify-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">{cvData.basics.name}</h1>
-          <p className="text-xl text-gray-400">{cvData.basics.label}</p>
-        </header>
+export default function CV({ cvData }: HomeProps) {
+  const { t } = useTranslation('common');
+  const [showArrow, setShowArrow] = useState(true);
 
-        <section id="experience" className="mb-16">
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <>
+      <div id="about" className="min-h-[90vh] flex flex-col justify-center items-center relative">
+        <div className="text-center space-y-4 -mt-32">
+          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+            {cvData.basics.name}
+          </h1>
+          <p className="text-2xl text-gray-400">{cvData.basics.label}</p>
+        </div>
+        <AnimatePresence>
+          {showArrow && (
+            <motion.div 
+              className="absolute bottom-24 inset-x-0 mx-auto w-fit"
+              animate={{ y: [0, 10, 0] }}
+              exit={{ 
+                opacity: 0,
+                y: 10,
+                transition: { duration: 0.5 }
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: showArrow ? Infinity : 0,
+                ease: "easeInOut",
+                repeatType: "reverse"
+              }}
+            >
+              <ChevronDownIcon className="w-12 h-12 text-blue-400" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <div className="py-24">
+        <section id="experience">
           <WorkExperience work={cvData.work} />
         </section>
 
-        <section id="skills" className="mb-16">
+        <section id="skills" className="mt-24">
           <Skills skills={cvData.skills} />
         </section>
 
-        <section id="projects" className="mb-16">
+        <section id="projects" className="mt-24">
           <Projects projects={cvData.projects} />
         </section>
 
-        <section id="contact" className="mb-16">
+        <section id="languages" className="mt-24">
+          <LanguageSkills languageSkills={cvData.languageSkills} />
+        </section>
+
+        <section id="contact" className="mt-24">
           <Contact
             email={cvData.basics.email}
             location={cvData.basics.location}
           />
         </section>
       </div>
-    </div>
+    </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('getStaticProps - Locale:', context.locale); // Debug log
+  console.log('getStaticProps - Locale:', context.locale);
 
-  const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
+  const lang = context.locale || 'en';
 
-  // Safely load the data file and handle errors gracefully
   const cvData = await import(`../../data/cv-${lang}.json`)
     .then((m) => m.default)
     .catch((e) => {
       console.error('Error loading CV data:', e);
-      return null; // Return null if data fails to load
+      return null;
     });
 
   if (!cvData) {
     return {
-      notFound: true, // Trigger a 404 if data is missing
+      notFound: true,
     };
   }
 
   return {
     props: {
-      cvData, // Return the correct variable
+      cvData,
       ...(await serverSideTranslations(lang, ['common'])),
     },
   };

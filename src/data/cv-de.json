@@ -18,6 +18,28 @@
       }
     ]
   },
+  "languageSkills": [
+    {
+      "language": "Deutsch",
+      "level": "Muttersprache",
+      "skills": {
+        "speaking": "Fliessend",
+        "writing": "Muttersprache",
+        "listening": "Muttersprache",
+        "reading": "Muttersprache"
+      }
+    },
+    {
+      "language": "Englisch",
+      "level": "Fliessend",
+      "skills": {
+        "speaking": "Verhandlungssicher",
+        "writing": "Verhandlungssicher",
+        "listening": "Fliessend",
+        "reading": "Fliessend"
+      }
+    }
+  ],
   "work": [
     {
       "company": "Zentrum Berufsintegration Baselland",
@@ -34,43 +56,43 @@
   ],
   "skills": [
     {
-      "name": "Windows Systemadministration",
+      "name": "Windows-Systemadministration",
       "level": 85,
-      "keywords": ["Registry-Bearbeitung", "Systemoptimierung", "Hardware-Montage"],
+      "keywords": ["Registry", "Systemoptimierung", "Hardware-Montage"],
       "category": "Betriebssysteme",
       "description": "Versiert in Windows-Konfiguration, Leistungsoptimierung und PC-Zusammenbau.",
       "yearsOfExperience": 3,
       "relatedSkills": ["Fehlerbehebung", "Hardware-Reparatur"]
     },
     {
-      "name": "Grundlegende Netzwerktechnik",
+      "name": "Netzwerktechnik",
       "level": 70,
-      "keywords": ["LAN-Einrichtung", "Switch-Konfiguration", "Syncthing"],
+      "keywords": ["LAN", "Switch", "Syncthing"],
       "category": "IT-Infrastruktur",
-      "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschließlich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
+      "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschliesslich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall-Grundlagen"]
+      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
     },
     {
       "name": "Java (Anfänger)",
       "level": 35,
-      "keywords": ["Java-Grundlagen", "Einfache Spiele-Skripte", "Objektorientierte Programmierung"],
+      "keywords": ["Java", "Spiele-Skripte", "Objektorientierte Programmierung"],
       "category": "Programmiersprachen",
       "description": "Erstellung kleiner Skripte für Spiele und grundlegende Java-Anwendungen. Vertraut mit Modding und Erweiterung bestehender Projekte.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["IDE-Nutzung", "Versionskontrolle"]
+      "relatedSkills": ["IDE", "Git"]
     },
     {
       "name": "3D-Druck & Modellierung",
       "level": 65,
-      "keywords": ["CAD", "Cura", "LAN-verbundene Drucker"],
+      "keywords": ["CAD", "Cura", "Netzwerk-Drucker"],
       "category": "Fertigung & Design",
-      "description": "Praktische Erfahrung mit 3D-Druckern (Craftbot Flow Index, Formlabs 3) und grundlegender 3D-Modellierung für Prototyping.",
+      "description": "Praktische Erfahrung mit 3D-Druckern (Craftbot Flow IDEX, Formlabs 3) und grundlegender 3D-Modellierung für Prototyping.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["CNC-Nutzung", "Laserschneiden"]
+      "relatedSkills": ["CNC", "Laserschneiden"]
     },
     {
-      "name": "Office & Produktivitätstools",
+      "name": "Büro- & Produktivitätstools",
       "level": 80,
       "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
       "category": "Software-Kenntnisse",
@@ -81,7 +103,7 @@
   ],
   "projects": [
     {
-      "name": "Interaktiver Lebenslauf",
+      "name": "Interactive CV",
       "description": "Ein moderner, interaktiver webbasierter Lebenslauf mit Next.js und TypeScript",
       "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       "sourceUrl": "https://github.com/Leon-Hoeck/CV",
@@ -92,32 +114,22 @@
       ]
     },
     {
-      "name": "Werkstatt-Netzwerk-Einrichtung",
+      "name": "Workshop Network Setup",
       "description": "Konzeption und Implementierung eines lokalen Werkstattnetzwerks für Echtzeit-Datensynchronisation zwischen mehreren Geräten.",
       "technologies": [
         "Syncthing",
-        "LAN-Netzwerke",
-        "Switch-Konfiguration",
-        "3D-Drucker (Craftbot Flow Index, Formlabs 3)",
-        "CNC-Maschinen",
-        "Laserschneider"
+        "LAN",
+        "Switch",
+        "Craftbot Flow IDEX",
+        "Formlabs 3",
+        "CNC",
+        "Laser Cutting"
       ],
       "sourceUrl": "",
       "highlights": [
         "Konfiguration von drei Werkstatt-PCs für sichere und sofortige Dateisynchronisation via Syncthing",
-        "Einrichtung direkter LAN-Verbindungen für 3D-Drucker und CNC-Maschinen zur Minimierung von USB-Stick-Transfers",
+        "Einrichtung direkter LAN-Verbindungen für 3D-Drucker und CNC-Maschinen",
         "Optimierung des Workflows durch zentralisierten Datenzugriff und -aktualisierungen für Mitarbeiter und Schüler"
-      ]
-    },
-    {
-      "name": "Diverse 3D-Druck & CNC-Projekte",
-      "description": "Kurze Prototypen und Designs, erstellt mit 3D-Druckern, Laserschneidern und CNC-Maschinen in der Werkstatt.",
-      "technologies": ["3D-Modellierung (CAD)", "CNC-Fräse", "Laserschneider"],
-      "sourceUrl": "",
-      "highlights": [
-        "Erlernen von 3D-Modellierung-Grundlagen und Slicer-Software-Nutzung",
-        "Herstellung funktionaler Prototypen mit minimalem Ausschuss",
-        "Praktische Erfahrung mit Hardware, Sicherheitsprotokollen und Maschinenbedienung"
       ]
     }
   ]

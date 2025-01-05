@@ -1,44 +1,54 @@
 import React from 'react';
-import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { MainData } from '../types/main';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+
+interface MainData {
+  title: string;
+  text: string;
+  cv: string;
+  contact: {
+    title: string;
+  };
+}
 
 interface HomeProps {
   mainData: MainData;
 }
 
 export default function Home({ mainData }: HomeProps) {
+  const { t } = useTranslation('common');
+
   return (
-    <div className="min-h-screen w-full bg-gray-900 flex flex-col items-center justify-center text-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header id="about" className="mb-16">
-          <h1 className="text-4xl font-bold mb-4 text-white">{mainData.title}</h1>
-          <p className="text-xl text-gray-400 mb-6">{mainData.text}</p>
-          <Link
-            href="/cv"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-          >
-            {mainData.cv}
-          </Link>
-        </header>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold mb-4 text-white">{mainData.title}</h1>
+        <p className="text-xl text-gray-400 mb-8 max-w-2xl">{mainData.text}</p>
+        <Link
+          href="/cv"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+        >
+          {mainData.cv}
+        </Link>
       </div>
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('getStaticProps - Locale:', context.locale); // Debug log
+  const lang = context.locale || 'en';
+  const mainData = await import(`../data/main-${lang}.json`)
+    .then((m) => m.default)
+    .catch((e) => {
+      console.error('Error loading main data:', e);
+      return null;
+    });
 
-  const lang = context.locale || 'en'; // Use the locale detected by middleware or fallback
-  
-  // Try to load locale-specific data, fallback to English if not found
-  let mainData;
-  try {
-    mainData = await import(`../data/main-${lang}.json`).then((m) => m.default);
-  } catch (error) {
-    console.warn(`Locale data not found for ${lang}, falling back to English`);
-    mainData = await import(`../data/main-en.json`).then((m) => m.default);
+  if (!mainData) {
+    return {
+      notFound: true,
+    };
   }
 
   return {

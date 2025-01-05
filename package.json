@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Leon-Hoeck/Private-CV.git"
+    "url": "https://github.com/Leon-Hoeck/cv.git"
   },
   "scripts": {
     "find:unused": "next-unused",

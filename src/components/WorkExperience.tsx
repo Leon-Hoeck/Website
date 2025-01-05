@@ -11,7 +11,7 @@ export default function WorkExperience({ work }: WorkExperienceProps) {
   const { t } = useTranslation('common');
 
   return (
-    <section className="py-12">
+    <section className="py-8">
       <h2 className="text-3xl font-bold mb-8 text-white">{t('work.title')}</h2>
       <div className="space-y-8">
         {work.map((job, index) => (

@@ -8,30 +8,39 @@
   },
   "skills": {
     "title": "Fähigkeiten",
+    "relatedSkills": "Verwandte Fähigkeiten & Technologien",
     "categories": {
       "Programming Languages": "Programmiersprachen",
       "Frameworks": "Frameworks & Bibliotheken",
       "Tools": "Tools & Technologien",
       "Soft Skills": "Soft Skills"
+    },
+    "levels": {
+      "master": "Meister",
+      "expert": "Experte",
+      "advanced": "Fortgeschritten",
+      "intermediate": "Mittelstufe",
+      "beginner": "Anfänger"
     }
   },
   "work": {
     "title": "Berufserfahrung",
-    "present": "Heute"
+    "present": "Aktuell"
   },
   "languages": {
     "title": "Sprachen",
+    "proficiency": "Sprachniveau",
     "fluency": {
       "native": "Muttersprache",
-      "fluent": "Fließend",
-      "professional": "Verhandlungssicher",
+      "fluent": "Fliessend",
+      "professional": "Geschäftsfähig",
       "intermediate": "Fortgeschritten",
       "basic": "Grundkenntnisse"
     }
   },
   "projects": {
     "title": "Projekte",
-    "live": "Live Demo",
+    "live": "Live Version",
     "source": "Quellcode"
   },
   "title": "Platzhalter",

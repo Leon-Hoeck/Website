@@ -18,6 +18,28 @@
       }
     ]
   },
+  "languageSkills": [
+    {
+      "language": "German",
+      "level": "Mother Tongue",
+      "skills": {
+        "speaking": "Fluent",
+        "writing": "Native",
+        "listening": "Native",
+        "reading": "Native"
+      }
+    },
+    {
+      "language": "English",
+      "level": "Fluent",
+      "skills": {
+        "speaking": "Professional",
+        "writing": "Professional",
+        "listening": "Fluent",
+        "reading": "Fluent"
+      }
+    }
+  ],
   "work": [
     {
       "company": "Zentrum Berufsintegration Basel-Country",
@@ -34,7 +56,7 @@
   ],
   "skills": [
     {
-      "name": "Windows System Administration",
+      "name": "Windows System Admin",
       "level": 85,
       "keywords": ["Registry Editing", "System Performance Optimization", "Hardware Assembly"],
       "category": "Operating Systems",

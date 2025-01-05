@@ -8,11 +8,19 @@
   },
   "skills": {
     "title": "Skills",
+    "relatedSkills": "Related Skills & Technologies",
     "categories": {
       "Programming Languages": "Programming Languages",
       "Frameworks": "Frameworks & Libraries",
       "Tools": "Tools & Technologies",
       "Soft Skills": "Soft Skills"
+    },
+    "levels": {
+      "master": "Master",
+      "expert": "Expert",
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner"
     }
   },
   "work": {
@@ -21,6 +29,7 @@
   },
   "languages": {
     "title": "Languages",
+    "proficiency": "Proficiency Details",
     "fluency": {
       "native": "Native",
       "fluent": "Fluent",

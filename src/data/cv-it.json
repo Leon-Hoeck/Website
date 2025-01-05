@@ -18,6 +18,28 @@
       }
     ]
   },
+  "languageSkills": [
+    {
+      "language": "Tedesco",
+      "level": "Madrelingua",
+      "skills": {
+        "speaking": "Fluente",
+        "writing": "Madrelingua",
+        "listening": "Madrelingua",
+        "reading": "Madrelingua"
+      }
+    },
+    {
+      "language": "Inglese",
+      "level": "Fluente",
+      "skills": {
+        "speaking": "Professionale",
+        "writing": "Professionale",
+        "listening": "Fluente",
+        "reading": "Fluente"
+      }
+    }
+  ],
   "work": [
     {
       "company": "Centro di Integrazione Professionale Basilea Campagna",
@@ -36,34 +58,52 @@
     {
       "name": "Amministrazione Sistema Windows",
       "level": 85,
-      "keywords": ["Modifica Registry", "Ottimizzazione Prestazioni", "Assemblaggio Hardware"],
+      "keywords": ["Registry", "Ottimizzazione sistema", "Hardware e componenti"],
       "category": "Sistemi Operativi",
       "description": "Competente nella configurazione Windows, ottimizzazione prestazioni e assemblaggio PC.",
       "yearsOfExperience": 3,
-      "relatedSkills": ["Risoluzione Problemi", "Riparazione Hardware"]
+      "relatedSkills": ["Risoluzione problemi", "Riparazione componenti"]
     },
     {
-      "name": "Reti di Base",
+      "name": "Reti e Connettività",
       "level": 70,
-      "keywords": ["Configurazione LAN", "Configurazione Switch", "Syncthing"],
+      "keywords": ["LAN", "Switch", "Syncthing"],
       "category": "Infrastruttura IT",
       "description": "Esperienza pratica nella progettazione di piccole reti, soluzioni di sincronizzazione file e gestione dispositivi in rete.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Basi Firewall"]
+      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
     },
     {
       "name": "Java (Principiante)",
       "level": 35,
-      "keywords": ["Basi Java", "Script Giochi Semplici", "Programmazione Orientata agli Oggetti"],
+      "keywords": ["Java", "Script per giochi", "Programmazione orientata agli oggetti"],
       "category": "Linguaggi di Programmazione",
       "description": "Creazione di piccoli script per giochi e applicazioni Java base. Familiare con modding ed estensione di progetti esistenti.",
       "yearsOfExperience": 1,
-      "relatedSkills": ["Uso IDE", "Controllo Versione"]
+      "relatedSkills": ["IDE", "Git"]
+    },
+    {
+      "name": "Stampa e Modellazione 3D",
+      "level": 65,
+      "keywords": ["CAD", "Cura", "Stampanti in rete"],
+      "category": "Fabbricazione & Design",
+      "description": "Esperienza pratica con stampanti 3D (Craftbot Flow IDEX, Formlabs 3) e modellazione 3D base per prototipazione.",
+      "yearsOfExperience": 1,
+      "relatedSkills": ["CNC", "Taglio laser"]
+    },
+    {
+      "name": "Strumenti Office & Produttività",
+      "level": 80,
+      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "category": "Competenza Software",
+      "description": "Abile nell'utilizzo di Word, Excel, PowerPoint, Outlook, suite LibreOffice e strumenti Adobe Creative Cloud per varie attività.",
+      "yearsOfExperience": 4,
+      "relatedSkills": ["Documentazione", "Presentazione"]
     }
   ],
   "projects": [
     {
-      "name": "CV Interattivo",
+      "name": "Interactive CV",
       "description": "Un CV web moderno e interattivo costruito con Next.js e TypeScript",
       "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       "sourceUrl": "https://github.com/Leon-Hoeck/CV",
@@ -74,20 +114,33 @@
       ]
     },
     {
-      "name": "Configurazione Rete Laboratorio",
+      "name": "Workshop Network Setup",
       "description": "Progettazione e implementazione di una rete locale per la sincronizzazione dati in tempo reale tra più dispositivi.",
       "technologies": [
         "Syncthing",
-        "Reti LAN",
-        "Configurazione Switch",
-        "Stampanti 3D",
-        "Macchine CNC",
-        "Taglio Laser"
+        "LAN",
+        "Switch",
+        "Craftbot Flow IDEX",
+        "Formlabs 3",
+        "CNC",
+        "Laser Cutting"
       ],
+      "sourceUrl": "",
       "highlights": [
         "Configurazione di tre PC laboratorio per sincronizzazione sicura via Syncthing",
         "Attivazione connessioni LAN dirette per stampanti 3D e macchine CNC",
-        "Ottimizzazione del flusso di lavoro tramite centralizzazione dati"
+        "Ottimizzazione del flusso di lavoro tramite centralizzazione dati per staff e studenti"
+      ]
+    },
+    {
+      "name": "Progetti Vari di Stampa 3D & CNC",
+      "description": "Prototipi e design creati utilizzando stampanti 3D, tagliatrici laser e macchine CNC nel laboratorio.",
+      "technologies": ["CAD", "CNC", "Laser Cutting"],
+      "sourceUrl": "",
+      "highlights": [
+        "Apprendimento dei fondamenti della modellazione 3D e utilizzo del software di slicing",
+        "Produzione di prototipi funzionali con minimo scarto",
+        "Acquisizione di esperienza pratica con hardware, protocolli di sicurezza e funzionamento delle macchine"
       ]
     }
   ]
