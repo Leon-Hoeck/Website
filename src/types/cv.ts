@@ -23,7 +23,10 @@ export interface CVData {
   skills: {
     name: string;
     level: number;
-    keywords: string[];
+    keywords: Array<{
+      name: string;
+      level: number;
+    }>;
     category: string;
     description?: string;
     yearsOfExperience?: number;

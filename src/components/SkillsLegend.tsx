@@ -6,7 +6,10 @@ interface SkillsLegendProps {
   skills: {
     name: string;
     level: number;
-    keywords?: string[];
+    keywords: Array<{
+      name: string;
+      level: number;
+    }>;
   }[];
   selectedSkill: string | null;
   onSkillSelect: (skillName: string | null) => void;
@@ -82,7 +85,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
         {skills.map((skill, index) => (
           <motion.button
             key={skill.name}
-            className={`flex items-center space-x-2 p-2 rounded-lg transition-all duration-300 relative overflow-hidden ${
+            className={`flex flex-col items-start p-3 rounded-lg transition-all duration-300 relative overflow-hidden w-full ${
               selectedSkill === skill.name 
                 ? 'bg-gray-700 ring-1 ring-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
                 : 'hover:bg-gray-800 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)]'
@@ -108,11 +111,16 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
                 style={{ pointerEvents: 'none' }}
               />
             )}
-            <div className={`w-3 h-3 rounded-full transition-colors ${
-              selectedSkill === skill.name ? 'bg-blue-500' : 'bg-blue-500/70'
-            }`} />
-            <span className="text-sm text-gray-300">
-              {skill.name} - {(() => {
+            <div className="flex items-center space-x-2 mb-1">
+              <div className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                selectedSkill === skill.name ? 'bg-blue-500' : 'bg-blue-500/70'
+              }`} />
+              <span className="text-sm font-medium text-gray-200">
+                {skill.name}
+              </span>
+            </div>
+            <span className="text-xs text-gray-400 ml-4">
+              {(() => {
                 const level = skill.level;
                 let levelKey = 'skills.levels.beginner';
                 if (level >= 90) levelKey = 'skills.levels.master';
@@ -141,7 +149,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
             className="overflow-hidden"
           >
             <motion.div
-              className="bg-gray-800 rounded-lg relative overflow-hidden group hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+              className="group bg-gray-800 rounded-lg relative overflow-hidden shadow-lg transition-all duration-300"
               initial={false}
               layout
             >
@@ -149,6 +157,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
                 className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/5 transition-all duration-500"
                 initial={false}
               />
+              <div className="absolute inset-0 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] rounded-lg transition-all duration-300" />
               <div className="relative z-10 p-4">
                 <h4 className="text-sm font-medium text-gray-400 mb-3">
                   {t('skills.relatedSkills')}
@@ -156,7 +165,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
                 <div className="flex flex-wrap gap-2">
                   {selectedSkillData.keywords.map((keyword) => (
                     <motion.span
-                      key={keyword}
+                      key={keyword.name}
                       className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm relative"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -164,7 +173,7 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      {keyword}
+                      {keyword.name}
                     </motion.span>
                   ))}
                 </div>

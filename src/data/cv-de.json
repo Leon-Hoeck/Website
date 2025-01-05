@@ -58,16 +58,24 @@
     {
       "name": "Windows-Systemadministration",
       "level": 85,
-      "keywords": ["Registry", "Systemoptimierung", "Hardware-Montage"],
+      "keywords": [
+        { "name": "Gruppenrichtlinienverwaltung", "level": 70 },
+        { "name": "Systemleistungsoptimierung", "level": 95 },
+        { "name": "Hardware-Montage", "level": 65 }
+      ],
       "category": "Betriebssysteme",
       "description": "Versiert in Windows-Konfiguration, Leistungsoptimierung und PC-Zusammenbau.",
-      "yearsOfExperience": 3,
+      "yearsOfExperience": 6,
       "relatedSkills": ["Fehlerbehebung", "Hardware-Reparatur"]
     },
     {
       "name": "Netzwerktechnik",
-      "level": 70,
-      "keywords": ["LAN", "Switch", "Syncthing"],
+      "level": 65,
+      "keywords": [
+        { "name": "LAN-Einrichtung", "level": 75 },
+        { "name": "TCP/IP + Port Forwarding", "level": 65 },
+        { "name": "Multi-Geräte-Synchronisation", "level": 65 }
+      ],
       "category": "IT-Infrastruktur",
       "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschliesslich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
       "yearsOfExperience": 1,
@@ -75,8 +83,12 @@
     },
     {
       "name": "Java (Anfänger)",
-      "level": 35,
-      "keywords": ["Java", "Spiele-Skripte", "Objektorientierte Programmierung"],
+      "level": 25,
+      "keywords": [
+        { "name": "Java-Grundlagen", "level": 40 },
+        { "name": "Einfache Spiele-Skripte", "level": 55 },
+        { "name": "Modding", "level": 35 }
+      ],
       "category": "Programmiersprachen",
       "description": "Erstellung kleiner Skripte für Spiele und grundlegende Java-Anwendungen. Vertraut mit Modding und Erweiterung bestehender Projekte.",
       "yearsOfExperience": 1,
@@ -85,7 +97,12 @@
     {
       "name": "3D-Druck & Modellierung",
       "level": 65,
-      "keywords": ["CAD", "Cura", "Netzwerk-Drucker"],
+      "keywords": [
+        { "name": "CAD", "level": 70 },
+        { "name": "Fusion 360", "level": 55 },
+        { "name": "Blender", "level": 15 },
+        { "name": "Netzwerk-Drucker", "level": 65 }
+      ],
       "category": "Fertigung & Design",
       "description": "Praktische Erfahrung mit 3D-Druckern (Craftbot Flow IDEX, Formlabs 3) und grundlegender 3D-Modellierung für Prototyping.",
       "yearsOfExperience": 1,
@@ -94,7 +111,11 @@
     {
       "name": "Büro- & Produktivitätstools",
       "level": 80,
-      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "keywords": [
+        { "name": "Microsoft Office", "level": 90 },
+        { "name": "LibreOffice", "level": 55 },
+        { "name": "Adobe CC", "level": 65 }
+      ],
       "category": "Software-Kenntnisse",
       "description": "Versiert in der Nutzung von Word, Excel, PowerPoint, Outlook, LibreOffice Suite und Adobe Creative Cloud Tools für verschiedene Aufgaben.",
       "yearsOfExperience": 4,
@@ -120,16 +141,26 @@
         "Syncthing",
         "LAN",
         "Switch",
-        "Craftbot Flow IDEX",
-        "Formlabs 3",
-        "CNC",
-        "Laser Cutting"
+        "3D-Drucker (Craftbot Flow IDEX, Formlabs 3)",
+        "CNC-Maschinen",
+        "Laserschneider"
       ],
       "sourceUrl": "",
       "highlights": [
         "Konfiguration von drei Werkstatt-PCs für sichere und sofortige Dateisynchronisation via Syncthing",
         "Einrichtung direkter LAN-Verbindungen für 3D-Drucker und CNC-Maschinen",
         "Optimierung des Workflows durch zentralisierten Datenzugriff und -aktualisierungen für Mitarbeiter und Schüler"
+      ]
+    },
+    {
+      "name": "3D-Druck & CNC-Projekte",
+      "description": "Kurze Prototypen und Designs, erstellt mit 3D-Druckern, Laserschneidern und CNC-Maschinen in der Werkstatt.",
+      "technologies": ["3D-Modellierung (CAD)", "CNC-Fräse", "Laserschneider"],
+      "sourceUrl": "",
+      "highlights": [
+        "Grundlagen der 3D-Modellierung und Slicer-Software erlernt",
+        "Funktionale Prototypen mit minimalem Materialverlust produziert",
+        "Praktische Erfahrung mit Hardware, Sicherheitsprotokollen und Maschinenbedienung gesammelt"
       ]
     }
   ]

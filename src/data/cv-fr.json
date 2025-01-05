@@ -58,16 +58,24 @@
     {
       "name": "Administration Système Windows",
       "level": 85,
-      "keywords": ["Registry", "Optimisation système", "Matériel informatique"],
+      "keywords": [
+        { "name": "Gestion des Stratégies de Groupe", "level": 70 },
+        { "name": "Optimisation des Performances", "level": 95 },
+        { "name": "Assemblage Matériel", "level": 65 }
+      ],
       "category": "Systèmes d'Exploitation",
       "description": "Compétent en configuration Windows, optimisation des performances et assemblage PC.",
-      "yearsOfExperience": 3,
+      "yearsOfExperience": 6,
       "relatedSkills": ["Dépannage", "Réparation du matériel informatique"]
     },
     {
       "name": "Réseaux et Connectivité",
-      "level": 70,
-      "keywords": ["LAN", "Switch", "Syncthing"],
+      "level": 65,
+      "keywords": [
+        { "name": "Configuration LAN", "level": 75 },
+        { "name": "TCP/IP + Redirection de Ports", "level": 65 },
+        { "name": "Synchronisation Multi-Appareils", "level": 65 }
+      ],
       "category": "Infrastructure IT",
       "description": "Expérience pratique en conception de petits réseaux, solutions de synchronisation de fichiers et gestion d'appareils en réseau.",
       "yearsOfExperience": 1,
@@ -75,8 +83,12 @@
     },
     {
       "name": "Java (Débutant)",
-      "level": 35,
-      "keywords": ["Java", "Scripts de jeux", "Programmation orientée objet"],
+      "level": 25,
+      "keywords": [
+        { "name": "Bases de Java", "level": 40 },
+        { "name": "Scripts de Jeux Simples", "level": 55 },
+        { "name": "Modding", "level": 35 }
+      ],
       "category": "Langages de Programmation",
       "description": "Création de petits scripts pour jeux et applications Java basiques. Familier avec le modding et l'extension de projets existants.",
       "yearsOfExperience": 1,
@@ -85,7 +97,12 @@
     {
       "name": "Impression et Modélisation 3D",
       "level": 65,
-      "keywords": ["CAD", "Cura", "Imprimantes en réseau"],
+      "keywords": [
+        { "name": "CAD", "level": 70 },
+        { "name": "Fusion 360", "level": 55 },
+        { "name": "Blender", "level": 15 },
+        { "name": "Imprimantes en Réseau", "level": 65 }
+      ],
       "category": "Fabrication & Design",
       "description": "Expérience pratique avec les imprimantes 3D (Craftbot Flow IDEX, Formlabs 3) et modélisation 3D de base pour le prototypage.",
       "yearsOfExperience": 1,
@@ -94,7 +111,11 @@
     {
       "name": "Outils Bureautiques & Productivité",
       "level": 80,
-      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "keywords": [
+        { "name": "Microsoft Office", "level": 90 },
+        { "name": "LibreOffice", "level": 55 },
+        { "name": "Adobe CC", "level": 65 }
+      ],
       "category": "Maîtrise Logicielle",
       "description": "Compétent dans l'utilisation de Word, Excel, PowerPoint, Outlook, suite LibreOffice et outils Adobe Creative Cloud pour diverses tâches.",
       "yearsOfExperience": 4,
@@ -120,10 +141,9 @@
         "Syncthing",
         "LAN",
         "Switch",
-        "Craftbot Flow IDEX",
-        "Formlabs 3",
-        "CNC",
-        "Laser Cutting"
+        "Imprimantes 3D (Craftbot Flow IDEX, Formlabs 3)",
+        "Machines CNC",
+        "Découpeuse Laser"
       ],
       "sourceUrl": "",
       "highlights": [
@@ -133,9 +153,9 @@
       ]
     },
     {
-      "name": "Divers Projets d'Impression 3D & CNC",
+      "name": "Projets d'Impression 3D & CNC",
       "description": "Prototypes et designs créés à l'aide d'imprimantes 3D, découpeuses laser et machines CNC dans l'atelier.",
-      "technologies": ["CAD", "CNC", "Découpe Laser"],
+      "technologies": ["Modélisation 3D (CAD)", "Fraiseuse CNC", "Découpeuse Laser"],
       "sourceUrl": "",
       "highlights": [
         "Apprentissage des fondamentaux de la modélisation 3D et utilisation de logiciels de tranchage",
