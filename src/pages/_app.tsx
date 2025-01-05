@@ -2,7 +2,6 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import Layout from '../components/Layout';
-import '../i18n';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';

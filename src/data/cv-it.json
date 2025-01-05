@@ -58,16 +58,24 @@
     {
       "name": "Amministrazione Sistema Windows",
       "level": 85,
-      "keywords": ["Registry", "Ottimizzazione sistema", "Hardware e componenti"],
+      "keywords": [
+        { "name": "Gestione Criteri di Gruppo", "level": 70 },
+        { "name": "Ottimizzazione Prestazioni", "level": 95 },
+        { "name": "Assemblaggio Hardware", "level": 65 }
+      ],
       "category": "Sistemi Operativi",
       "description": "Competente nella configurazione Windows, ottimizzazione prestazioni e assemblaggio PC.",
-      "yearsOfExperience": 3,
+      "yearsOfExperience": 6,
       "relatedSkills": ["Risoluzione problemi", "Riparazione componenti"]
     },
     {
       "name": "Reti e Connettività",
-      "level": 70,
-      "keywords": ["LAN", "Switch", "Syncthing"],
+      "level": 65,
+      "keywords": [
+        { "name": "Configurazione LAN", "level": 75 },
+        { "name": "TCP/IP + Port Forwarding", "level": 65 },
+        { "name": "Sincronizzazione Multi-Dispositivo", "level": 65 }
+      ],
       "category": "Infrastruttura IT",
       "description": "Esperienza pratica nella progettazione di piccole reti, soluzioni di sincronizzazione file e gestione dispositivi in rete.",
       "yearsOfExperience": 1,
@@ -75,8 +83,12 @@
     },
     {
       "name": "Java (Principiante)",
-      "level": 35,
-      "keywords": ["Java", "Script per giochi", "Programmazione orientata agli oggetti"],
+      "level": 25,
+      "keywords": [
+        { "name": "Fondamenti Java", "level": 40 },
+        { "name": "Script per Giochi Semplici", "level": 55 },
+        { "name": "Modding", "level": 35 }
+      ],
       "category": "Linguaggi di Programmazione",
       "description": "Creazione di piccoli script per giochi e applicazioni Java base. Familiare con modding ed estensione di progetti esistenti.",
       "yearsOfExperience": 1,
@@ -85,7 +97,12 @@
     {
       "name": "Stampa e Modellazione 3D",
       "level": 65,
-      "keywords": ["CAD", "Cura", "Stampanti in rete"],
+      "keywords": [
+        { "name": "CAD", "level": 70 },
+        { "name": "Fusion 360", "level": 55 },
+        { "name": "Blender", "level": 15 },
+        { "name": "Stampanti in Rete", "level": 65 }
+      ],
       "category": "Fabbricazione & Design",
       "description": "Esperienza pratica con stampanti 3D (Craftbot Flow IDEX, Formlabs 3) e modellazione 3D base per prototipazione.",
       "yearsOfExperience": 1,
@@ -94,7 +111,11 @@
     {
       "name": "Strumenti Office & Produttività",
       "level": 80,
-      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "keywords": [
+        { "name": "Microsoft Office", "level": 90 },
+        { "name": "LibreOffice", "level": 55 },
+        { "name": "Adobe CC", "level": 65 }
+      ],
       "category": "Competenza Software",
       "description": "Abile nell'utilizzo di Word, Excel, PowerPoint, Outlook, suite LibreOffice e strumenti Adobe Creative Cloud per varie attività.",
       "yearsOfExperience": 4,
@@ -120,10 +141,9 @@
         "Syncthing",
         "LAN",
         "Switch",
-        "Craftbot Flow IDEX",
-        "Formlabs 3",
-        "CNC",
-        "Laser Cutting"
+        "Stampanti 3D (Craftbot Flow IDEX, Formlabs 3)",
+        "Macchine CNC",
+        "Tagliatrice Laser"
       ],
       "sourceUrl": "",
       "highlights": [
@@ -133,9 +153,9 @@
       ]
     },
     {
-      "name": "Progetti Vari di Stampa 3D & CNC",
+      "name": "Progetti di Stampa 3D & CNC",
       "description": "Prototipi e design creati utilizzando stampanti 3D, tagliatrici laser e macchine CNC nel laboratorio.",
-      "technologies": ["CAD", "CNC", "Laser Cutting"],
+      "technologies": ["Modellazione 3D (CAD)", "Fresatrice CNC", "Tagliatrice Laser"],
       "sourceUrl": "",
       "highlights": [
         "Apprendimento dei fondamenti della modellazione 3D e utilizzo del software di slicing",

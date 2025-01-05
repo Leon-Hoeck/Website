@@ -56,18 +56,26 @@
   ],
   "skills": [
     {
-      "name": "Windows System Admin",
+      "name": "Windows System Administration",
       "level": 85,
-      "keywords": ["Registry Editing", "System Performance Optimization", "Hardware Assembly"],
+      "keywords": [
+        { "name": "Group Policy Management", "level": 70 },
+        { "name": "System Performance Optimization", "level": 95 },
+        { "name": "Hardware Assembly", "level": 65 }
+      ],
       "category": "Operating Systems",
       "description": "Proficient in configuring Windows systems, optimizing performance, and assembling custom PCs.",
-      "yearsOfExperience": 3,
+      "yearsOfExperience": 6,
       "relatedSkills": ["Troubleshooting", "Hardware Repair"]
     },
     {
       "name": "Basic Networking",
-      "level": 70,
-      "keywords": ["LAN Setup", "Switch Configuration", "Syncthing"],
+      "level": 65,
+      "keywords": [
+        { "name": "LAN Setup", "level": 75 },
+        { "name": "TCP/IP + Port Forwarding", "level": 65 },
+        { "name": "Multi Device Syncing", "level": 65 }
+      ],
       "category": "IT Infrastructure",
       "description": "Hands-on experience designing small networks, including file sync solutions and LAN-based device management.",
       "yearsOfExperience": 1,
@@ -75,8 +83,12 @@
     },
     {
       "name": "Java (Beginner)",
-      "level": 35,
-      "keywords": ["Java Basics", "Simple Game Scripts", "Object-Oriented Programming"],
+      "level": 25,
+      "keywords": [
+        { "name": "Java Basics", "level": 40 },
+        { "name": "Simple Game Scripts", "level": 55 },
+        { "name": "Modding", "level": 35 }
+      ],
       "category": "Programming Languages",
       "description": "Created small scripts for games and basic Java applications. Familiar with modding and extending existing projects.",
       "yearsOfExperience": 1,
@@ -85,7 +97,12 @@
     {
       "name": "3D Printing & Modeling",
       "level": 65,
-      "keywords": ["CAD", "Cura", "LAN-Connected Printers"],
+      "keywords": [
+        { "name": "CAD", "level": 70 },
+        { "name": "Fusion 360", "level": 55 },
+        { "name": "Blender", "level": 15 },
+        { "name": "LAN-Connected Printers", "level": 65 }
+      ],
       "category": "Fabrication & Design",
       "description": "Hands-on experience with 3D printers (Craftbot Flow Index, Formlabs 3) and basic 3D modeling for prototyping.",
       "yearsOfExperience": 1,
@@ -94,7 +111,11 @@
     {
       "name": "Office & Productivity Tools",
       "level": 80,
-      "keywords": ["Microsoft Office", "LibreOffice", "Adobe CC"],
+      "keywords": [
+        { "name": "Microsoft Office", "level": 90 },
+        { "name": "LibreOffice", "level": 55 },
+        { "name": "Adobe CC", "level": 65 }
+      ],
       "category": "Software Proficiency",
       "description": "Adept at using Word, Excel, PowerPoint, Outlook, LibreOffice suite, and Adobe Creative Cloud tools for varied tasks.",
       "yearsOfExperience": 4,
@@ -120,7 +141,7 @@
         "Syncthing",
         "LAN Networking",
         "Switch Configuration",
-        "3D Printers (Craftbot Flow Index, Formlabs 3)",
+        "3D Printers (Craftbot Flow IDEX, Formlabs 3)",
         "CNC Machines",
         "Laser Cutter"
       ],

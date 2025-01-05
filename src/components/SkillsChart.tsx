@@ -28,7 +28,10 @@ interface SkillsChartProps {
   skills: {
     name: string;
     level: number;
-    keywords?: string[];
+    keywords: Array<{
+      name: string;
+      level: number;
+    }>;
   }[];
   onSkillSelect?: (skillName: string | null) => void;
   selectedSkill?: string | null;
@@ -127,8 +130,8 @@ export default function SkillsChart({ skills, onSkillSelect, selectedSkill }: Sk
   const selectedSkillData = selectedSkill ? skills.find(s => s.name === selectedSkill) : null;
   const displaySkills = selectedSkillData?.keywords 
     ? selectedSkillData.keywords.map(keyword => ({
-        name: keyword,
-        level: getSubskillLevel(keyword, selectedSkillData.level),
+        name: keyword.name,
+        level: keyword.level,
         isSubskill: true
       }))
     : skills.map(skill => ({ ...skill, isSubskill: false }));
