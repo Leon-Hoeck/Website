@@ -33,9 +33,15 @@ function App({ Component, pageProps }: AppProps) {
     }
   }, [router]);
 
+  const getTitle = () => {
+    const name = pageProps.cvData?.basics?.name || "Leon Höck";
+    return name;
+  };
+
   return (
     <>
       <Head>
+        <title>{getTitle()}</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Layout profiles={profiles}>
