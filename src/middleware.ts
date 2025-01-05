@@ -21,9 +21,12 @@ export function middleware(req: NextRequest) {
     return response;
   }
   
+  // Get the base domain without any subdomain
+  const baseDomain = hostname.split('.').slice(-2).join('.');
+  
   const baseUrl = isDev 
     ? `http://en.localhost:3000`
-    : `https://en.${hostname.replace(`${subdomain}.`, '')}`;
+    : `https://en.${baseDomain}`;
   
   return NextResponse.redirect(new URL(url.pathname, baseUrl));
 } 
