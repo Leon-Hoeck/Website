@@ -6,7 +6,19 @@ import SkillsChart from './SkillsChart';
 import SkillsLegend from './SkillsLegend';
 
 interface SkillsProps {
-  skills: CVData['skills'];
+  skills: Array<{
+    name: string;
+    level: number;
+    keywords: Array<{
+      name: string;
+      level: number;
+    }>;
+    category: string;
+    description: {
+      text: string;
+      yearsOfExperience: number;
+    };
+  }>;
 }
 
 export default function Skills({ skills }: SkillsProps) {

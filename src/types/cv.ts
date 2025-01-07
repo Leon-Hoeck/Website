@@ -3,24 +3,33 @@ export interface CVData {
     name: string;
     label: string;
     email: string;
-    phone?: string;
     location: {
       city: string;
       country: string;
     };
-    profiles: {
+    profiles: Array<{
       network: string;
       url: string;
-    }[];
+    }>;
   };
-  work: {
+  languageSkills: Array<{
+    language: string;
+    level: string;
+    skills: {
+      speaking: string;
+      writing: string;
+      listening: string;
+      reading: string;
+    };
+  }>;
+  work: Array<{
     company: string;
     position: string;
     startDate: string;
-    endDate?: string;
+    endDate: string;
     highlights: string[];
-  }[];
-  skills: {
+  }>;
+  skills: Array<{
     name: string;
     level: number;
     keywords: Array<{
@@ -28,27 +37,16 @@ export interface CVData {
       level: number;
     }>;
     category: string;
-    description?: string;
-    yearsOfExperience?: number;
-    relatedSkills?: string[];
-  }[];
-  languageSkills: {
-    language: string;
-    level: string;
-    skills: {
-      speaking: string;
-      listening: string;
-      writing: string;
-      reading: string;
+    description: {
+      text: string;
+      yearsOfExperience: number;
     };
-  }[];
-  projects: {
+  }>;
+  projects: Array<{
     name: string;
     description: string;
     technologies: string[];
-    image?: string;
-    liveUrl?: string;
     sourceUrl?: string;
-    highlights?: string[];
-  }[];
+    highlights: string[];
+  }>;
 } 
