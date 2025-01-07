@@ -8,12 +8,19 @@
   },
   "skills": {
     "title": "Competenze",
-    "relatedSkills": "Competenze & Tecnologie Correlate",
-    "backToOverview": "Torna alla panoramica",
+    "description": "Descrizione della Competenza",
+    "experience": "Esperienza",
+    "year": "anno",
+    "years": "anni",
+    "experienceOneLine": {
+      "singular": "anno di esperienza",
+      "plural": "anni di esperienza"
+    },
+    "backToOverview": "Torna alla Panoramica",
     "categories": {
       "Programming Languages": "Linguaggi di Programmazione",
-      "Frameworks": "Framework & Librerie",
-      "Tools": "Strumenti & Tecnologie",
+      "Frameworks": "Framework e Librerie",
+      "Tools": "Strumenti e Tecnologie",
       "Soft Skills": "Competenze Trasversali"
     },
     "levels": {
@@ -37,6 +44,12 @@
       "professional": "Professionale",
       "intermediate": "Intermedio",
       "basic": "Base"
+    },
+    "skills": {
+      "speaking": "Espressione orale",
+      "writing": "Espressione scritta",
+      "listening": "Comprensione orale",
+      "reading": "Comprensione scritta"
     }
   },
   "projects": {

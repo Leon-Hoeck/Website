@@ -60,26 +60,55 @@
       "level": 85,
       "keywords": [
         { "name": "Group Policy Management", "level": 70 },
-        { "name": "System Performance Optimization", "level": 95 },
-        { "name": "Hardware Assembly", "level": 65 }
+        { "name": "Performance Optimization", "level": 95 },
+        { "name": "Hardware Assembly", "level": 65 },
+        { "name": "System Maintenance", "level": 80 },
+        { "name": "User Account Management", "level": 75 },
+        { "name": "Security Configuration", "level": 65 },
+        { "name": "Backup & Recovery", "level": 70 }
       ],
       "category": "Operating Systems",
-      "description": "Proficient in configuring Windows systems, optimizing performance, and assembling custom PCs.",
-      "yearsOfExperience": 6,
-      "relatedSkills": ["Troubleshooting", "Hardware Repair"]
+      "description": {
+        "text": "Proficient in Windows configuration, performance optimization, and PC assembly. Experience in troubleshooting and hardware repair.",
+        "yearsOfExperience": 6
+      }
     },
     {
-      "name": "Basic Networking",
+      "name": "Networks & Connectivity",
       "level": 65,
       "keywords": [
-        { "name": "LAN Setup", "level": 75 },
+        { "name": "LAN Configuration", "level": 75 },
         { "name": "TCP/IP + Port Forwarding", "level": 65 },
-        { "name": "Multi Device Syncing", "level": 65 }
+        { "name": "Multi-Device Sync", "level": 65 },
+        { "name": "Network Security", "level": 60 },
+        { "name": "DNS Configuration", "level": 55 },
+        { "name": "DHCP Management", "level": 60 },
+        { "name": "Network Monitoring", "level": 50 }
       ],
       "category": "IT Infrastructure",
-      "description": "Hands-on experience designing small networks, including file sync solutions and LAN-based device management.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall Basics"]
+      "description": {
+        "text": "Practical experience in designing small networks, including file synchronization, VPN configuration, and LAN-based device management.",
+        "yearsOfExperience": 1
+      }
+    },
+    {
+      "name": "Web Development",
+      "level": 60,
+      "keywords": [
+        { "name": "HTML5", "level": 75 },
+        { "name": "CSS3", "level": 70 },
+        { "name": "JavaScript", "level": 65 },
+        { "name": "React", "level": 60 },
+        { "name": "Next.js", "level": 55 },
+        { "name": "TypeScript", "level": 50 },
+        { "name": "Responsive Design", "level": 65 },
+        { "name": "Git Version Control", "level": 60 }
+      ],
+      "category": "Development",
+      "description": {
+        "text": "Experience in modern web development with focus on React and TypeScript. Familiar with frontend development, UI/UX design, and version control.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Java (Beginner)",
@@ -87,12 +116,16 @@
       "keywords": [
         { "name": "Java Basics", "level": 40 },
         { "name": "Simple Game Scripts", "level": 55 },
-        { "name": "Modding", "level": 35 }
+        { "name": "Modding", "level": 35 },
+        { "name": "OOP Concepts", "level": 30 },
+        { "name": "Basic Data Structures", "level": 25 },
+        { "name": "IDE Usage", "level": 45 }
       ],
       "category": "Programming Languages",
-      "description": "Created small scripts for games and basic Java applications. Familiar with modding and extending existing projects.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["IDE Usage", "Version Control"]
+      "description": {
+        "text": "Creation of small scripts for games and basic Java applications. Familiar with IDE usage, modding, and extending existing projects.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "3D Printing & Modeling",
@@ -101,12 +134,17 @@
         { "name": "CAD", "level": 70 },
         { "name": "Fusion 360", "level": 55 },
         { "name": "Blender", "level": 15 },
-        { "name": "LAN-Connected Printers", "level": 65 }
+        { "name": "Network Printers", "level": 65 },
+        { "name": "Slicing Software", "level": 60 },
+        { "name": "Material Properties", "level": 55 },
+        { "name": "Print Optimization", "level": 50 },
+        { "name": "Post-Processing", "level": 45 }
       ],
-      "category": "Fabrication & Design",
-      "description": "Hands-on experience with 3D printers (Craftbot Flow IDEX, Formlabs 3) and basic 3D modeling for prototyping.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["CNC Usage", "Laser Cutting"]
+      "category": "Manufacturing & Design",
+      "description": {
+        "text": "Hands-on experience with 3D printers (Craftbot Flow IDEX, Formlabs 3) and basic 3D modeling for prototyping. Familiar with CNC and laser cutting.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Office & Productivity Tools",
@@ -114,12 +152,51 @@
       "keywords": [
         { "name": "Microsoft Office", "level": 90 },
         { "name": "LibreOffice", "level": 55 },
-        { "name": "Adobe CC", "level": 65 }
+        { "name": "Adobe CC", "level": 65 },
+        { "name": "Document Management", "level": 75 },
+        { "name": "Data Analysis", "level": 60 },
+        { "name": "Presentation Design", "level": 70 },
+        { "name": "Cloud Services", "level": 65 }
       ],
       "category": "Software Proficiency",
-      "description": "Adept at using Word, Excel, PowerPoint, Outlook, LibreOffice suite, and Adobe Creative Cloud tools for varied tasks.",
-      "yearsOfExperience": 4,
-      "relatedSkills": ["Documentation", "Presentation"]
+      "description": {
+        "text": "Proficient in using Word, Excel, PowerPoint, Outlook, LibreOffice suite, and Adobe Creative Cloud tools for various tasks. Experienced in documentation and presentation.",
+        "yearsOfExperience": 4
+      }
+    },
+    {
+      "name": "Digital Content Creation",
+      "level": 55,
+      "keywords": [
+        { "name": "Image Editing", "level": 65 },
+        { "name": "Vector Graphics", "level": 50 },
+        { "name": "Basic Video Editing", "level": 45 },
+        { "name": "Content Management", "level": 60 },
+        { "name": "Social Media", "level": 55 },
+        { "name": "Digital Asset Management", "level": 50 }
+      ],
+      "category": "Creative Skills",
+      "description": {
+        "text": "Experience in creating and managing digital content across various platforms and formats. Proficient with Adobe Creative Suite and social media management.",
+        "yearsOfExperience": 2
+      }
+    },
+    {
+      "name": "Project Management",
+      "level": 45,
+      "keywords": [
+        { "name": "Task Organization", "level": 55 },
+        { "name": "Time Management", "level": 60 },
+        { "name": "Team Collaboration", "level": 45 },
+        { "name": "Documentation", "level": 50 },
+        { "name": "Resource Planning", "level": 40 },
+        { "name": "Agile Principles", "level": 35 }
+      ],
+      "category": "Soft Skills",
+      "description": {
+        "text": "Basic understanding of project management principles and experience in organizing tasks and resources. Focus on effective communication and organization.",
+        "yearsOfExperience": 1
+      }
     }
   ],
   "projects": [

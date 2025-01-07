@@ -23,7 +23,7 @@
       "language": "Tedesco",
       "level": "Madrelingua",
       "skills": {
-        "speaking": "Fluente",
+        "speaking": "Madrelingua",
         "writing": "Madrelingua",
         "listening": "Madrelingua",
         "reading": "Madrelingua"
@@ -47,10 +47,10 @@
       "startDate": "2024-10",
       "endDate": "Presente",
       "highlights": [
-        "Frequentazione di un programma di integrazione e competenze a tempo pieno (Matematica, Tedesco, IT, Formazione per candidature)",
-        "Attivo in un ambiente di laboratorio per realizzare progetti con macchine guidate da software",
+        "Partecipazione a un programma di integrazione e competenze a tempo pieno (Matematica, Tedesco, IT, Formazione per candidature)",
+        "Attivo in un ambiente di laboratorio per realizzare progetti con macchine controllate da software",
         "Preparazione e invio di candidature di apprendistato per Sviluppo Applicazioni e Sviluppo Piattaforme",
-        "Raggiungimento di un ottimo risultato ICT Multicheck (1.2 & 87/100 punti) dimostrando solide competenze di base"
+        "Ottenimento di un eccellente risultato nel ICT Multicheck (1.2 & 87/100 punti) dimostrando solide competenze di base"
       ]
     }
   ],
@@ -61,12 +61,17 @@
       "keywords": [
         { "name": "Gestione Criteri di Gruppo", "level": 70 },
         { "name": "Ottimizzazione Prestazioni", "level": 95 },
-        { "name": "Assemblaggio Hardware", "level": 65 }
+        { "name": "Assemblaggio Hardware", "level": 65 },
+        { "name": "Manutenzione Sistema", "level": 80 },
+        { "name": "Gestione Utenti", "level": 75 },
+        { "name": "Configurazione Sicurezza", "level": 65 },
+        { "name": "Backup & Ripristino", "level": 70 }
       ],
       "category": "Sistemi Operativi",
-      "description": "Competente nella configurazione Windows, ottimizzazione prestazioni e assemblaggio PC.",
-      "yearsOfExperience": 6,
-      "relatedSkills": ["Risoluzione problemi", "Riparazione componenti"]
+      "description": {
+        "text": "Competente nella configurazione Windows, ottimizzazione delle prestazioni e assemblaggio PC. Esperienza in risoluzione problemi e riparazione hardware.",
+        "yearsOfExperience": 6
+      }
     },
     {
       "name": "Reti e Connettività",
@@ -74,25 +79,53 @@
       "keywords": [
         { "name": "Configurazione LAN", "level": 75 },
         { "name": "TCP/IP + Port Forwarding", "level": 65 },
-        { "name": "Sincronizzazione Multi-Dispositivo", "level": 65 }
+        { "name": "Sincronizzazione Multi-Device", "level": 65 },
+        { "name": "Sicurezza di Rete", "level": 60 },
+        { "name": "Configurazione DNS", "level": 55 },
+        { "name": "Gestione DHCP", "level": 60 },
+        { "name": "Monitoraggio Rete", "level": 50 }
       ],
       "category": "Infrastruttura IT",
-      "description": "Esperienza pratica nella progettazione di piccole reti, soluzioni di sincronizzazione file e gestione dispositivi in rete.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
+      "description": {
+        "text": "Esperienza pratica nella progettazione di piccole reti, inclusa sincronizzazione file, configurazione VPN e gestione dispositivi in rete.",
+        "yearsOfExperience": 1
+      }
+    },
+    {
+      "name": "Sviluppo Web",
+      "level": 60,
+      "keywords": [
+        { "name": "HTML5", "level": 75 },
+        { "name": "CSS3", "level": 70 },
+        { "name": "JavaScript", "level": 65 },
+        { "name": "React", "level": 60 },
+        { "name": "Next.js", "level": 55 },
+        { "name": "TypeScript", "level": 50 },
+        { "name": "Design Responsive", "level": 65 },
+        { "name": "Controllo Versione Git", "level": 60 }
+      ],
+      "category": "Sviluppo",
+      "description": {
+        "text": "Esperienza nello sviluppo web moderno con focus su React e TypeScript. Familiare con sviluppo frontend, design UI/UX e controllo versione.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Java (Principiante)",
       "level": 25,
       "keywords": [
         { "name": "Fondamenti Java", "level": 40 },
-        { "name": "Script per Giochi Semplici", "level": 55 },
-        { "name": "Modding", "level": 35 }
+        { "name": "Script Giochi Semplici", "level": 55 },
+        { "name": "Modding", "level": 35 },
+        { "name": "Concetti OOP", "level": 30 },
+        { "name": "Strutture Dati Base", "level": 25 },
+        { "name": "Utilizzo IDE", "level": 45 }
       ],
       "category": "Linguaggi di Programmazione",
-      "description": "Creazione di piccoli script per giochi e applicazioni Java base. Familiare con modding ed estensione di progetti esistenti.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["IDE", "Git"]
+      "description": {
+        "text": "Creazione di piccoli script per giochi e applicazioni Java di base. Familiare con utilizzo IDE, modding ed estensione di progetti esistenti.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Stampa e Modellazione 3D",
@@ -101,12 +134,17 @@
         { "name": "CAD", "level": 70 },
         { "name": "Fusion 360", "level": 55 },
         { "name": "Blender", "level": 15 },
-        { "name": "Stampanti in Rete", "level": 65 }
+        { "name": "Stampanti in Rete", "level": 65 },
+        { "name": "Software di Slicing", "level": 60 },
+        { "name": "Proprietà Materiali", "level": 55 },
+        { "name": "Ottimizzazione Stampa", "level": 50 },
+        { "name": "Post-processing", "level": 45 }
       ],
       "category": "Fabbricazione & Design",
-      "description": "Esperienza pratica con stampanti 3D (Craftbot Flow IDEX, Formlabs 3) e modellazione 3D base per prototipazione.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["CNC", "Taglio laser"]
+      "description": {
+        "text": "Esperienza pratica con stampanti 3D (Craftbot Flow IDEX, Formlabs 3) e modellazione 3D di base per prototipazione. Familiare con CNC e taglio laser.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Strumenti Office & Produttività",
@@ -114,12 +152,51 @@
       "keywords": [
         { "name": "Microsoft Office", "level": 90 },
         { "name": "LibreOffice", "level": 55 },
-        { "name": "Adobe CC", "level": 65 }
+        { "name": "Adobe CC", "level": 65 },
+        { "name": "Gestione Documenti", "level": 75 },
+        { "name": "Analisi Dati", "level": 60 },
+        { "name": "Design Presentazioni", "level": 70 },
+        { "name": "Servizi Cloud", "level": 65 }
       ],
-      "category": "Competenza Software",
-      "description": "Abile nell'utilizzo di Word, Excel, PowerPoint, Outlook, suite LibreOffice e strumenti Adobe Creative Cloud per varie attività.",
-      "yearsOfExperience": 4,
-      "relatedSkills": ["Documentazione", "Presentazione"]
+      "category": "Competenze Software",
+      "description": {
+        "text": "Competente nell'uso di Word, Excel, PowerPoint, Outlook, suite LibreOffice e strumenti Adobe Creative Cloud per varie attività. Esperto in documentazione e presentazione.",
+        "yearsOfExperience": 4
+      }
+    },
+    {
+      "name": "Creazione Contenuti Digitali",
+      "level": 55,
+      "keywords": [
+        { "name": "Editing Immagini", "level": 65 },
+        { "name": "Grafica Vettoriale", "level": 50 },
+        { "name": "Editing Video Base", "level": 45 },
+        { "name": "Gestione Contenuti", "level": 60 },
+        { "name": "Social Media", "level": 55 },
+        { "name": "Gestione Media Digitali", "level": 50 }
+      ],
+      "category": "Competenze Creative",
+      "description": {
+        "text": "Esperienza nella creazione e gestione di contenuti digitali su varie piattaforme e formati. Competente con Adobe Creative Suite e gestione social media.",
+        "yearsOfExperience": 2
+      }
+    },
+    {
+      "name": "Gestione Progetti",
+      "level": 45,
+      "keywords": [
+        { "name": "Organizzazione Attività", "level": 55 },
+        { "name": "Gestione Tempo", "level": 60 },
+        { "name": "Collaborazione Team", "level": 45 },
+        { "name": "Documentazione", "level": 50 },
+        { "name": "Pianificazione Risorse", "level": 40 },
+        { "name": "Principi Agile", "level": 35 }
+      ],
+      "category": "Competenze Generali",
+      "description": {
+        "text": "Comprensione fondamentale dei principi di gestione progetti ed esperienza nell'organizzazione di attività e risorse. Focus su comunicazione efficace e organizzazione.",
+        "yearsOfExperience": 1
+      }
     }
   ],
   "projects": [
@@ -129,14 +206,14 @@
       "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       "sourceUrl": "https://github.com/Leon-Hoeck/CV",
       "highlights": [
-        "Implementazione design responsive con Tailwind CSS",
-        "Aggiunta animazioni fluide con Framer Motion",
-        "Integrazione supporto multilingua"
+        "Implementazione di un design responsive con Tailwind CSS",
+        "Aggiunta di animazioni fluide con Framer Motion",
+        "Integrazione del supporto multilingua"
       ]
     },
     {
       "name": "Workshop Network Setup",
-      "description": "Progettazione e implementazione di una rete locale per la sincronizzazione dati in tempo reale tra più dispositivi.",
+      "description": "Progettazione e implementazione di una rete locale di laboratorio per la sincronizzazione dati in tempo reale tra più dispositivi.",
       "technologies": [
         "Syncthing",
         "LAN",
@@ -147,20 +224,20 @@
       ],
       "sourceUrl": "",
       "highlights": [
-        "Configurazione di tre PC laboratorio per sincronizzazione sicura via Syncthing",
+        "Configurazione di tre PC di laboratorio per sincronizzazione sicura via Syncthing",
         "Attivazione connessioni LAN dirette per stampanti 3D e macchine CNC",
-        "Ottimizzazione del flusso di lavoro tramite centralizzazione dati per staff e studenti"
+        "Ottimizzazione del flusso di lavoro tramite centralizzazione dei dati per staff e studenti"
       ]
     },
     {
-      "name": "Progetti di Stampa 3D & CNC",
+      "name": "Progetti Stampa 3D & CNC",
       "description": "Prototipi e design creati utilizzando stampanti 3D, tagliatrici laser e macchine CNC nel laboratorio.",
       "technologies": ["Modellazione 3D (CAD)", "Fresatrice CNC", "Tagliatrice Laser"],
       "sourceUrl": "",
       "highlights": [
-        "Apprendimento dei fondamenti della modellazione 3D e utilizzo del software di slicing",
-        "Produzione di prototipi funzionali con minimo scarto",
-        "Acquisizione di esperienza pratica con hardware, protocolli di sicurezza e funzionamento delle macchine"
+        "Apprendimento dei fondamenti della modellazione 3D e utilizzo di software di slicing",
+        "Produzione di prototipi funzionali con minimo spreco",
+        "Acquisizione di esperienza pratica con attrezzature, protocolli di sicurezza e utilizzo macchine"
       ]
     }
   ]

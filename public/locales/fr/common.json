@@ -8,13 +8,16 @@
   },
   "skills": {
     "title": "Compétences",
-    "relatedSkills": "Compétences & Technologies Associées",
+    "description": "Description de la compétence",
+    "experience": "d'expérience",
+    "year": "an",
+    "years": "ans",
     "backToOverview": "Retour à l'aperçu",
     "categories": {
-      "Programming Languages": "Langages de Programmation",
-      "Frameworks": "Frameworks & Bibliothèques",
-      "Tools": "Outils & Technologies",
-      "Soft Skills": "Compétences Générales"
+      "Programming Languages": "Langages de programmation",
+      "Frameworks": "Frameworks et bibliothèques",
+      "Tools": "Outils et technologies",
+      "Soft Skills": "Compétences générales"
     },
     "levels": {
       "master": "Maître",
@@ -25,27 +28,33 @@
     }
   },
   "work": {
-    "title": "Expérience Professionnelle",
+    "title": "Expérience professionnelle",
     "present": "Présent"
   },
   "languages": {
     "title": "Langues",
-    "proficiency": "Détails du niveau",
+    "proficiency": "Détails de compétence",
     "fluency": {
-      "native": "Langue Maternelle",
+      "native": "Langue maternelle",
       "fluent": "Courant",
       "professional": "Professionnel",
       "intermediate": "Intermédiaire",
-      "basic": "Notions de Base"
+      "basic": "Base"
+    },
+    "skills": {
+      "speaking": "Expression orale",
+      "writing": "Expression écrite",
+      "listening": "Compréhension orale",
+      "reading": "Compréhension écrite"
     }
   },
   "projects": {
     "title": "Projets",
-    "live": "Version en Direct",
-    "source": "Code Source"
+    "live": "Version en ligne",
+    "source": "Code source"
   },
-  "title": "Espace Réservé",
-  "text": "Texte Temporaire",
+  "title": "Placeholder",
+  "text": "Texte placeholder",
   "cv": "Voir CV",
   "contact": {
     "title": "Contact"

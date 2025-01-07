@@ -8,7 +8,14 @@
   },
   "skills": {
     "title": "Skills",
-    "relatedSkills": "Related Skills & Technologies",
+    "description": "Skill Description",
+    "experience": "Experience",
+    "year": "year",
+    "years": "years",
+    "experienceOneLine": {
+      "singular": "year of experience",
+      "plural": "years of experience"
+    },
     "backToOverview": "Back to Overview",
     "categories": {
       "Programming Languages": "Programming Languages",
@@ -37,6 +44,12 @@
       "professional": "Professional",
       "intermediate": "Intermediate",
       "basic": "Basic"
+    },
+    "skills": {
+      "speaking": "Speaking",
+      "writing": "Writing",
+      "listening": "Listening",
+      "reading": "Reading"
     }
   },
   "projects": {

@@ -8,7 +8,14 @@
   },
   "skills": {
     "title": "Fähigkeiten",
-    "relatedSkills": "Verwandte Fähigkeiten & Technologien",
+    "description": "Beschreibung der Fähigkeit",
+    "experience": "Erfahrung",
+    "year": "Jahr",
+    "years": "Jahre",
+    "experienceOneLine": {
+      "singular": "Jahr Erfahrung",
+      "plural": "Jahre Erfahrung"
+    },
     "backToOverview": "Zurück zur Übersicht",
     "categories": {
       "Programming Languages": "Programmiersprachen",
@@ -37,6 +44,12 @@
       "professional": "Geschäftsfähig",
       "intermediate": "Fortgeschritten",
       "basic": "Grundkenntnisse"
+    },
+    "skills": {
+      "speaking": "Sprechen",
+      "writing": "Schreiben",
+      "listening": "Hören",
+      "reading": "Lesen"
     }
   },
   "projects": {

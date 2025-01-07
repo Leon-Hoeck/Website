@@ -35,7 +35,7 @@ export default function LanguageSkills({ languageSkills }: LanguageSkillsProps) 
               <div className="space-y-2">
                 {Object.entries(lang.skills).map(([skill, level]) => (
                   <div key={skill} className="flex justify-between items-center">
-                    <span className="text-gray-300 capitalize">{skill}</span>
+                    <span className="text-gray-300">{t(`languages.skills.${skill}`)}</span>
                     <span className="text-blue-400">{level}</span>
                   </div>
                 ))}

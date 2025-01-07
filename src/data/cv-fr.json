@@ -61,12 +61,17 @@
       "keywords": [
         { "name": "Gestion des Stratégies de Groupe", "level": 70 },
         { "name": "Optimisation des Performances", "level": 95 },
-        { "name": "Assemblage Matériel", "level": 65 }
+        { "name": "Assemblage Matériel", "level": 65 },
+        { "name": "Maintenance Système", "level": 80 },
+        { "name": "Gestion des Utilisateurs", "level": 75 },
+        { "name": "Configuration de Sécurité", "level": 65 },
+        { "name": "Sauvegarde & Restauration", "level": 70 }
       ],
       "category": "Systèmes d'Exploitation",
-      "description": "Compétent en configuration Windows, optimisation des performances et assemblage PC.",
-      "yearsOfExperience": 6,
-      "relatedSkills": ["Dépannage", "Réparation du matériel informatique"]
+      "description": {
+        "text": "Compétent en configuration Windows, optimisation des performances et assemblage PC.",
+        "yearsOfExperience": 6
+      }
     },
     {
       "name": "Réseaux et Connectivité",
@@ -74,12 +79,36 @@
       "keywords": [
         { "name": "Configuration LAN", "level": 75 },
         { "name": "TCP/IP + Redirection de Ports", "level": 65 },
-        { "name": "Synchronisation Multi-Appareils", "level": 65 }
+        { "name": "Synchronisation Multi-Appareils", "level": 65 },
+        { "name": "Sécurité Réseau", "level": 60 },
+        { "name": "Configuration DNS", "level": 55 },
+        { "name": "Gestion DHCP", "level": 60 },
+        { "name": "Surveillance Réseau", "level": 50 }
       ],
       "category": "Infrastructure IT",
-      "description": "Expérience pratique en conception de petits réseaux, solutions de synchronisation de fichiers et gestion d'appareils en réseau.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
+      "description": {
+        "text": "Expérience pratique en conception de petits réseaux, solutions de synchronisation de fichiers et gestion d'appareils en réseau.",
+        "yearsOfExperience": 1
+      }
+    },
+    {
+      "name": "Développement Web",
+      "level": 60,
+      "keywords": [
+        { "name": "HTML5", "level": 75 },
+        { "name": "CSS3", "level": 70 },
+        { "name": "JavaScript", "level": 65 },
+        { "name": "React", "level": 60 },
+        { "name": "Next.js", "level": 55 },
+        { "name": "TypeScript", "level": 50 },
+        { "name": "Design Responsive", "level": 65 },
+        { "name": "Contrôle de Version Git", "level": 60 }
+      ],
+      "category": "Développement",
+      "description": {
+        "text": "Expérience en développement web moderne avec focus sur React et TypeScript.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Java (Débutant)",
@@ -87,12 +116,16 @@
       "keywords": [
         { "name": "Bases de Java", "level": 40 },
         { "name": "Scripts de Jeux Simples", "level": 55 },
-        { "name": "Modding", "level": 35 }
+        { "name": "Modding", "level": 35 },
+        { "name": "Concepts POO", "level": 30 },
+        { "name": "Structures de Données de Base", "level": 25 },
+        { "name": "Utilisation IDE", "level": 45 }
       ],
       "category": "Langages de Programmation",
-      "description": "Création de petits scripts pour jeux et applications Java basiques. Familier avec le modding et l'extension de projets existants.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["IDE", "Git"]
+      "description": {
+        "text": "Création de petits scripts pour jeux et applications Java basiques. Familier avec le modding et l'extension de projets existants.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Impression et Modélisation 3D",
@@ -101,12 +134,17 @@
         { "name": "CAD", "level": 70 },
         { "name": "Fusion 360", "level": 55 },
         { "name": "Blender", "level": 15 },
-        { "name": "Imprimantes en Réseau", "level": 65 }
+        { "name": "Imprimantes en Réseau", "level": 65 },
+        { "name": "Logiciel de Tranchage", "level": 60 },
+        { "name": "Propriétés des Matériaux", "level": 55 },
+        { "name": "Optimisation d'Impression", "level": 50 },
+        { "name": "Post-traitement", "level": 45 }
       ],
       "category": "Fabrication & Design",
-      "description": "Expérience pratique avec les imprimantes 3D (Craftbot Flow IDEX, Formlabs 3) et modélisation 3D de base pour le prototypage.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["CNC", "Découpe laser"]
+      "description": {
+        "text": "Expérience pratique avec les imprimantes 3D (Craftbot Flow IDEX, Formlabs 3) et modélisation 3D de base pour le prototypage.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Outils Bureautiques & Productivité",
@@ -114,12 +152,51 @@
       "keywords": [
         { "name": "Microsoft Office", "level": 90 },
         { "name": "LibreOffice", "level": 55 },
-        { "name": "Adobe CC", "level": 65 }
+        { "name": "Adobe CC", "level": 65 },
+        { "name": "Gestion Documentaire", "level": 75 },
+        { "name": "Analyse de Données", "level": 60 },
+        { "name": "Conception de Présentations", "level": 70 },
+        { "name": "Services Cloud", "level": 65 }
       ],
       "category": "Maîtrise Logicielle",
-      "description": "Compétent dans l'utilisation de Word, Excel, PowerPoint, Outlook, suite LibreOffice et outils Adobe Creative Cloud pour diverses tâches.",
-      "yearsOfExperience": 4,
-      "relatedSkills": ["Documentation", "Présentation"]
+      "description": {
+        "text": "Compétent dans l'utilisation de Word, Excel, PowerPoint, Outlook, suite LibreOffice et outils Adobe Creative Cloud pour diverses tâches.",
+        "yearsOfExperience": 4
+      }
+    },
+    {
+      "name": "Création de Contenu Digital",
+      "level": 55,
+      "keywords": [
+        { "name": "Édition d'Images", "level": 65 },
+        { "name": "Graphiques Vectoriels", "level": 50 },
+        { "name": "Montage Vidéo de Base", "level": 45 },
+        { "name": "Gestion de Contenu", "level": 60 },
+        { "name": "Réseaux Sociaux", "level": 55 },
+        { "name": "Gestion des Médias Numériques", "level": 50 }
+      ],
+      "category": "Compétences Créatives",
+      "description": {
+        "text": "Expérience dans la création et la gestion de contenu numérique sur diverses plateformes et formats.",
+        "yearsOfExperience": 2
+      }
+    },
+    {
+      "name": "Gestion de Projet",
+      "level": 45,
+      "keywords": [
+        { "name": "Organisation des Tâches", "level": 55 },
+        { "name": "Gestion du Temps", "level": 60 },
+        { "name": "Collaboration d'Équipe", "level": 45 },
+        { "name": "Documentation", "level": 50 },
+        { "name": "Planification des Ressources", "level": 40 },
+        { "name": "Principes Agiles", "level": 35 }
+      ],
+      "category": "Compétences Générales",
+      "description": {
+        "text": "Compréhension fondamentale des principes de gestion de projet et expérience dans l'organisation des tâches et des ressources.",
+        "yearsOfExperience": 1
+      }
     }
   ],
   "projects": [

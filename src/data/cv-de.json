@@ -33,8 +33,8 @@
       "language": "Englisch",
       "level": "Fliessend",
       "skills": {
-        "speaking": "Verhandlungssicher",
-        "writing": "Verhandlungssicher",
+        "speaking": "Geschäftsfähig",
+        "writing": "Geschäftsfähig",
         "listening": "Fliessend",
         "reading": "Fliessend"
       }
@@ -47,7 +47,7 @@
       "startDate": "2024-10",
       "endDate": "Heute",
       "highlights": [
-        "Teilnahme an einem Vollzeit-Integrations-Programm (Mathematik, Deutsch, IT, Bewerbungstraining)",
+        "Teilnahme an einem Vollzeitprogramm (Mathematik, Deutsch, IT, Bewerbungstraining)",
         "Aktiv in einer Werkstattumgebung zur Realisierung von Projekten mit softwaregesteuerten Maschinen",
         "Vorbereitung und Versand von Bewerbungen für Applikationsentwicklung und Plattform Entwicklung",
         "Erreichung eines starken ICT Multicheck-Ergebnisses (1,2 & 87/100 Punkte) als Nachweis solider Grundkenntnisse"
@@ -60,13 +60,18 @@
       "level": 85,
       "keywords": [
         { "name": "Gruppenrichtlinienverwaltung", "level": 70 },
-        { "name": "Systemleistungsoptimierung", "level": 95 },
-        { "name": "Hardware-Montage", "level": 65 }
+        { "name": "Leistungsoptimierung", "level": 95 },
+        { "name": "Hardware-Montage", "level": 65 },
+        { "name": "Systemwartung", "level": 80 },
+        { "name": "Benutzerverwaltung", "level": 75 },
+        { "name": "Sicherheitskonfiguration", "level": 65 },
+        { "name": "Backup & Wiederherstellung", "level": 70 }
       ],
       "category": "Betriebssysteme",
-      "description": "Versiert in Windows-Konfiguration, Leistungsoptimierung und PC-Zusammenbau.",
-      "yearsOfExperience": 6,
-      "relatedSkills": ["Fehlerbehebung", "Hardware-Reparatur"]
+      "description": {
+        "text": "Versiert in Windows-Konfiguration, Leistungsoptimierung und PC-Zusammenbau. Erfahrung in Fehlerbehebung und Hardware-Reparatur.",
+        "yearsOfExperience": 6
+      }
     },
     {
       "name": "Netzwerktechnik",
@@ -74,12 +79,36 @@
       "keywords": [
         { "name": "LAN-Einrichtung", "level": 75 },
         { "name": "TCP/IP + Port Forwarding", "level": 65 },
-        { "name": "Multi-Geräte-Synchronisation", "level": 65 }
+        { "name": "Multi-Geräte-Synchronisation", "level": 65 },
+        { "name": "Netzwerksicherheit", "level": 60 },
+        { "name": "DNS-Konfiguration", "level": 55 },
+        { "name": "DHCP-Verwaltung", "level": 60 },
+        { "name": "Netzwerküberwachung", "level": 50 }
       ],
       "category": "IT-Infrastruktur",
-      "description": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschliesslich Dateisynchronisation und LAN-basierter Geräteverwaltung.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["TCP/IP", "VPN", "Firewall"]
+      "description": {
+        "text": "Praktische Erfahrung in der Gestaltung kleiner Netzwerke, einschliesslich Dateisynchronisation, VPN-Konfiguration und LAN-basierter Geräteverwaltung.",
+        "yearsOfExperience": 1
+      }
+    },
+    {
+      "name": "Webentwicklung",
+      "level": 60,
+      "keywords": [
+        { "name": "HTML5", "level": 75 },
+        { "name": "CSS3", "level": 70 },
+        { "name": "JavaScript", "level": 65 },
+        { "name": "React", "level": 60 },
+        { "name": "Next.js", "level": 55 },
+        { "name": "TypeScript", "level": 50 },
+        { "name": "Responsive Design", "level": 65 },
+        { "name": "Git Versionskontrolle", "level": 60 }
+      ],
+      "category": "Entwicklung",
+      "description": {
+        "text": "Erfahrung in moderner Webentwicklung mit Fokus auf React und TypeScript. Vertraut mit Frontend-Entwicklung, UI/UX-Design und Versionskontrolle.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Java (Anfänger)",
@@ -87,12 +116,16 @@
       "keywords": [
         { "name": "Java-Grundlagen", "level": 40 },
         { "name": "Einfache Spiele-Skripte", "level": 55 },
-        { "name": "Modding", "level": 35 }
+        { "name": "Modding", "level": 35 },
+        { "name": "OOP-Konzepte", "level": 30 },
+        { "name": "Grundlegende Datenstrukturen", "level": 25 },
+        { "name": "IDE-Nutzung", "level": 45 }
       ],
       "category": "Programmiersprachen",
-      "description": "Erstellung kleiner Skripte für Spiele und grundlegende Java-Anwendungen. Vertraut mit Modding und Erweiterung bestehender Projekte.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["IDE", "Git"]
+      "description": {
+        "text": "Erstellung kleiner Skripte für Spiele und grundlegende Java-Anwendungen. Vertraut mit IDE-Nutzung, Modding und Erweiterung bestehender Projekte.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "3D-Druck & Modellierung",
@@ -101,12 +134,17 @@
         { "name": "CAD", "level": 70 },
         { "name": "Fusion 360", "level": 55 },
         { "name": "Blender", "level": 15 },
-        { "name": "Netzwerk-Drucker", "level": 65 }
+        { "name": "Netzwerk-Drucker", "level": 65 },
+        { "name": "Slicer-Software", "level": 60 },
+        { "name": "Materialeigenschaften", "level": 55 },
+        { "name": "Druckoptimierung", "level": 50 },
+        { "name": "Nachbearbeitung", "level": 45 }
       ],
       "category": "Fertigung & Design",
-      "description": "Praktische Erfahrung mit 3D-Druckern (Craftbot Flow IDEX, Formlabs 3) und grundlegender 3D-Modellierung für Prototyping.",
-      "yearsOfExperience": 1,
-      "relatedSkills": ["CNC", "Laserschneiden"]
+      "description": {
+        "text": "Praktische Erfahrung mit 3D-Druckern (Craftbot Flow IDEX, Formlabs 3) und grundlegender 3D-Modellierung für Prototyping. Vertraut mit CNC und Laserschneiden.",
+        "yearsOfExperience": 1
+      }
     },
     {
       "name": "Büro- & Produktivitätstools",
@@ -114,12 +152,51 @@
       "keywords": [
         { "name": "Microsoft Office", "level": 90 },
         { "name": "LibreOffice", "level": 55 },
-        { "name": "Adobe CC", "level": 65 }
+        { "name": "Adobe CC", "level": 65 },
+        { "name": "Dokumentenverwaltung", "level": 75 },
+        { "name": "Datenanalyse", "level": 60 },
+        { "name": "Präsentationsgestaltung", "level": 70 },
+        { "name": "Cloud-Dienste", "level": 65 }
       ],
       "category": "Software-Kenntnisse",
-      "description": "Versiert in der Nutzung von Word, Excel, PowerPoint, Outlook, LibreOffice Suite und Adobe Creative Cloud Tools für verschiedene Aufgaben.",
-      "yearsOfExperience": 4,
-      "relatedSkills": ["Dokumentation", "Präsentation"]
+      "description": {
+        "text": "Versiert in der Nutzung von Word, Excel, PowerPoint, Outlook, LibreOffice Suite und Adobe Creative Cloud Tools für verschiedene Aufgaben. Erfahren in Dokumentation und Präsentation.",
+        "yearsOfExperience": 4
+      }
+    },
+    {
+      "name": "Digitale Contentgestaltung",
+      "level": 55,
+      "keywords": [
+        { "name": "Bildbearbeitung", "level": 65 },
+        { "name": "Vektorgrafiken", "level": 50 },
+        { "name": "Einfache Videobearbeitung", "level": 45 },
+        { "name": "Content-Management", "level": 60 },
+        { "name": "Social Media", "level": 55 },
+        { "name": "Digitale Medienverwaltung", "level": 50 }
+      ],
+      "category": "Kreative Fähigkeiten",
+      "description": {
+        "text": "Erfahrung in der Erstellung und Verwaltung digitaler Inhalte über verschiedene Plattformen und Formate. Vertraut mit Adobe Creative Suite und Social Media Management.",
+        "yearsOfExperience": 2
+      }
+    },
+    {
+      "name": "Projektmanagement",
+      "level": 45,
+      "keywords": [
+        { "name": "Aufgabenorganisation", "level": 55 },
+        { "name": "Zeitmanagement", "level": 60 },
+        { "name": "Teamzusammenarbeit", "level": 45 },
+        { "name": "Dokumentation", "level": 50 },
+        { "name": "Ressourcenplanung", "level": 40 },
+        { "name": "Agile Prinzipien", "level": 35 }
+      ],
+      "category": "Soft Skills",
+      "description": {
+        "text": "Grundlegendes Verständnis von Projektmanagement-Prinzipien und Erfahrung in der Organisation von Aufgaben und Ressourcen. Fokus auf effektive Kommunikation und Organisation.",
+        "yearsOfExperience": 1
+      }
     }
   ],
   "projects": [

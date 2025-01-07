@@ -3,14 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 
 interface SkillsLegendProps {
-  skills: {
+  skills: Array<{
     name: string;
     level: number;
     keywords: Array<{
       name: string;
       level: number;
     }>;
-  }[];
+    description: {
+      text: string;
+      yearsOfExperience: number;
+    };
+  }>;
   selectedSkill: string | null;
   onSkillSelect: (skillName: string | null) => void;
 }
@@ -135,9 +139,9 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
       </div>
 
       <AnimatePresence mode="wait">
-        {selectedSkillData && selectedSkillData.keywords && (
+        {selectedSkillData && (
           <motion.div
-            key="subskills"
+            key="description"
             initial={{ opacity: 0, height: 0, marginTop: 0 }}
             animate={{ opacity: 1, height: "auto", marginTop: 16 }}
             exit={{ opacity: 0, height: 0, marginTop: 0 }}
@@ -159,23 +163,16 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
               />
               <div className="absolute inset-0 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] rounded-lg transition-all duration-300" />
               <div className="relative z-10 p-4">
-                <h4 className="text-sm font-medium text-gray-400 mb-3">
-                  {t('skills.relatedSkills')}
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedSkillData.keywords.map((keyword) => (
-                    <motion.span
-                      key={keyword.name}
-                      className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm relative"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {keyword.name}
-                    </motion.span>
-                  ))}
+                <div className="flex justify-between items-center mb-3">
+                  <h4 className="text-sm font-medium text-gray-400">
+                    {t('skills.description')}
+                  </h4>
+                  <span className="text-sm text-gray-400">
+                    {selectedSkillData.description.yearsOfExperience} {t(selectedSkillData.description.yearsOfExperience === 1 ? 'skills.year' : 'skills.years')} {t('skills.experience').toLowerCase()}
+                  </span>
+                </div>
+                <div className="space-y-4">
+                  <p className="text-gray-300">{selectedSkillData.description.text}</p>
                 </div>
               </div>
             </motion.div>
@@ -184,4 +181,4 @@ export default function SkillsLegend({ skills, selectedSkill, onSkillSelect }: S
       </AnimatePresence>
     </div>
   );
-} 
+}
