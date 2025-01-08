@@ -8,12 +8,11 @@ interface MathProps {
 }
 
 export default function Math({ children, block = false }: MathProps) {
-  // Remove backticks and $ symbols if present
-  const equation = children.replace(/`|\$/g, '').trim();
+  const equation = children.trim();
   
   return block ? (
-    <BlockMath math={equation} />
+    <BlockMath>{equation}</BlockMath>
   ) : (
-    <InlineMath math={equation} />
+    <InlineMath>{equation}</InlineMath>
   );
 } 
