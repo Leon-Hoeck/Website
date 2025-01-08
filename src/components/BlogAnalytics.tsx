@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { getPostAnalytics } from '@/utils/analytics';
 import { useTranslation } from 'next-i18next';
 
+interface CountryBreakdown {
+  country: string;
+  views: number;
+}
+
 interface Analytics {
   totalViews: number;
-  uniqueViews: number;
+  uniqueCountries: number;
   avgReadingTime: number;
   avgScrollDepth: number;
+  countryBreakdown: CountryBreakdown[];
 }
 
 interface BlogAnalyticsProps {
@@ -53,7 +59,7 @@ export default function BlogAnalytics({ postId }: BlogAnalyticsProps) {
       <h3 className="text-white font-medium mb-2">{t('blog.analytics.title')}</h3>
       <div className="space-y-1 text-gray-300">
         <p>
-          {t('blog.analytics.views')}: {analytics.totalViews} ({analytics.uniqueViews} {t('blog.analytics.unique')})
+          {t('blog.analytics.views')}: {analytics.totalViews} ({analytics.uniqueCountries} {t('blog.analytics.countries')})
         </p>
         <p>
           {t('blog.analytics.avgReadTime')}: {Math.round(analytics.avgReadingTime)}s

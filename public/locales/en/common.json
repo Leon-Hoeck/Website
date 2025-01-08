@@ -19,7 +19,14 @@
     "searchPlaceholder": "Search posts...",
     "noResults": "No posts found",
     "clearFilters": "Clear filters",
-    "relatedPosts": "Related Posts"
+    "relatedPosts": "Related Posts",
+    "analytics": {
+      "title": "Post Analytics",
+      "views": "Views",
+      "countries": "countries",
+      "avgReadTime": "Avg. Read Time",
+      "avgScrollDepth": "Avg. Scroll Depth"
+    }
   },
   "skills": {
     "title": "Skills",
