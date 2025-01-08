@@ -4,7 +4,15 @@
     "skills": "Fähigkeiten",
     "experience": "Erfahrung",
     "projects": "Projekte",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "cv": "CV"
+  },
+  "blog": {
+    "title": "Persönlicher Blog",
+    "readMore": "Weiterlesen",
+    "tags": "Schlagworte",
+    "date": "Veröffentlicht am"
   },
   "skills": {
     "title": "Fähigkeiten",
@@ -33,16 +41,16 @@
   },
   "work": {
     "title": "Berufserfahrung",
-    "present": "Aktuell"
+    "present": "Heute"
   },
   "languages": {
     "title": "Sprachen",
-    "proficiency": "Sprachniveau",
+    "proficiency": "Kenntnisdetails",
     "fluency": {
       "native": "Muttersprache",
-      "fluent": "Fliessend",
+      "fluent": "Fließend",
       "professional": "Geschäftsfähig",
-      "intermediate": "Fortgeschritten",
+      "intermediate": "Mittelstufe",
       "basic": "Grundkenntnisse"
     },
     "skills": {
@@ -54,12 +62,12 @@
   },
   "projects": {
     "title": "Projekte",
-    "live": "Live Version",
+    "live": "Live ansehen",
     "source": "Quellcode"
   },
   "title": "Platzhalter",
-  "text": "Text Platzhalter",
-  "cv": "CV anschauen",
+  "text": "Platzhaltertext",
+  "cv": "Lebenslauf ansehen",
   "contact": {
     "title": "Kontakt"
   }

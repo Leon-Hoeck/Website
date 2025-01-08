@@ -73,28 +73,30 @@ export default function CV({ cvData }: HomeProps) {
       </div>
 
       <div className="py-24">
-        <section id="experience">
-          <WorkExperience work={cvData.work} />
-        </section>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section id="experience">
+            <WorkExperience work={cvData.work} />
+          </section>
 
-        <section id="skills" className="mt-24">
-          <Skills skills={cvData.skills} />
-        </section>
+          <section id="skills" className="mt-24">
+            <Skills skills={cvData.skills} />
+          </section>
 
-        <section id="projects" className="mt-24">
-          <Projects projects={cvData.projects} />
-        </section>
+          <section id="projects" className="mt-24">
+            <Projects projects={cvData.projects} />
+          </section>
 
-        <section id="languages" className="mt-24">
-          <LanguageSkills languageSkills={cvData.languageSkills} />
-        </section>
+          <section id="languages" className="mt-24">
+            <LanguageSkills languageSkills={cvData.languageSkills} />
+          </section>
 
-        <section id="contact" className="mt-24">
-          <Contact
-            email={cvData.basics.email}
-            location={cvData.basics.location}
-          />
-        </section>
+          <section id="contact" className="mt-24">
+            <Contact
+              email={cvData.basics.email}
+              location={cvData.basics.location}
+            />
+          </section>
+        </div>
       </div>
     </>
   );

@@ -13,7 +13,7 @@ export default function WorkExperience({ work }: WorkExperienceProps) {
   return (
     <section className="py-8">
       <h2 className="text-3xl font-bold mb-8 text-white">{t('work.title')}</h2>
-      <div className="space-y-8">
+      <div className="space-y-8 max-w-full">
         {work.map((job, index) => (
           <motion.div
             key={job.company}

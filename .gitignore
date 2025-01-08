@@ -1,5 +1,5 @@
 # dependencies
-/node_modules
+node_modules/
 /.pnp
 .pnp.js
 
@@ -37,3 +37,9 @@ next-env.d.ts
 *.code-workspace
 .idea/ 
 portfolio-projects.md
+
+# Dev blog posts
+src/content/blog/*/DEV-*.mdx
+
+# Example image
+public/images/example.jpg

@@ -1,13 +1,22 @@
-# Interactive CV Website
+# Personal Website & Blog
 
-A modern, interactive web-based CV built with Next.js that showcases experience, skills, and projects in an engaging way. The application features smooth animations, multilingual support, and a responsive design.
+A modern, interactive personal website and blog built with Next.js that showcases my professional experience, skills, and projects in an engaging way. The site features a dynamic CV section, blog with advanced search capabilities, smooth animations, multilingual support, and a responsive design.
 
 ## 🌟 Features
 
-### Interactive Elements
-- Dynamic skill graph with level visualization
-- Animated skill selection with related technologies display
-- Project cards with hover effects and technology tags
+### Blog
+- Advanced search functionality with tag filtering
+- Support for pinned posts
+- Related posts suggestions
+- MDX support with code highlighting
+- Math equation rendering
+- Responsive image handling
+- Development-only posts with DEV tag
+
+### Interactive CV
+- Dynamic skill visualization
+- Animated section transitions
+- Project cards with hover effects
 - Smooth scrolling and transitions
 - Language selection with region-specific content
 
@@ -21,32 +30,38 @@ A modern, interactive web-based CV built with Next.js that showcases experience,
 - Mobile-first approach
 - Fluid layouts and animations
 - Optimized for all screen sizes
+- Adaptive content presentation
 
 ## 🛠 Tech Stack
 
 - **Framework**: Next.js with TypeScript
+- **Content**: MDX for blog posts
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
+- **Math**: KaTeX
+- **Code**: Prism.js with custom theme
 - **Internationalization**: next-i18next
 - **Icons**: Heroicons
 
 ## 📦 Project Structure
 
 ```
-CV/
+/
 ├── public/
 │   └── locales/          # Translation files
 ├── src/
 │   ├── components/       # React components
+│   ├── content/         # Blog posts and content
 │   ├── pages/           # Next.js pages
-│   └── types/           # TypeScript types
-├── styles/              # Global styles
+│   ├── styles/          # Global styles
+│   ├── types/           # TypeScript types
+│   └── utils/           # Utility functions
 └── ...config files
 ```
 
 ## 🌐 Internationalization
 
-The CV supports multiple languages with region-specific content. Translation files are located in `public/locales/`. To add a new language:
+The site supports multiple languages with region-specific content. Translation files are located in `public/locales/`. To add a new language:
 
 1. Create a new translation file in `public/locales/[lang]/common.json`
 2. Add the language to `next-i18next.config.js`
@@ -55,13 +70,13 @@ The CV supports multiple languages with region-specific content. Translation fil
 
 ### Styling
 - Modify `tailwind.config.js` for theme customization
-- Global styles are in `styles/globals.css`
+- Global styles in `styles/globals.css`
 - Component-specific styles use Tailwind classes
 
 ### Content
-- Update CV data in the respective language files
-- Modify components in `src/components/` for layout changes
-- Add new features by extending existing components
+- Blog posts in `src/content/blog/[lang]/*.mdx`
+- CV data in `src/data/cv-[lang].json`
+- Component modifications in `src/components/`
 
 ## 📄 License
 
@@ -69,7 +84,7 @@ This project is licensed under the Creative Commons Attribution-NonCommercial-No
 
 ## 🤝 Contributing
 
-While this is a personal CV project, suggestions and feedback are welcome! Feel free to:
+While this is a personal website project, suggestions and feedback are welcome! Feel free to:
 
 1. Report bugs
 2. Suggest new features

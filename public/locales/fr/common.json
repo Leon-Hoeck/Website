@@ -4,19 +4,31 @@
     "skills": "Compétences",
     "experience": "Expérience",
     "projects": "Projets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "blog": "Blog",
+    "cv": "CV"
+  },
+  "blog": {
+    "title": "Blog Personnel",
+    "readMore": "Lire la suite",
+    "tags": "Étiquettes",
+    "date": "Publié le"
   },
   "skills": {
     "title": "Compétences",
     "description": "Description de la compétence",
-    "experience": "d'expérience",
+    "experience": "Expérience",
     "year": "an",
     "years": "ans",
+    "experienceOneLine": {
+      "singular": "an d'expérience",
+      "plural": "ans d'expérience"
+    },
     "backToOverview": "Retour à l'aperçu",
     "categories": {
       "Programming Languages": "Langages de programmation",
-      "Frameworks": "Frameworks et bibliothèques",
-      "Tools": "Outils et technologies",
+      "Frameworks": "Frameworks & Bibliothèques",
+      "Tools": "Outils & Technologies",
       "Soft Skills": "Compétences générales"
     },
     "levels": {
@@ -33,13 +45,13 @@
   },
   "languages": {
     "title": "Langues",
-    "proficiency": "Détails de compétence",
+    "proficiency": "Détails des compétences",
     "fluency": {
       "native": "Langue maternelle",
       "fluent": "Courant",
       "professional": "Professionnel",
       "intermediate": "Intermédiaire",
-      "basic": "Base"
+      "basic": "Basique"
     },
     "skills": {
       "speaking": "Expression orale",
@@ -50,12 +62,12 @@
   },
   "projects": {
     "title": "Projets",
-    "live": "Version en ligne",
+    "live": "Voir en direct",
     "source": "Code source"
   },
   "title": "Placeholder",
   "text": "Texte placeholder",
-  "cv": "Voir CV",
+  "cv": "Voir le CV",
   "contact": {
     "title": "Contact"
   }

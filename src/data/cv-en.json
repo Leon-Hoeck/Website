@@ -204,7 +204,7 @@
       "name": "Interactive CV",
       "description": "A modern, interactive web-based CV built with Next.js and TypeScript",
       "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-      "sourceUrl": "https://github.com/Leon-Hoeck/CV",
+      "sourceUrl": "https://github.com/Leon-Hoeck/Website",
       "highlights": [
         "Implemented responsive design with Tailwind CSS",
         "Added smooth animations with Framer Motion",

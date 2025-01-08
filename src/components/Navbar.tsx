@@ -8,6 +8,7 @@ export default function Navbar() {
   const { t } = useTranslation('common');
   const [hostname, setHostname] = useState<string | null>(null);
   const [lang, setLang] = useState<string>('en');
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -21,32 +22,50 @@ export default function Navbar() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-gray-900 border-b border-gray-800">
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          {/* Left side - Brand/Home */}
-          <div className="flex items-center space-x-8">
-            <Link 
-              href="/"
-              className="text-xl font-bold tracking-wide bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent hover:from-blue-500 hover:to-purple-600 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-300"
-              aria-label="Home"
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <Link href="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Leon Höck
+              </span>
+            </Link>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Link
+              href="/blog"
+              className="text-gray-300 hover:text-white transition-colors"
             >
-              Leon Höck
+              {t('nav.blog')}
             </Link>
             <Link
               href="/cv"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              aria-label={t('cv')}
+              className="text-gray-300 hover:text-white transition-colors"
             >
-              {t('cv')}
+              {t('nav.cv')}
             </Link>
-          </div>
-
-          {/* Right side - Language Selection */}
-          <div className="flex items-center space-x-4">
             {hostname && (
               <>
+                <div className="h-4 w-px bg-gray-700 mx-2" />
                 <Link
                   href={`http://en.${hostname}${router.asPath}`}
                   className={`text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}

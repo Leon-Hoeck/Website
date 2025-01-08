@@ -2,20 +2,27 @@ import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { CVData } from '../types/cv';
+import { AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
+import PageTransition from './PageTransition';
 
 interface LayoutProps {
   children: React.ReactNode;
   profiles?: CVData['basics']['profiles'];
 }
 
-export default function Layout({ children, profiles = [] }: LayoutProps) {
+export default function Layout({ children, profiles }: LayoutProps) {
+  const router = useRouter();
+
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {children}
-        </div>
+        <AnimatePresence mode="wait">
+          <PageTransition key={router.asPath}>
+            {children}
+          </PageTransition>
+        </AnimatePresence>
       </main>
       <Footer profiles={profiles} />
     </div>

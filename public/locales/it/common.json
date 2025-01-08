@@ -1,14 +1,22 @@
 {
   "nav": {
-    "about": "Chi Sono",
+    "about": "Chi sono",
     "skills": "Competenze",
     "experience": "Esperienza",
     "projects": "Progetti",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "blog": "Blog",
+    "cv": "CV"
+  },
+  "blog": {
+    "title": "Blog Personale",
+    "readMore": "Leggi di più",
+    "tags": "Tag",
+    "date": "Pubblicato il"
   },
   "skills": {
     "title": "Competenze",
-    "description": "Descrizione della Competenza",
+    "description": "Descrizione della competenza",
     "experience": "Esperienza",
     "year": "anno",
     "years": "anni",
@@ -16,12 +24,12 @@
       "singular": "anno di esperienza",
       "plural": "anni di esperienza"
     },
-    "backToOverview": "Torna alla Panoramica",
+    "backToOverview": "Torna alla panoramica",
     "categories": {
-      "Programming Languages": "Linguaggi di Programmazione",
-      "Frameworks": "Framework e Librerie",
-      "Tools": "Strumenti e Tecnologie",
-      "Soft Skills": "Competenze Trasversali"
+      "Programming Languages": "Linguaggi di programmazione",
+      "Frameworks": "Framework & Librerie",
+      "Tools": "Strumenti & Tecnologie",
+      "Soft Skills": "Competenze trasversali"
     },
     "levels": {
       "master": "Maestro",
@@ -32,12 +40,12 @@
     }
   },
   "work": {
-    "title": "Esperienza Professionale",
+    "title": "Esperienza lavorativa",
     "present": "Presente"
   },
   "languages": {
     "title": "Lingue",
-    "proficiency": "Dettagli di competenza",
+    "proficiency": "Dettagli competenza",
     "fluency": {
       "native": "Madrelingua",
       "fluent": "Fluente",
@@ -46,19 +54,19 @@
       "basic": "Base"
     },
     "skills": {
-      "speaking": "Espressione orale",
-      "writing": "Espressione scritta",
-      "listening": "Comprensione orale",
-      "reading": "Comprensione scritta"
+      "speaking": "Parlato",
+      "writing": "Scritto",
+      "listening": "Ascolto",
+      "reading": "Lettura"
     }
   },
   "projects": {
     "title": "Progetti",
-    "live": "Versione Live",
-    "source": "Codice Sorgente"
+    "live": "Vedi live",
+    "source": "Codice sorgente"
   },
-  "title": "Segnaposto",
-  "text": "Testo Segnaposto",
+  "title": "Placeholder",
+  "text": "Testo placeholder",
   "cv": "Vedi CV",
   "contact": {
     "title": "Contatti"

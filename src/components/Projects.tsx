@@ -45,7 +45,7 @@ export default function Projects({ projects }: ProjectsProps) {
         {t('projects.title')}
       </motion.h2>
       <motion.div 
-        className="grid gap-6"
+        className="grid gap-6 max-w-full"
         variants={container}
         initial="hidden"
         animate="show"

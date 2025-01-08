@@ -4,7 +4,22 @@
     "skills": "Skills",
     "experience": "Experience",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "blog": "Blog",
+    "cv": "CV"
+  },
+  "blog": {
+    "title": "Personal Blog",
+    "readMore": "Read More",
+    "tags": "Tags",
+    "date": "Published on",
+    "previous": "Previous Post",
+    "next": "Next Post",
+    "pinned": "Pinned Post",
+    "searchPlaceholder": "Search posts...",
+    "noResults": "No posts found",
+    "clearFilters": "Clear filters",
+    "relatedPosts": "Related Posts"
   },
   "skills": {
     "title": "Skills",
