@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 interface FooterProps {
-  profiles: {
+  profiles?: {
     network: string;
     url: string;
   }[];
 }
 
-export default function Footer({ profiles }: FooterProps) {
+export default function Footer({ profiles = [] }: FooterProps) {
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

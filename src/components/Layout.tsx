@@ -11,7 +11,7 @@ interface LayoutProps {
   profiles?: CVData['basics']['profiles'];
 }
 
-export default function Layout({ children, profiles }: LayoutProps) {
+export default function Layout({ children, profiles = [] }: LayoutProps) {
   const router = useRouter();
 
   return (
