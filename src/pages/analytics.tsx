@@ -1,8 +1,8 @@
 import { GetServerSideProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { getBlogPosts, BlogPost } from '@/utils/blog';
-import { getPostAnalytics } from '@/utils/analytics';
+import { getBlogPosts, BlogPost } from '../utils/blog';
+import { getPostAnalytics } from '../utils/analytics';
 
 interface CountryBreakdown {
   country: string;
