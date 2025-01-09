@@ -1,8 +1,8 @@
 import { GetServerSideProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { getBlogPosts, BlogPost } from '../utils/blog';
-import { getPostAnalytics } from '../utils/analytics';
+import { getBlogPosts, BlogPost } from '@/utils/blog';
+import { getPostAnalytics } from '@/utils/analytics';
 
 interface CountryBreakdown {
   country: string;
@@ -22,15 +22,21 @@ interface PageProps {
     post: BlogPost;
     analytics: Analytics;
   }>;
+  locale: string;
 }
 
-export default function Analytics({ posts }: PageProps) {
+export default function Analytics({ posts, locale }: PageProps) {
   const { t } = useTranslation('common');
 
   return (
     <div className="min-h-screen bg-gray-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-white mb-8">Blog Analytics</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-white">Blog Analytics</h1>
+          <div className="text-sm text-gray-400">
+            Showing data for: <span className="text-blue-400">{locale}</span>
+          </div>
+        </div>
         
         <div className="grid gap-6">
           {posts.map(({ post, analytics }) => (
@@ -89,18 +95,24 @@ export default function Analytics({ posts }: PageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, locale = 'en' }) => {
-  // Check for authentication header
+export const getServerSideProps: GetServerSideProps = async ({ req, query, locale = 'en' }) => {
+  // Check for authentication in header or query parameter
   const authHeader = req.headers.authorization;
-  const token = authHeader?.replace('Bearer ', '');
+  const headerToken = authHeader?.replace('Bearer ', '');
+  const queryToken = query.token as string;
+  const token = headerToken || queryToken;
   
   if (!process.env.ANALYTICS_SECRET_KEY || token !== process.env.ANALYTICS_SECRET_KEY) {
     return {
-      notFound: true // Returns 404 page
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
     };
   }
 
   try {
+    // Get posts for the current locale
     const posts = await getBlogPosts(locale);
     const postsWithAnalytics = await Promise.all(
       posts.map(async (post) => ({
@@ -112,12 +124,17 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale = 'en
     return {
       props: {
         posts: postsWithAnalytics,
+        locale,
         ...(await serverSideTranslations(locale, ['common']))
       }
     };
   } catch (error) {
+    console.error('Analytics error:', error);
     return {
-      notFound: true
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
     };
   }
 }; 

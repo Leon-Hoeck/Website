@@ -5,6 +5,24 @@ const nextConfig = {
   i18n,
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  
+  // Add build optimizations
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // Optimize image loading
+  images: {
+    domains: [],
+    unoptimized: process.env.NODE_ENV === 'development',
+  },
+
+  // Cache build output
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 2,
+  },
 
   async headers() {
     return [
