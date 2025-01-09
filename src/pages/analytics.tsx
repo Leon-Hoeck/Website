@@ -1,8 +1,9 @@
-import { GetServerSideProps } from 'next';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { getBlogPosts, BlogPost } from '@/utils/blog';
-import { getPostAnalytics } from '@/utils/analytics';
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import { BlogPost } from '@/utils/blog';
 
 interface CountryBreakdown {
   country: string;
@@ -17,16 +18,83 @@ interface Analytics {
   countryBreakdown: CountryBreakdown[];
 }
 
-interface PageProps {
-  posts: Array<{
-    post: BlogPost;
-    analytics: Analytics;
-  }>;
-  locale: string;
+interface PostWithAnalytics {
+  post: BlogPost;
+  analytics: Analytics;
 }
 
-export default function Analytics({ posts, locale }: PageProps) {
+export default function Analytics() {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const { locale = 'en', token } = router.query;
+  const [data, setData] = useState<PostWithAnalytics[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const headers: HeadersInit = {
+          'Content-Type': 'application/json',
+        };
+
+        // Add authorization header if token is present
+        if (token) {
+          headers.Authorization = `Bearer ${token}`;
+        }
+
+        const res = await fetch(`/api/analytics/data?locale=${locale}`, {
+          headers
+        });
+
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+
+        const { posts } = await res.json();
+        setData(posts);
+      } catch (err) {
+        console.error('Failed to fetch analytics:', err);
+        setError('Failed to load analytics data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [locale, token]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="animate-pulse space-y-4">
+            <div className="h-8 bg-gray-700 rounded w-1/4"></div>
+            <div className="space-y-3">
+              <div className="h-4 bg-gray-700 rounded"></div>
+              <div className="h-4 bg-gray-700 rounded w-5/6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold text-white mb-4">Error</h1>
+            <p className="text-gray-400">{error}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 py-12">
@@ -39,7 +107,7 @@ export default function Analytics({ posts, locale }: PageProps) {
         </div>
         
         <div className="grid gap-6">
-          {posts.map(({ post, analytics }) => (
+          {data.map(({ post, analytics }) => (
             <div key={post.slug} className="bg-gray-800 rounded-lg p-6">
               <h2 className="text-xl font-semibold text-white mb-2">{post.title}</h2>
               <div className="text-sm text-gray-400 mb-4">
@@ -95,46 +163,10 @@ export default function Analytics({ posts, locale }: PageProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, query, locale = 'en' }) => {
-  // Check for authentication in header or query parameter
-  const authHeader = req.headers.authorization;
-  const headerToken = authHeader?.replace('Bearer ', '');
-  const queryToken = query.token as string;
-  const token = headerToken || queryToken;
-  
-  if (!process.env.ANALYTICS_SECRET_KEY || token !== process.env.ANALYTICS_SECRET_KEY) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      }
-    };
-  }
-
-  try {
-    // Get posts for the current locale
-    const posts = await getBlogPosts(locale);
-    const postsWithAnalytics = await Promise.all(
-      posts.map(async (post) => ({
-        post,
-        analytics: await getPostAnalytics(post.slug)
-      }))
-    );
-
-    return {
-      props: {
-        posts: postsWithAnalytics,
-        locale,
-        ...(await serverSideTranslations(locale, ['common']))
-      }
-    };
-  } catch (error) {
-    console.error('Analytics error:', error);
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      }
-    };
-  }
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 }; 
