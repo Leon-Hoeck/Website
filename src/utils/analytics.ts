@@ -1,11 +1,34 @@
 import { Redis } from '@upstash/redis';
 
-// Initialize Redis with Frankfurt region
+// Check if Redis credentials are configured
+if (!process.env.KV_REST_API_URL) {
+  throw new Error('KV_REST_API_URL is not configured');
+}
+if (!process.env.KV_REST_API_TOKEN) {
+  throw new Error('KV_REST_API_TOKEN is not configured');
+}
+
+// Initialize Redis with explicit configuration
 const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL || '',
-  token: process.env.UPSTASH_REDIS_REST_TOKEN || '',
-  automaticDeserialization: true,
+  url: process.env.KV_REST_API_URL,
+  token: process.env.KV_REST_API_TOKEN,
 });
+
+// Verify Redis connection
+const verifyRedisConnection = async () => {
+  try {
+    await redis.ping();
+    console.log('Successfully connected to Upstash Redis');
+  } catch (error) {
+    console.error('Failed to connect to Redis:', error);
+    throw error;
+  }
+};
+
+// Run verification in development
+if (process.env.NODE_ENV === 'development') {
+  verifyRedisConnection();
+}
 
 interface ViewEvent {
   postId: string;
