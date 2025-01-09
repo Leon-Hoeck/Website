@@ -39,32 +39,33 @@ export default function Analytics() {
 
         const headers: HeadersInit = {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         };
-
-        // Add authorization header if token is present
-        if (token) {
-          headers.Authorization = `Bearer ${token}`;
-        }
 
         const res = await fetch(`/api/analytics/data?locale=${locale}`, {
           headers
         });
 
         if (!res.ok) {
-          throw new Error(res.statusText);
+          if (res.status === 401) {
+            throw new Error('Unauthorized - Please check your authentication token');
+          }
+          throw new Error(res.statusText || 'Failed to fetch analytics data');
         }
 
         const { posts } = await res.json();
         setData(posts);
       } catch (err) {
         console.error('Failed to fetch analytics:', err);
-        setError('Failed to load analytics data');
+        setError(err instanceof Error ? err.message : 'Failed to load analytics data');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchData();
+    if (token) {
+      fetchData();
+    }
   }, [locale, token]);
 
   if (loading) {

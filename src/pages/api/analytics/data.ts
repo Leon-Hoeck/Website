@@ -12,7 +12,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const authHeader = req.headers.authorization;
   const token = authHeader?.replace('Bearer ', '');
 
+  // Debug authentication
+  console.log('Auth Debug:', {
+    hasAuthHeader: !!authHeader,
+    hasToken: !!token,
+    tokenLength: token?.length,
+    expectedLength: process.env.ANALYTICS_SECRET_KEY?.length,
+    matches: token === process.env.ANALYTICS_SECRET_KEY
+  });
+
   if (!process.env.ANALYTICS_SECRET_KEY || token !== process.env.ANALYTICS_SECRET_KEY) {
+    console.warn('Authentication failed:', {
+      reason: !process.env.ANALYTICS_SECRET_KEY ? 'Missing secret key' : 'Token mismatch',
+      hasToken: !!token,
+      hasSecretKey: !!process.env.ANALYTICS_SECRET_KEY
+    });
     return res.status(401).json({ error: 'Unauthorized' });
   }
 

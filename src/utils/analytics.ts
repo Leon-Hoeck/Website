@@ -1,18 +1,7 @@
 import { Redis } from '@upstash/redis';
 
-// Check if Redis credentials are configured
-if (!process.env.KV_REST_API_URL) {
-  throw new Error('KV_REST_API_URL is not configured');
-}
-if (!process.env.KV_REST_API_TOKEN) {
-  throw new Error('KV_REST_API_TOKEN is not configured');
-}
-
-// Initialize Redis with explicit configuration
-const redis = new Redis({
-  url: process.env.KV_REST_API_URL,
-  token: process.env.KV_REST_API_TOKEN,
-});
+// Initialize Redis using environment variables
+const redis = Redis.fromEnv();
 
 // Verify Redis connection
 const verifyRedisConnection = async () => {

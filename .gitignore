@@ -43,3 +43,17 @@ src/content/blog/*/DEV-*.mdx
 
 # Example image
 public/images/example.jpg
+
+# Environment files
+.env
+.env.*
+.env.local
+.env.*.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+.vercel
