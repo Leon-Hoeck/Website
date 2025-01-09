@@ -71,9 +71,9 @@ export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, 
       try {
         const res = await fetch('/api/geo');
         const data = await res.json();
-        await trackPageView(post.slug, data.country || 'unknown');
+        await trackPageView(post.slug, data.country || 'unknown', data.ip || 'unknown');
       } catch (error) {
-        await trackPageView(post.slug, 'unknown');
+        await trackPageView(post.slug, 'unknown', 'unknown');
       }
     };
     
