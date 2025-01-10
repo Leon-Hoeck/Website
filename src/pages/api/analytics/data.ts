@@ -30,6 +30,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Return 404 if analytics are not configured
+  if (!process.env.ANALYTICS_SECRET_KEY) {
+    console.warn('Analytics not configured: ANALYTICS_SECRET_KEY missing');
+    return res.status(501).json({ error: 'Analytics not configured' });
+  }
+
   // Check authentication
   if (!isAuthenticated(req)) {
     console.warn('Authentication failed for analytics data request');

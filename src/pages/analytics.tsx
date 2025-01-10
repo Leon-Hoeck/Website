@@ -48,7 +48,8 @@ export default function Analytics() {
         };
 
         const res = await fetch(`/api/analytics/data?locale=${locale}`, {
-          headers
+          headers,
+          method: 'GET'
         });
 
         if (!res.ok) {
