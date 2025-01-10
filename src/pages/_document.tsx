@@ -13,7 +13,7 @@ export default function Document() {
         <meta name="robots" content="noindex, nofollow, noarchive, nocache" />
         <meta name="googlebot" content="noindex, nofollow, noarchive, nocache" />
       </Head>
-      <body>
+      <body className="overflow-y-scroll">
         <Main />
         <NextScript />
       </body>
