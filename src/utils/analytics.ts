@@ -147,3 +147,55 @@ export const getPostAnalytics = async (postId: string) => {
     throw error; // Let the API handler deal with the error
   }
 };
+
+export const getAllAnalytics = async () => {
+  try {
+    // Verify Redis connection before proceeding
+    await verifyRedisConnection();
+    
+    // Get all keys for blog views
+    const keys = await redis.keys('blog:views:*');
+    const siteKey = 'site:views';
+    const cvKey = 'cv:views';
+    
+    // Get analytics for each section
+    const [blogAnalytics, siteAnalytics, cvAnalytics] = await Promise.all([
+      Promise.all(keys.map(async key => {
+        const postId = key.replace('blog:views:', '');
+        const analytics = await getPostAnalytics(postId);
+        return { postId, analytics };
+      })),
+      redis.get<ViewEvent[]>(siteKey).then(events => processAnalytics(events || [])),
+      redis.get<ViewEvent[]>(cvKey).then(events => processAnalytics(events || []))
+    ]);
+
+    return {
+      site: siteAnalytics,
+      cv: cvAnalytics,
+      blog: blogAnalytics
+    };
+  } catch (error) {
+    console.error('Failed to get all analytics:', error);
+    throw error;
+  }
+};
+
+// Helper function to process analytics data
+const processAnalytics = (events: ViewEvent[]) => {
+  const countries = new Set(events.map(e => e.country));
+  
+  return {
+    totalViews: events.length,
+    uniqueCountries: countries.size,
+    avgReadingTime: events.length ? 
+      events.reduce((acc, e) => acc + e.readingTime, 0) / events.length : 
+      0,
+    avgScrollDepth: events.length ? 
+      events.reduce((acc, e) => acc + e.scrollDepth, 0) / events.length : 
+      0,
+    countryBreakdown: Array.from(countries).map(country => ({
+      country,
+      views: events.filter(e => e.country === country).length
+    }))
+  };
+};
