@@ -42,8 +42,8 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="w-[200px] flex items-center">
+        <div className="flex h-16">
+          <div className="flex-1 flex items-center">
             <Link href="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Leon Höck
@@ -64,7 +64,7 @@ export default function Navbar() {
               {t('nav.cv')}
             </Link>
           </div>
-          <div className="w-[200px] flex items-center justify-end">
+          <div className="flex-1 flex items-center justify-end">
             {hostname && (
               <>
                 <div className="h-4 w-px bg-gray-700 mx-4" />

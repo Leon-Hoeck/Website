@@ -26,10 +26,14 @@ export default function Blog({ posts = [], isDev }: BlogProps) {
   const availableTags = useMemo(() => {
     const tags = new Set<string>();
     if (posts) {
-      posts.forEach(post => post.tags.forEach(tag => {
-        if (tag === 'DEV' && !isDev) return;
-        tags.add(tag);
-      }));
+      posts.forEach(post => {
+        // Skip DEV posts in production
+        if (!isDev && post.tags.includes('DEV')) return;
+        post.tags.forEach(tag => {
+          if (tag === 'DEV' && !isDev) return;
+          tags.add(tag);
+        });
+      });
     }
     return Array.from(tags).sort();
   }, [posts, isDev]);
@@ -83,17 +87,15 @@ export default function Blog({ posts = [], isDev }: BlogProps) {
               {t('blog.title')}
             </motion.h1>
             
-            {isDev && (
-              <div className="relative">
-                <BlogSearch
-                  searchTerm={searchTerm}
-                  onSearchChange={setSearchTerm}
-                  selectedTags={selectedTags}
-                  onTagToggle={handleTagToggle}
-                  availableTags={availableTags}
-                />
-              </div>
-            )}
+            <div className="relative">
+              <BlogSearch
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
+                selectedTags={selectedTags}
+                onTagToggle={handleTagToggle}
+                availableTags={availableTags}
+              />
+            </div>
           </div>
 
           {/* Search Panel */}

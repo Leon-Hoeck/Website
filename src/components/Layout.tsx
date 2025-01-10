@@ -15,7 +15,7 @@ export default function Layout({ children, profiles = [] }: LayoutProps) {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col overflow-y-scroll">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <Navbar />
       <main className="flex-grow">
         <AnimatePresence mode="wait">
