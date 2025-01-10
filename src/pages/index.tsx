@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
+import SEO from '../components/SEO';
 
 interface MainData {
   title: string;
@@ -21,18 +22,24 @@ export default function Home({ mainData }: HomeProps) {
   const { t } = useTranslation('common');
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center text-center">
-        <h1 className="text-4xl font-bold mb-4 text-white">{mainData.title}</h1>
-        <p className="text-xl text-gray-400 mb-8 max-w-2xl text-center">{mainData.text}</p>
-        <Link
-          href="/cv"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
-        >
-          {mainData.cv}
-        </Link>
+    <>
+      <SEO 
+        title={mainData.title}
+        description={mainData.text}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center text-center">
+          <h1 className="text-4xl font-bold mb-4 text-white">{mainData.title}</h1>
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl text-center">{mainData.text}</p>
+          <Link
+            href="/cv"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+          >
+            {mainData.cv}
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -66,14 +66,14 @@ export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, 
   const maxScrollDepth = useRef(0);
 
   useEffect(() => {
-    // Track page view with country information
+    // Track page view with country information only
     const trackWithCountry = async () => {
       try {
         const res = await fetch('/api/geo');
         const data = await res.json();
-        await trackPageView(post.slug, data.country || 'unknown', data.ip || 'unknown');
+        await trackPageView(post.slug, data.country || 'unknown', 'anonymous');
       } catch (error) {
-        await trackPageView(post.slug, 'unknown', 'unknown');
+        await trackPageView(post.slug, 'unknown', 'anonymous');
       }
     };
     

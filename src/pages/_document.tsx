@@ -10,6 +10,8 @@ export default function Document() {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Leon Höck" />
+        <meta name="robots" content="noindex, nofollow, noarchive, nocache" />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nocache" />
       </Head>
       <body>
         <Main />

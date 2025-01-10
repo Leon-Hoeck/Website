@@ -50,50 +50,54 @@ export default function Navbar() {
               </span>
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex-1 flex items-center justify-center space-x-4">
             <Link
               href="/blog"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="px-4 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 transition-all"
             >
               {t('nav.blog')}
             </Link>
             <Link
               href="/cv"
-              className="text-gray-300 hover:text-white transition-colors"
+              className="px-4 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 transition-all"
             >
               {t('nav.cv')}
             </Link>
+          </div>
+          <div className="flex items-center">
             {hostname && (
               <>
-                <div className="h-4 w-px bg-gray-700 mx-2" />
-                <Link
-                  href={`http://en.${hostname}${router.asPath}`}
-                  className={`text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-                  aria-label="English"
-                >
-                  EN
-                </Link>
-                <Link
-                  href={`http://de.${hostname}${router.asPath}`}
-                  className={`text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-                  aria-label="Deutsch"
-                >
-                  DE
-                </Link>
-                <Link
-                  href={`http://fr.${hostname}${router.asPath}`}
-                  className={`text-sm ${lang === 'fr' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-                  aria-label="Français"
-                >
-                  FR
-                </Link>
-                <Link
-                  href={`http://it.${hostname}${router.asPath}`}
-                  className={`text-sm ${lang === 'it' ? 'text-blue-400' : 'text-gray-300 hover:text-white'} transition-colors`}
-                  aria-label="Italiano"
-                >
-                  IT
-                </Link>
+                <div className="h-4 w-px bg-gray-700 mx-4" />
+                <div className="flex items-center space-x-4">
+                  <Link
+                    href={`http://en.${hostname}${router.asPath}`}
+                    className={`px-2 py-1 rounded-md text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
+                    aria-label="English"
+                  >
+                    EN
+                  </Link>
+                  <Link
+                    href={`http://de.${hostname}${router.asPath}`}
+                    className={`px-2 py-1 rounded-md text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
+                    aria-label="Deutsch"
+                  >
+                    DE
+                  </Link>
+                  <Link
+                    href={`http://fr.${hostname}${router.asPath}`}
+                    className={`px-2 py-1 rounded-md text-sm ${lang === 'fr' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
+                    aria-label="Français"
+                  >
+                    FR
+                  </Link>
+                  <Link
+                    href={`http://it.${hostname}${router.asPath}`}
+                    className={`px-2 py-1 rounded-md text-sm ${lang === 'it' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
+                    aria-label="Italiano"
+                  >
+                    IT
+                  </Link>
+                </div>
               </>
             )}
           </div>

@@ -12,13 +12,20 @@ export function middleware(req: NextRequest) {
   const locales = ['en', 'de', 'fr', 'it'];
   const isDev = process.env.NODE_ENV === 'development';
   
+  // Set comprehensive security headers for all responses
+  const response = NextResponse.next();
+  response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nocache, nosnippet, notranslate, noimageindex');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
   if (locales.includes(subdomain)) {
     url.locale = subdomain;
-    const response = NextResponse.rewrite(url);
-    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
-    response.headers.set('X-Content-Type-Options', 'nosniff');
-    response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-    return response;
+    const localeResponse = NextResponse.rewrite(url);
+    // Copy headers to locale response
+    response.headers.forEach((value, key) => {
+      localeResponse.headers.set(key, value);
+    });
+    return localeResponse;
   }
   
   // Get the base domain without any subdomain

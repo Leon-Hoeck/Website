@@ -1,6 +1,28 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getBlogPosts } from '@/utils/blog';
 import { getPostAnalytics } from '@/utils/analytics';
+import { timingSafeEqual } from 'crypto';
+
+// Secure authentication check
+const isAuthenticated = (req: NextApiRequest): boolean => {
+  if (!process.env.ANALYTICS_SECRET_KEY) {
+    return false;
+  }
+  
+  try {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+    if (!token) return false;
+    
+    // Use constant-time comparison to prevent timing attacks
+    const tokenBuffer = Buffer.from(token);
+    const secretBuffer = Buffer.from(process.env.ANALYTICS_SECRET_KEY);
+    
+    return tokenBuffer.length === secretBuffer.length && 
+           timingSafeEqual(tokenBuffer, secretBuffer);
+  } catch {
+    return false;
+  }
+};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only allow GET requests
@@ -9,24 +31,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   // Check authentication
-  const authHeader = req.headers.authorization;
-  const token = authHeader?.replace('Bearer ', '');
-
-  // Debug authentication
-  console.log('Auth Debug:', {
-    hasAuthHeader: !!authHeader,
-    hasToken: !!token,
-    tokenLength: token?.length,
-    expectedLength: process.env.ANALYTICS_SECRET_KEY?.length,
-    matches: token === process.env.ANALYTICS_SECRET_KEY
-  });
-
-  if (!process.env.ANALYTICS_SECRET_KEY || token !== process.env.ANALYTICS_SECRET_KEY) {
-    console.warn('Authentication failed:', {
-      reason: !process.env.ANALYTICS_SECRET_KEY ? 'Missing secret key' : 'Token mismatch',
-      hasToken: !!token,
-      hasSecretKey: !!process.env.ANALYTICS_SECRET_KEY
-    });
+  if (!isAuthenticated(req)) {
+    console.warn('Authentication failed for analytics data request');
     return res.status(401).json({ error: 'Unauthorized' });
   }
 

@@ -1,0 +1,281 @@
+---
+title: "Building a Modern Multilingual Website: Architecture and Decisions"
+excerpt: "A deep dive into the technical decisions, challenges, and solutions in building this multilingual Next.js website with domain-based routing, analytics, and more."
+date: "2025-01-10"
+tags: ["Next.js", "Architecture", "i18n", "Analytics"]
+---
+
+# Building a Modern Multilingual Website
+
+When building this website, I faced several architectural decisions and challenges. In this post, I'll share the reasoning behind key technical choices and how various challenges were solved.
+
+## Domain-Based Language Routing
+
+Instead of using path-based routing (`/en/blog`, `/de/blog`), this site uses domain-based routing:
+- 🇬🇧 en.leonhoeck.ch
+- 🇩🇪 de.leonhoeck.ch
+- 🇫🇷 fr.leonhoeck.ch
+- 🇮🇹 it.leonhoeck.ch
+
+### Why Domain-Based?
+
+1. **Clean Architecture**
+   - Logical separation of language versions
+   - Clear domain structure
+   - Easier regional deployment if needed
+
+2. **Performance**
+   - Efficient CDN caching per domain
+   - Predictable routing patterns
+   - Better request distribution
+
+3. **User Experience**
+   - Clear language separation in the URL
+   - No language prefix in paths
+   - Easier bookmarking of preferred language version
+
+### Implementation
+
+The site uses Next.js middleware for language routing, which turned out to be crucial for the domain-based i18n to work correctly. Here's a simplified version of the setup:
+
+```javascript
+// middleware.ts
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function middleware(req: NextRequest) {
+  try {
+  const url = req.nextUrl.clone();
+  const hostname = req.headers.get('host') || '';
+  const subdomain = hostname.split('.')[0];
+  const locales = ['en', 'de', 'fr', 'it'];
+  
+    // Handle language-specific domains
+  if (locales.includes(subdomain)) {
+    url.locale = subdomain;
+      const response = NextResponse.rewrite(url);
+      // Add security headers
+      response.headers.set('X-Content-Type-Options', 'nosniff');
+      return response;
+    }
+    
+    // Fallback to default locale
+    const defaultUrl = new URL(`/en${url.pathname}${url.search}`, url);
+    return NextResponse.redirect(defaultUrl);
+  } catch (error) {
+    // Fallback to default locale on error
+    return NextResponse.redirect(new URL('/en', req.url));
+  }
+}
+
+export const config = {
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)', '/'],
+};
+```
+
+This setup ensures proper language routing while maintaining clean URLs and efficient request handling. The actual implementation includes additional security headers and comprehensive error handling.
+
+## Privacy-Focused Analytics
+
+The site includes a minimal analytics solution built with:
+- Upstash Redis for temporary data storage (90-day retention)
+- Server-side processing only
+- Privacy-preserving aggregation
+
+### What Is Tracked
+
+Our analytics focus on aggregate data only:
+- Total page views (no individual tracking)
+- Average reading time per page
+- Average scroll depth per page
+- Country distribution (aggregated statistics)
+
+All metrics are:
+- Completely anonymous
+- Aggregated at collection time
+- Automatically deleted after 90 days
+- Never used for individual profiling or tracking
+
+### Why Custom Analytics?
+
+1. **Privacy First**
+   - No personal data collection
+   - No persistent identifiers
+   - Immediate data anonymization
+   - Limited data retention (90 days)
+   - Designed for privacy compliance
+
+2. **Performance**
+   - Minimal server-side processing
+   - No tracking scripts
+   - No performance impact
+   - No client-side overhead
+
+3. **Transparency**
+   - Open source implementation
+   - Clear data handling
+   - Minimal data collection
+   - No third-party sharing
+
+### Technical Implementation
+
+The analytics system uses several techniques to ensure privacy:
+
+1. **Data Collection**
+   - Server-side aggregation only
+   - No raw data storage
+   - No session tracking
+   - No cross-site tracking
+
+2. **Privacy Measures**
+   - IP addresses never stored
+   - Rate limiting using hashed tokens
+   - No user profiles
+   - No behavioral tracking
+
+3. **Data Lifecycle**
+   - Automatic 90-day expiration
+   - Built-in data pruning
+   - No backups of analytics data
+   - Regular cleanup processes
+
+4. **Technical Controls**
+   - No client-side state
+   - No cookies or local storage
+   - No device fingerprinting
+   - No tracking pixels
+
+## Content Management
+
+Blog posts are managed using MDX, providing:
+- Rich content with React components
+- Code syntax highlighting
+- Math equations with KaTeX
+- Custom components like image galleries
+
+### Why MDX?
+
+1. **Flexibility**
+   - Mix Markdown with React components
+   - Custom components for specific needs
+   - Full control over rendering
+
+2. **Developer Experience**
+   - Write content in Markdown
+   - Add interactivity when needed
+   - Version control friendly
+
+3. **Performance**
+   - Static generation of content
+   - No CMS overhead
+   - Fast page loads
+
+## Styling Approach
+
+The site uses Tailwind CSS with:
+- Custom theme configuration
+- Dark mode by default
+- Responsive design patterns
+
+### Why Tailwind?
+
+1. **Development Speed**
+   - Rapid prototyping
+   - No context switching
+   - Consistent design system
+
+2. **Performance**
+   - Only ships used styles
+   - No runtime CSS-in-JS overhead
+   - Small bundle size
+
+3. **Maintainability**
+   - Clear component styling
+   - Easy theme changes
+   - Predictable CSS
+
+## Challenges and Solutions
+
+### 1. Language Detection
+
+**Challenge**: Middleware overhead with path-based routing.
+
+**Solution**: Domain-based routing eliminates the need for language detection middleware.
+
+### 2. Content Organization
+
+**Challenge**: Managing translations and content updates.
+
+**Solution**: 
+- Structured content directory by language
+- Shared components across languages
+- Translation files for UI elements
+
+### 3. Performance
+
+**Challenge**: Maintaining performance across languages.
+
+**Solution**:
+- Static generation where possible
+- Efficient bundling per language
+- CDN caching strategies
+
+### 4. Analytics Privacy
+
+**Challenge**: Tracking without compromising privacy.
+
+**Solution**:
+- Server-side tracking
+- IP rate limiting
+- Minimal data collection
+- Redis for efficient storage
+
+## Future Improvements
+
+1. **Content Management**
+   - Git-based CMS integration
+   - Better translation workflow
+   - Content preview system
+
+2. **Performance**
+   - Image optimization improvements
+   - Component-level code splitting
+   - Further bundle size optimization
+
+3. **Analytics**
+   - More engagement metrics
+   - Better visualization
+   - Export capabilities
+
+## Conclusion
+
+Building a multilingual website has been an interesting journey of discovering what works in theory versus practice. While some solutions like domain-based routing seemed straightforward at first, they required unexpected tweaks (like the crucial middleware) to work properly.
+
+The final architecture balances several key aspects:
+- Clean, maintainable code structure
+- Efficient content delivery
+- Privacy-first analytics
+- Developer-friendly workflows
+
+What makes this setup particularly interesting is how different pieces work together - from the MDX content management to the custom analytics solution. Each component was chosen not just for its individual merits, but for how well it integrates into the larger system.
+
+Looking ahead, the modular nature of this architecture means we can easily evolve individual components without disrupting the whole. Whether it's enhancing the analytics dashboard or improving the content management workflow, the foundation is solid.
+
+### Key Takeaways
+
+1. **Privacy by Design**
+   - Building with privacy in mind from the start is easier than retrofitting it later
+   - Privacy laws can be a good baseline for data protection
+   - Analytics can be useful without compromising user privacy
+
+2. **Technical Choices Matter**
+   - Domain-based routing simplified many i18n challenges
+   - Server-side processing reduces client complexity
+   - Static generation provides a solid performance foundation
+
+3. **Flexibility vs. Complexity**
+   - MDX offers great flexibility but requires careful component design
+   - Custom analytics give control but need maintenance
+   - Domain routing adds DNS complexity but simplifies code
+
+The code for this website is open source and available on [GitHub](https://github.com/Leon-Hoeck/Website). Feel free to explore.

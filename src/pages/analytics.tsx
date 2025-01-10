@@ -37,9 +37,14 @@ export default function Analytics() {
         setLoading(true);
         setError(null);
 
+        const formattedToken = token?.toString().trim();
+        if (!formattedToken) {
+          throw new Error('No authentication token provided');
+        }
+
         const headers: HeadersInit = {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${formattedToken}`
         };
 
         const res = await fetch(`/api/analytics/data?locale=${locale}`, {
@@ -50,7 +55,7 @@ export default function Analytics() {
           if (res.status === 401) {
             throw new Error('Unauthorized - Please check your authentication token');
           }
-          throw new Error(res.statusText || 'Failed to fetch analytics data');
+          throw new Error(await res.text() || 'Failed to fetch analytics data');
         }
 
         const { posts } = await res.json();
@@ -65,6 +70,8 @@ export default function Analytics() {
 
     if (token) {
       fetchData();
+    } else {
+      setError('Authentication token is required');
     }
   }, [locale, token]);
 
