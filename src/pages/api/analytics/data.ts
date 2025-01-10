@@ -6,31 +6,47 @@ import { timingSafeEqual } from 'crypto';
 // Secure authentication check
 const isAuthenticated = (req: NextApiRequest): boolean => {
   if (!process.env.ANALYTICS_SECRET_KEY) {
+    console.warn('Analytics secret key is missing');
     return false;
   }
   
   try {
-    const token = req.headers.authorization?.replace('Bearer ', '');
-    if (!token) return false;
+    const token = req.headers.authorization;
+    if (!token) {
+      console.warn('No token provided in Authorization header');
+      return false;
+    }
     
-    // Use constant-time comparison to prevent timing attacks
-    const tokenBuffer = Buffer.from(token);
-    const secretBuffer = Buffer.from(process.env.ANALYTICS_SECRET_KEY);
+    // Debug log (will be removed in production)
+    console.log('Token comparison:', {
+      received: token,
+      expected: process.env.ANALYTICS_SECRET_KEY,
+      receivedLength: token.length,
+      expectedLength: process.env.ANALYTICS_SECRET_KEY.length,
+      match: token === process.env.ANALYTICS_SECRET_KEY
+    });
     
-    return tokenBuffer.length === secretBuffer.length && 
-           timingSafeEqual(tokenBuffer, secretBuffer);
-  } catch {
+    return token === process.env.ANALYTICS_SECRET_KEY;
+    
+  } catch (error) {
+    console.error('Authentication error:', error);
     return false;
   }
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  console.log('Incoming request:', {
+    method: req.method,
+    query: req.query,
+    headers: req.headers
+  });
+  
   // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Return 404 if analytics are not configured
+  // Return 501 if analytics are not configured
   if (!process.env.ANALYTICS_SECRET_KEY) {
     console.warn('Analytics not configured: ANALYTICS_SECRET_KEY missing');
     return res.status(501).json({ error: 'Analytics not configured' });
@@ -39,7 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Check authentication
   if (!isAuthenticated(req)) {
     console.warn('Authentication failed for analytics data request');
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorized - Invalid token' });
   }
 
   try {
