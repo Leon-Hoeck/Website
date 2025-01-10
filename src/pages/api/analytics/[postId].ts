@@ -24,31 +24,32 @@ const isAuthenticated = (req: NextApiRequest): boolean => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Return 404 if analytics are not configured
+  // Return 501 if analytics are not configured
   if (!process.env.ANALYTICS_SECRET_KEY) {
-    return res.status(404).end();
+    console.warn('Analytics not configured: ANALYTICS_SECRET_KEY missing');
+    return res.status(501).json({ error: 'Analytics not configured' });
   }
 
   // Only allow GET requests
   if (req.method !== 'GET') {
-    return res.status(404).end();
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Return same response for unauthorized and invalid to prevent user enumeration
+  // Check authentication
   if (!isAuthenticated(req)) {
-    return res.status(404).end();
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   try {
     const { postId } = req.query;
     if (typeof postId !== 'string') {
-      return res.status(404).end();
+      return res.status(400).json({ error: 'Invalid post ID' });
     }
 
     const analytics = await getPostAnalytics(postId);
     res.status(200).json(analytics);
   } catch (error) {
-    // Don't expose error details in production
-    return res.status(404).end();
+    console.error('Analytics error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 } 

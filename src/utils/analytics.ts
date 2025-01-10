@@ -9,16 +9,17 @@ const verifyRedisConnection = async () => {
   try {
     await redis.ping();
     console.log('Successfully connected to Upstash Redis');
+    return true;
   } catch (error) {
     console.error('Failed to connect to Redis:', error);
-    throw error;
+    throw new Error('Redis connection failed');
   }
 };
 
-// Run verification in development
-if (process.env.NODE_ENV === 'development') {
-  verifyRedisConnection();
-}
+// Run verification in development and production
+verifyRedisConnection().catch(error => {
+  console.error('Redis verification failed:', error);
+});
 
 interface ViewEvent {
   postId: string;
@@ -111,6 +112,9 @@ export const updateViewMetrics = async (postId: string, readingTime: number, scr
 
 export const getPostAnalytics = async (postId: string) => {
   try {
+    // Verify Redis connection before proceeding
+    await verifyRedisConnection();
+    
     const key = getPostKey(postId);
     const events: ViewEvent[] = await redis.get(key) || [];
     const countries = new Set(events.map(e => e.country));
@@ -139,13 +143,7 @@ export const getPostAnalytics = async (postId: string) => {
       countryBreakdown
     };
   } catch (error) {
-    console.warn('Failed to get post analytics:', error);
-    return {
-      totalViews: 0,
-      uniqueCountries: 0,
-      avgReadingTime: 0,
-      avgScrollDepth: 0,
-      countryBreakdown: []
-    };
+    console.error('Failed to get post analytics:', error);
+    throw error; // Let the API handler deal with the error
   }
 };

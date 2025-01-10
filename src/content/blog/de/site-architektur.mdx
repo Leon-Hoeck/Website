@@ -1,0 +1,90 @@
+---
+title: "Aufbau einer modernen mehrsprachigen Website: Architektur und Entscheidungen"
+excerpt: "Ein detaillierter Einblick in die technischen Entscheidungen, Herausforderungen und Lösungen beim Aufbau dieser mehrsprachigen Next.js-Website mit Domain-basiertem Routing und Analysen."
+date: "2025-01-10"
+tags: ["Next.js", "Architektur", "i18n", "Analytics"]
+---
+
+# Aufbau einer modernen mehrsprachigen Website
+
+Beim Aufbau dieser Website standen mehrere architektonische Entscheidungen und Herausforderungen an. In diesem Beitrag teile ich die Überlegungen hinter den wichtigsten technischen Entscheidungen und wie verschiedene Herausforderungen gelöst wurden.
+
+## Domain-basiertes Sprachrouting
+
+Statt eines pfadbasierten Routings (`/en/blog`, `/de/blog`) verwendet diese Website ein Domain-basiertes Routing:
+- 🇬🇧 en.leonhoeck.ch
+- 🇩🇪 de.leonhoeck.ch
+- 🇫🇷 fr.leonhoeck.ch
+- 🇮🇹 it.leonhoeck.ch
+
+### Warum Domain-basiert?
+
+1. **Klare Architektur**
+   - Logische Trennung der Sprachversionen
+   - Übersichtliche Domainstruktur
+   - Einfachere regionale Bereitstellung bei Bedarf
+
+2. **Performance**
+   - Effizientes CDN-Caching pro Domain
+   - Vorhersehbare Routing-Muster
+   - Bessere Anfragenverteilung
+
+3. **Benutzererfahrung**
+   - Klare Sprachtrennung in der URL
+   - Keine Sprachpräfixe in Pfaden
+   - Einfacheres Bookmarking der bevorzugten Sprachversion
+
+## Datenschutzorientierte Analysen
+
+Die Website enthält eine minimale Analysenlösung, aufgebaut mit:
+- Upstash Redis für temporäre Datenspeicherung (90 Tage Aufbewahrung)
+- Ausschließlich serverseitige Verarbeitung
+- Datenschutzwahrende Aggregation
+
+### Was wird erfasst?
+
+Unsere Analysen konzentrieren sich ausschließlich auf aggregierte Daten:
+- Gesamtseitenaufrufe (keine individuelle Verfolgung)
+- Durchschnittliche Lesezeit pro Seite
+- Durchschnittliche Scroll-Tiefe pro Seite
+- Länderverteilung (aggregierte Statistiken)
+
+Alle Metriken sind:
+- Vollständig anonym
+- Bei der Erfassung aggregiert
+- Nach 90 Tagen automatisch gelöscht
+- Nie für individuelle Profile oder Tracking verwendet
+
+## Content-Management
+
+Blogbeiträge werden mit MDX verwaltet, was ermöglicht:
+- Reichhaltiger Inhalt mit React-Komponenten
+- Code-Syntaxhervorhebung
+- Mathematische Gleichungen mit KaTeX
+- Benutzerdefinierte Komponenten wie Bildergalerien
+
+## Styling-Ansatz
+
+Die Website verwendet Tailwind CSS mit:
+- Angepasster Theme-Konfiguration
+- Dark Mode als Standard
+- Responsive Design-Muster
+
+## Zukünftige Verbesserungen
+
+1. **Content-Management**
+   - Git-basierte CMS-Integration
+   - Verbesserter Übersetzungsworkflow
+   - Content-Vorschausystem
+
+2. **Performance**
+   - Optimierung der Bildverarbeitung
+   - Komponentenbasiertes Code-Splitting
+   - Weitere Bundle-Größenoptimierung
+
+3. **Analysen**
+   - Mehr Engagement-Metriken
+   - Bessere Visualisierung
+   - Exportmöglichkeiten
+
+Diese technischen Entscheidungen bilden das Fundament für eine performante, wartbare und benutzerfreundliche mehrsprachige Website. Der Fokus liegt dabei stets auf Datenschutz, Leistung und Benutzerfreundlichkeit. 

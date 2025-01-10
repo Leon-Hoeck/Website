@@ -1,0 +1,90 @@
+---
+title: "Construction d'un Site Web Multilingue Moderne : Architecture et Choix Techniques"
+excerpt: "Une analyse approfondie des décisions techniques, des défis et des solutions dans la construction de ce site Next.js multilingue avec routage basé sur les domaines et analyses."
+date: "2025-01-10"
+tags: ["Next.js", "Architecture", "i18n", "Analytics"]
+---
+
+# Construction d'un Site Web Multilingue Moderne
+
+La construction de ce site a nécessité plusieurs décisions architecturales et relevé de nombreux défis. Dans cet article, je partage les raisons derrière les choix techniques clés et comment les différents défis ont été résolus.
+
+## Routage Linguistique Basé sur les Domaines
+
+Au lieu d'utiliser un routage basé sur les chemins (`/en/blog`, `/de/blog`), ce site utilise un routage basé sur les domaines :
+- 🇬🇧 en.leonhoeck.ch
+- 🇩🇪 de.leonhoeck.ch
+- 🇫🇷 fr.leonhoeck.ch
+- 🇮🇹 it.leonhoeck.ch
+
+### Pourquoi Basé sur les Domaines ?
+
+1. **Architecture Claire**
+   - Séparation logique des versions linguistiques
+   - Structure de domaine claire
+   - Déploiement régional facilité si nécessaire
+
+2. **Performance**
+   - Mise en cache CDN efficace par domaine
+   - Modèles de routage prévisibles
+   - Meilleure distribution des requêtes
+
+3. **Expérience Utilisateur**
+   - Séparation claire des langues dans l'URL
+   - Pas de préfixe de langue dans les chemins
+   - Mise en favoris plus simple de la version linguistique préférée
+
+## Analyses Respectueuses de la Vie Privée
+
+Le site inclut une solution d'analyse minimaliste construite avec :
+- Upstash Redis pour le stockage temporaire des données (conservation de 90 jours)
+- Traitement exclusivement côté serveur
+- Agrégation préservant la confidentialité
+
+### Que Suivons-nous ?
+
+Nos analyses se concentrent uniquement sur les données agrégées :
+- Nombre total de vues de pages (sans suivi individuel)
+- Temps de lecture moyen par page
+- Profondeur de défilement moyenne par page
+- Distribution par pays (statistiques agrégées)
+
+Toutes les métriques sont :
+- Complètement anonymes
+- Agrégées à la collecte
+- Automatiquement supprimées après 90 jours
+- Jamais utilisées pour le profilage ou le suivi individuel
+
+## Gestion du Contenu
+
+Les articles de blog sont gérés avec MDX, offrant :
+- Contenu enrichi avec des composants React
+- Coloration syntaxique du code
+- Équations mathématiques avec KaTeX
+- Composants personnalisés comme les galeries d'images
+
+## Approche du Style
+
+Le site utilise Tailwind CSS avec :
+- Configuration de thème personnalisée
+- Mode sombre par défaut
+- Motifs de design responsive
+
+## Améliorations Futures
+
+1. **Gestion de Contenu**
+   - Intégration CMS basée sur Git
+   - Flux de traduction amélioré
+   - Système de prévisualisation du contenu
+
+2. **Performance**
+   - Améliorations de l'optimisation des images
+   - Fractionnement du code au niveau des composants
+   - Optimisation supplémentaire de la taille des bundles
+
+3. **Analyses**
+   - Plus de métriques d'engagement
+   - Meilleure visualisation
+   - Capacités d'exportation
+
+Ces décisions techniques constituent la base d'un site web multilingue performant, maintenable et convivial. L'accent est constamment mis sur la confidentialité, la performance et l'expérience utilisateur. 
