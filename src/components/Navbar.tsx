@@ -72,30 +72,30 @@ export default function Navbar() {
                   <Link
                     href={`http://en.${hostname}${router.asPath}`}
                     className={`px-2 py-1 rounded-md text-sm ${lang === 'en' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
-                    aria-label="English"
-                  >
-                    EN
+                  aria-label="English"
+                >
+                  EN
                   </Link>
                   <Link
                     href={`http://de.${hostname}${router.asPath}`}
                     className={`px-2 py-1 rounded-md text-sm ${lang === 'de' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
-                    aria-label="Deutsch"
-                  >
-                    DE
+                  aria-label="Deutsch"
+                >
+                  DE
                   </Link>
                   <Link
                     href={`http://fr.${hostname}${router.asPath}`}
                     className={`px-2 py-1 rounded-md text-sm ${lang === 'fr' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
-                    aria-label="Français"
-                  >
-                    FR
+                  aria-label="Français"
+                >
+                  FR
                   </Link>
                   <Link
                     href={`http://it.${hostname}${router.asPath}`}
                     className={`px-2 py-1 rounded-md text-sm ${lang === 'it' ? 'text-blue-400' : 'text-gray-300 hover:text-white hover:bg-gray-800'} transition-all`}
-                    aria-label="Italiano"
-                  >
-                    IT
+                  aria-label="Italiano"
+                >
+                  IT
                   </Link>
                 </div>
               </>

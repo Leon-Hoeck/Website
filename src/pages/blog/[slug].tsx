@@ -19,6 +19,7 @@ import ReadingProgress from '@/components/ReadingProgress';
 import MathDisplay from '@/components/Math';
 import { trackPageView, updateViewMetrics } from '@/utils/analytics';
 import 'katex/dist/katex.min.css';
+import { useRouter } from 'next/router';
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -26,6 +27,7 @@ interface BlogPostPageProps {
   previousPost: BlogPost | null;
   nextPost: BlogPost | null;
   relatedPosts: BlogPost[];
+  isTranslated: boolean;
 }
 
 const components = {
@@ -60,8 +62,9 @@ const components = {
   },
 };
 
-export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, relatedPosts }: BlogPostPageProps) {
+export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, relatedPosts, isTranslated }: BlogPostPageProps) {
   const { t } = useTranslation('common');
+  const { locale } = useRouter();
   const startTime = useRef(Date.now());
   const maxScrollDepth = useRef(0);
 
@@ -128,6 +131,14 @@ export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, 
             </Link>
           </div>
 
+          {!isTranslated && locale !== 'en' && (
+            <div className="mb-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+              <p className="text-yellow-300 text-sm">
+                {t('blog.translationNotice')}
+              </p>
+            </div>
+          )}
+
           <motion.article
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -187,13 +198,14 @@ export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, 
 }
 
 export const getStaticPaths: GetStaticPaths = async ({ locales = ['en'] }) => {
-  const paths = locales.flatMap((locale) => {
-    const posts = getBlogPosts(locale);
-    return posts.map((post) => ({
+  // Only generate paths from English posts since URLs will be language-agnostic
+  const posts = getBlogPosts('en');
+  const paths = posts.flatMap((post) => 
+    locales.map((locale) => ({
       params: { slug: post.slug },
       locale,
-    }));
-  });
+    }))
+  );
 
   return {
     paths,
@@ -203,7 +215,14 @@ export const getStaticPaths: GetStaticPaths = async ({ locales = ['en'] }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale = 'en' }) => {
   const slug = params?.slug as string;
-  const post = getBlogPost(slug, locale);
+  
+  // First try to get the post in the current locale
+  let post = getBlogPost(slug, locale);
+  
+  // If post doesn't exist in current locale, fall back to English version
+  if (!post && locale !== 'en') {
+    post = getBlogPost(slug, 'en');
+  }
 
   if (!post) {
     return {
@@ -229,6 +248,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale = 'en' }) 
       previousPost: previous,
       nextPost: next,
       relatedPosts,
+      isTranslated: !!getBlogPost(slug, locale), // Add flag to indicate if post is translated
     },
   };
 };

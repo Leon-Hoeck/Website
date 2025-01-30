@@ -20,6 +20,7 @@
     "noResults": "No posts found",
     "clearFilters": "Clear filters",
     "relatedPosts": "Related Posts",
+    "translationNotice": "This post is currently only available in English. We're working on translating it to your language.",
     "analytics": {
       "title": "Post Analytics",
       "views": "Views",
