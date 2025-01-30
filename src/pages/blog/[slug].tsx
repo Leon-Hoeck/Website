@@ -69,6 +69,8 @@ export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, 
   const maxScrollDepth = useRef(0);
 
   useEffect(() => {
+    if (!post) return;
+
     // Track page view with country information only
     const trackWithCountry = async () => {
       try {
@@ -103,7 +105,7 @@ export default function BlogPostPage({ post, mdxSource, previousPost, nextPost, 
       window.removeEventListener('beforeunload', updateMetrics);
       updateMetrics();
     };
-  }, [post.slug]);
+  }, [post]);
 
   if (!post) {
     return (
