@@ -12,7 +12,22 @@
     "title": "Persönlicher Blog",
     "readMore": "Weiterlesen",
     "tags": "Schlagworte",
-    "date": "Veröffentlicht am"
+    "date": "Veröffentlicht am",
+    "previous": "Vorheriger Beitrag",
+    "next": "Nächster Beitrag",
+    "pinned": "Angepinnter Beitrag",
+    "searchPlaceholder": "Beiträge durchsuchen...",
+    "noResults": "Keine Beiträge gefunden",
+    "clearFilters": "Filter zurücksetzen",
+    "relatedPosts": "Ähnliche Beiträge",
+    "translationNotice": "Dieser Beitrag ist zurzeit nur auf Englisch verfügbar. Wir arbeiten an einer Übersetzung in Ihre Sprache.",
+    "analytics": {
+      "title": "Beitragsanalysen",
+      "views": "Aufrufe",
+      "countries": "Länder",
+      "avgReadTime": "Durchschn. Lesezeit",
+      "avgScrollDepth": "Durchschn. Scrolltiefe"
+    }
   },
   "skills": {
     "title": "Fähigkeiten",

@@ -12,7 +12,22 @@
     "title": "Blog Personnel",
     "readMore": "Lire la suite",
     "tags": "Étiquettes",
-    "date": "Publié le"
+    "date": "Publié le",
+    "previous": "Article précédent",
+    "next": "Article suivant",
+    "pinned": "Article épinglé",
+    "searchPlaceholder": "Rechercher des articles...",
+    "noResults": "Aucun article trouvé",
+    "clearFilters": "Effacer les filtres",
+    "relatedPosts": "Articles connexes",
+    "translationNotice": "Cet article n'est actuellement disponible qu'en anglais. Nous travaillons à sa traduction dans votre langue.",
+    "analytics": {
+      "title": "Analyses de l'article",
+      "views": "Vues",
+      "countries": "pays",
+      "avgReadTime": "Temps de lecture moyen",
+      "avgScrollDepth": "Profondeur de défilement moyenne"
+    }
   },
   "skills": {
     "title": "Compétences",

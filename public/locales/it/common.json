@@ -12,7 +12,22 @@
     "title": "Blog Personale",
     "readMore": "Leggi di più",
     "tags": "Tag",
-    "date": "Pubblicato il"
+    "date": "Pubblicato il",
+    "previous": "Articolo precedente",
+    "next": "Articolo successivo",
+    "pinned": "Articolo in evidenza",
+    "searchPlaceholder": "Cerca articoli...",
+    "noResults": "Nessun articolo trovato",
+    "clearFilters": "Cancella filtri",
+    "relatedPosts": "Articoli correlati",
+    "translationNotice": "Questo articolo è attualmente disponibile solo in inglese. Stiamo lavorando alla traduzione nella tua lingua.",
+    "analytics": {
+      "title": "Analisi dell'articolo",
+      "views": "Visualizzazioni",
+      "countries": "paesi",
+      "avgReadTime": "Tempo medio di lettura",
+      "avgScrollDepth": "Profondità media di scorrimento"
+    }
   },
   "skills": {
     "title": "Competenze",
